@@ -141,17 +141,19 @@ body.read-later #read-later   { opacity: 1; pointer-events: auto }
 button { border: 0; background: transparent }
 
 /* General article styles' */
-article     { text-shadow: 1px 1px 0px #fff }
+article     { text-shadow: 1px 1px 0px #fff; color: #666; font-family: 'Abel' }
 article h1, h2, h3, h4, h5 { color: #333; font-weight: 700 }
 article h1  { font-family: 'PT Sans Narrow' }
-article p, article figcaption { color: #666; font-family: 'Abel' }
 article p.meta { color: #999; padding-left: 21px }
 article em,
 article strong { font-weight: bold }
 article a   { cursor: pointer; border-bottom: 1px dotted #333; color: inherit; text-decoration: none }
+article pre,
+article code  { font-family: Monaco, sans-serif }
 article img       { border-radius: 4px }
 article img.small { width: 200px }
 article img.right { float: right; margin: 0.25em 0 1em 1em }
+article ul        { list-style-position: inside }
 
 /* Top menu */
 #main-menu { left: 0; right: 0; padding: 12px 20px 10px; background: #000; background: rgba(0,0,0,0.8); box-shadow: 0 3px 5px rgba(0,0,0,0.2); z-index: 10 }
@@ -186,7 +188,8 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 #reading-now h3 { font-size: 2.2em }
 #reading-now h4 { font-size: 2em }
 
-#reading-now p  { font-size: 1.45em; line-height: 1.5em; margin: 0.5em 0 }
+#reading-now p,
+#reading-now ul { font-size: 1.45em; line-height: 1.5em; margin: 0.5em 0 }
 #reading-now p.meta { line-height: 1.2em; margin: 0; font-size: 1.25em }
 #reading-now p.meta a { margin-left: 5px; border: 0 }
 #reading-now header { padding-bottom: 30px; margin-bottom: 20px; border-bottom: 1px solid #ccc }
@@ -213,11 +216,11 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 #stream article.conversation:hover  { background: url(/img/sources/conversation.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
 #stream article.nyt           { background: url(/img/sources/nyt.png) no-repeat 15px 11px }
 #stream article.nyt:hover     { background: url(/img/sources/nyt.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
-#stream article.engadget           { background: url(/img/sources/engadget.png) no-repeat 15px 11px }
-#stream article.engadget:hover     { background: url(/img/sources/engadget.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
+#stream article.functionsource           { background: url(/img/sources/functionsource.png) no-repeat 15px 11px }
+#stream article.functionsource:hover     { background: url(/img/sources/functionsource.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
 p.meta.yc           { background: url(/img/sources/ycombinator.png) no-repeat top left }
 p.meta.nyt          { background: url(/img/sources/nyt.png) no-repeat top left }
-p.meta.engadget    { background: url(/img/sources/engadget.png) no-repeat top left }
+p.meta.functionsource    { background: url(/img/sources/functionsource.png) no-repeat top left }
 p.meta.conversation { background: url(/img/sources/conversation.png) no-repeat top left }
 
 /* Read later */
