@@ -109,6 +109,16 @@
         <p><%= summary %></p>
       </article>
     </script>
+    <script type="text/template" id="article-template">
+      <header>
+        <h1><%= title %></h1>
+        <p class="meta <%= sourceClass %>">
+          <%= source.name %>,
+          <time datetime="2011-01-01"><%= published %></time>
+        </p>        
+      </header>
+      <%= body %>
+    </script>
     <script src="/public/js/jquery-1.6.2.min.js"></script>
     <script src="/public/js/underscore-min.js"></script>
     <script src="/public/js/backbone-min.js"></script>

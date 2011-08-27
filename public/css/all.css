@@ -2,7 +2,7 @@
  * html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
  * v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
  * html5doctor.com/html-5-reset-stylesheet/
- */ 
+ */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
@@ -19,80 +19,80 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
- 
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
- 
+
 blockquote, q { quotes: none; }
- 
+
 blockquote:before, blockquote:after,
 q:before, q:after { content: ''; content: none; }
- 
+
 ins { background-color: #ff9; color: #000; text-decoration: none; }
- 
+
 mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
- 
+
 del { text-decoration: line-through; }
- 
+
 abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
- 
+
 table { border-collapse: collapse; border-spacing: 0; }
- 
+
 hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
- 
+
 input, select { vertical-align: middle; }
- 
- 
+
+
 /**
  * Font normalization inspired by YUI Library's fonts.css: developer.yahoo.com/yui/
  */
- 
+
 body { font:13px/1.231 sans-serif; *font-size:small; } /* Hack retained to preserve specificity */
 select, input, textarea, button { font:99% sans-serif; }
- 
+
 /* Normalize monospace sizing:
    en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome */
 pre, code, kbd, samp { font-family: monospace, sans-serif; }
- 
+
 /**
  * Minimal base styles.
  */
-  
+
 /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
 a:hover, a:active { outline: none; }
- 
+
 ul, ol { margin-left: 2em; }
 ol { list-style-type: decimal; }
- 
+
 /* Remove margins for navigation lists */
 nav ul, nav li { margin: 0; list-style:none; list-style-image: none; }
 small { font-size: 85%; }
 strong, th { font-weight: bold; }
 td { vertical-align: top; }
- 
+
 /* Set sub, sup without affecting line-height: gist.github.com/413930 */
 sub, sup { font-size: 75%; line-height: 0; position: relative; }
 sup { top: -0.5em; }
 sub { bottom: -0.25em; }
- 
+
 pre {
   /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
   white-space: pre; white-space: pre-wrap; word-wrap: break-word;
   padding: 15px;
 }
-textarea { overflow: auto; } /* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */ 
- 
+textarea { overflow: auto; } /* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+
 /* Align checkboxes, radios, text inputs with their label by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css ; */
 input[type="radio"] { vertical-align: text-bottom; }
 input[type="checkbox"] { vertical-align: bottom; }
- 
+
 /* Hand cursor on clickable input elements */
-label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; } 
+label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
 /* Webkit browsers add a 2px margin outside the chrome of form elements */
 button, input, select, textarea { margin: 0; }
- 
+
 /* Colors for form validity */
 input:valid, textarea:valid   {  }
 input:invalid, textarea:invalid {
@@ -104,13 +104,13 @@ input:invalid, textarea:invalid {
    Also: hot pink! */
 ::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
 ::selection { background:#FF5E99; color:#fff; text-shadow: none; }
- 
+
 /* j.mp/webkit-tap-highlight-color */
 a:link { -webkit-tap-highlight-color: #FF5E99; }
- 
+
 /* Make buttons play nice in IE:
    www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
-button {  width: auto; overflow: visible; } 
+button {  width: auto; overflow: visible; }
 /* End reset */
 
 
@@ -146,7 +146,7 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 #stream article p  { font-size: 1.25em }
 #stream article { -moz-transition: all 0.25s linear; -webkit-transition: all 0.25s linear; transition: all 0.25s linear }
 #stream::-webkit-scrollbar { width: 6px; padding: 18px; -webkit-border-radius: 1ex; opacity: 0 }
-#stream::-webkit-scrollbar-thumb { padding: 8px; width: 8px; height: 6px; background-color: rgba(0,0,0,0.2); -webkit-border-radius: 1ex }  
+#stream::-webkit-scrollbar-thumb { padding: 8px; width: 8px; height: 6px; background-color: rgba(0,0,0,0.2); -webkit-border-radius: 1ex }
 #stream.inactive::-webkit-scrollbar-thumb {background: rgba(0,0,0,0)}
 
 /* Reading now */
@@ -155,6 +155,21 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 #reading-now p  { font-size: 1.45em; line-height: 1.5em; margin: 0.5em 0 }
 #reading-now p.meta { line-height: 1.2em; margin: 0; font-size: 1.25em }
 #reading-now header { padding-bottom: 30px; margin-bottom: 20px; border-bottom: 1px solid #ccc }
+#reading-now {
+  opacity: 0;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition:    all 0.25s linear;
+  transition:         all 0.25s linear;
+  -webkit-transform:  translate3d(0px,20px,0);
+  -moz-transform:     translateY(20px);
+  transform:          translate3d(0px,20px,0)
+}
+#reading-now.reading {
+  opacity: 1;
+  -webkit-transform:  translate3d(0px,0px,0);
+  -moz-transform:     translateY(0px);
+  transform:          translate3d(0px,0px,0)
+}
 
 /* Source icons */
 #stream article.yc            { background: url(/public/img/sources/ycombinator.png) no-repeat 15px 11px }
