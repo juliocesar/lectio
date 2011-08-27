@@ -34,56 +34,19 @@ c0.479-0.875-0.344-1.496,0.253-2.16C67.038,49.426,68.058,49.975,69.905,49.738z"/
         </button>
       </menu>
     </header>
-    <div id="reading-area"></div>
-    <div id="stream" class="inactive"></div>
-    <article id="reading-now">
-      <header>
+    <div id="read-later">
+      <menu class="yc">
         <h1>Steve Jobs retires as Apple CEO</h1>
-        <p class="meta nyt">
-          Hacker News,
-          <time datetime="2011-01-01">January 1st, 2011</time>
-        </p>
-      </header>
-      <p>
-        <img src="/img/jobs.png" alt="adobe's logo" class="small right"/>
-        Adobe has officially announced today that they suck. Yeah, that's right, none of their tools
-        other than Photoshop and Illustrator are any good. They should leave it at that and STFU about
-        the Internet.
-      </p>
-      <p>
-        Bla bla more text for filling up space and typesetting.
-      </p>
-      <p>
-        Adding this paragraph so
-        <a>I can test links</a> and such. Also, testing <em>emphasys</em> and <strong> tags</strong>.
-      </p>
-      <p>
-        Personally, I would have voted for Woz, if for no other reason than to see just how long Tim Cook can hold that awkward
-        smile he has. So what are the odds this will somehow increase Apple’s stock price? I was just about to sell some to help pay
-        for the Bride of Macenstein’s new Mac Mini Van. Great timing Steve. Way to think of yourself.
-      </p>
-      <p>
-        "I have always said if there ever came a day when I could no longer meet my duties and expectations as Apple's CEO, I would be the first to let you know. Unfortunately, that day has come," he said in a brief letter announcing his resignation.
-      </p>
-      <p>
-        The 55-year-old briefly emerged from his medical leave in March to unveil the iPad 2 tablet computer, and later to attend a dinner hosted by President Barack Obama for technology leaders in Silicon Valley.
-      </p>
-      <p>
-        He also appeared this summer at Apple's Worldwide Developer Conference in San Francisco to introduce iOS 5, and the forthcoming iCloud service.
-      </p>
-      <p>
-        The wording and timing of the announcement raised questions about Jobs' health, who was diagnosed with a rare form of pancreatic cancer in 2004 and underwent a liver transplant two years ago.
-      </p>
-      <p>
-        In 2008, Jobs lost a lot of weight, and Apple put out the following statement:
-      </p>
-      <p>
-        "...my doctors think they have found the cause - a hormone imbalance that has been 'robbing' me of the proteins my body needs to be healthy.... The remedy for this nutritional problem is relatively simple and straightforward, and I've already begun treatment."
-      </p>
-      <p>
-        Tech giant Apple,Inc. has got a new interim CEO as Mr. Jobs has taken a leave from the company due to his medical reasons. As we all are well aware of the fact that Steve had a liver transplant and due to which he has previously taken a break for his regular work at Apple and now he has taken a leave as his illness has been finally confirmed.The confirmation came out as the people working at Apple got a personal note from the CEO sayting that he won’t be working in the company anymore as he has been diagnosed with Terminal pancreatic Cancer due to which he won’t be able to live more that a few weeks(most 7 weeks as rumored).
-      </p>
-    </article>
+        <button>
+          <svg version="1.0" x="0px" y="0px" width="20px" height="20px" fill="#cccccc" viewBox="0 0 100 83.584" enable-background="new 0 0 100 83.584"><polygon points="41.791,83.527 0,41.736 41.791,0 69.337,0 37.562,31.777 100,31.777 100,51.977 37.785,51.977 69.394,83.584  41.791,83.527 "/></svg>
+        </button>
+        <button>
+          <svg version="1.0" x="0px" y="0px" width="20px" height="20px" fill="#cccccc" viewBox="0 0 100 83.641" enable-background="new 0 0 100 83.641"><polygon points="58.263,0.056 100,41.85 58.263,83.641 30.662,83.641 62.438,51.866 0,51.866 0,31.611 62.213,31.611 30.605,0   58.263,0.056 "/></svg>          
+        </button>
+      </menu>
+    </div>
+    <div id="stream" class="inactive"></div>
+    <article id="reading-now"></article>
     <script type="text/template" id="preview-template">
       <article class="<%= sourceClass %>" id="preview-<%= _id %>">
         <button class="read-later">
@@ -225,6 +188,7 @@ c0.479-0.875-0.344-1.496,0.253-2.16C67.038,49.426,68.058,49.975,69.905,49.738z"/
     <script src="/js/jquery-1.6.2.min.js"></script>
     <script src="/js/underscore-min.js"></script>
     <script src="/js/backbone.js"></script>
+    <script src="/js/localstorage.js"></script>
     <script>Lectio = {};</script>
     <script src="/js/models.js"></script>
     <script src="/js/stream.js"></script>

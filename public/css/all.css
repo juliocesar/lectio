@@ -113,14 +113,13 @@ a:link { -webkit-tap-highlight-color: #FF5E99; }
 button {  width: auto; overflow: visible; }
 /* End reset */
 
-
 html, body  { height: 100%; width: 100%; color: #fff; font-family: 'PT Sans Narrow' }
-body        { background: #eeedec url(/public/img/noise.png) repeat; overflow: hidden }
+body        { background: #eeedec url(/img/noise.png) repeat; overflow: hidden }
 #main-menu, #stream, #reading-now { position: absolute }
-#stream, #reading-now { 
-  padding-top: 70px; 
-  top: 0px; 
-  bottom: 0; 
+#stream, #reading-now {
+  padding-top: 70px;
+  top: 0px;
+  bottom: 0;
   overflow-y: auto;
   opacity: 1;
   -webkit-transform:  translate3d(0px,0px,0);
@@ -128,8 +127,8 @@ body        { background: #eeedec url(/public/img/noise.png) repeat; overflow: h
   transform:          translate3d(0px,0px,0)
 }
 body.read-later #stream,
-body.read-later #reading-now  { 
-  opacity: 0; 
+body.read-later #reading-now  {
+  opacity: 0;
   pointer-events: none;
   -webkit-transform:  translate3d(0px,20px,0);
   -moz-transform:     translateY(20px);
@@ -137,6 +136,9 @@ body.read-later #reading-now  {
 }
 #read-later                   { opacity: 0; pointer-events: none }
 body.read-later #read-later   { opacity: 1; pointer-events: auto }
+
+/* Shit that's a given */
+button { border: 0; background: transparent }
 
 /* General article styles' */
 article     { text-shadow: 1px 1px 0px #fff }
@@ -155,7 +157,7 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 #main-menu > * { float: left  }
 #main-menu menu { margin-left: 100px }
 #main-menu h1 { margin: 2px 0 0 7px; font: 700 1.6em 'PT Sans Narrow'; color: #fff; vertical-align: bottom; text-transform: uppercase }
-#main-menu button { border: 0; margin-right: 20px; color: #fff; background: transparent }
+#main-menu button { margin-right: 20px; color: #fff }
 
 /* Stream */
 #stream { left: 0; padding: 70px 0 6px 0; width: 360px; border-right: 1px solid #ccc }
@@ -165,7 +167,7 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 #stream article p  { font-size: 1.25em }
 #stream article button { position: absolute; top: 8px; right: 3px; padding: 0; border: 0; background: transparent; opacity: 0 }
 #stream article:hover button { opacity: 1 }
-#stream article, 
+#stream article,
 #stream article button { -moz-transition: all 0.25s linear; -webkit-transition: all 0.25s linear; transition: all 0.25s linear }
 #stream::-webkit-scrollbar { width: 6px; padding: 18px; -webkit-border-radius: 1ex; opacity: 0 }
 #stream::-webkit-scrollbar-thumb { padding: 8px; width: 8px; height: 6px; background-color: rgba(0,0,0,0.2); -webkit-border-radius: 1ex }
@@ -195,16 +197,21 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 }
 
 /* Source icons */
-#stream article.yc            { background: url(/public/img/sources/ycombinator.png) no-repeat 15px 11px }
-#stream article.yc:hover      { background: url(/public/img/sources/ycombinator.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
-#stream article.conversation  { background: url(/public/img/sources/conversation.png) no-repeat 15px 11px }
-#stream article.conversation:hover  { background: url(/public/img/sources/conversation.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
-#stream article.nyt           { background: url(/public/img/sources/nyt.png) no-repeat 15px 11px }
-#stream article.nyt:hover     { background: url(/public/img/sources/nyt.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
-#stream article.endgadget           { background: url(/public/img/sources/endgadget.png) no-repeat 15px 11px }
-#stream article.endgadget:hover     { background: url(/public/img/sources/endgadget.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
-p.meta.yc           { background: url(/public/img/sources/ycombinator.png) no-repeat top left }
-p.meta.nyt          { background: url(/public/img/sources/nyt.png) no-repeat top left }
-p.meta.endgadget    { background: url(/public/img/sources/endgadget.png) no-repeat top left }
-p.meta.conversation { background: url(/public/img/sources/conversation.png) no-repeat top left }
+#stream article.yc            { background: url(/img/sources/ycombinator.png) no-repeat 15px 11px }
+#stream article.yc:hover      { background: url(/img/sources/ycombinator.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
+#stream article.conversation  { background: url(/img/sources/conversation.png) no-repeat 15px 11px }
+#stream article.conversation:hover  { background: url(/img/sources/conversation.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
+#stream article.nyt           { background: url(/img/sources/nyt.png) no-repeat 15px 11px }
+#stream article.nyt:hover     { background: url(/img/sources/nyt.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
+#stream article.endgadget           { background: url(/img/sources/endgadget.png) no-repeat 15px 11px }
+#stream article.endgadget:hover     { background: url(/img/sources/endgadget.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
+p.meta.yc           { background: url(/img/sources/ycombinator.png) no-repeat top left }
+p.meta.nyt          { background: url(/img/sources/nyt.png) no-repeat top left }
+p.meta.endgadget    { background: url(/img/sources/endgadget.png) no-repeat top left }
+p.meta.conversation { background: url(/img/sources/conversation.png) no-repeat top left }
 
+/* Read later */
+#read-later menu      { position: absolute; bottom: 0; right: 0; left: 0; padding: 12px 20px 10px 40px; box-shadow: 0 -1px 3px rgba(0,0,0,0.2); z-index: 10 }
+#read-later menu > *  { float: left }
+#read-later menu.yc   { background: url(/img/sources/ycombinator.png) no-repeat 15px 15px, rgba(255,255,255,0.8) }
+#read-later h1        { width: 400px; font-size: 1.6em; color: #cccccc  }
