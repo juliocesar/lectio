@@ -1,4 +1,4 @@
-parsers    = require './src/item_parser'
+parsers    = require './src/parsers'
 sources    = require './src/sources'
 util       = require 'util'
 
