@@ -28,7 +28,7 @@ nytimes = (cb) ->
     else
       cb
         title: $('h1').text()
-        link: $('link[rel=canonical]').text()
+        link: $('link[rel=canonical]').attr('href')
         byline: $('.byline').text()
         author: $('a[rel=author]').attr('href')
         summary: $('.articleBody p').first().html()
