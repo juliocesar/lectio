@@ -12,7 +12,7 @@
         .find('button')
           .click(function(event) {
             event.stopPropagation();
-            Lectio.ReadingList.add(self.model);
+            Lectio.ReadLaterCollection.add(self.model);
           });
       return this;
     },
@@ -81,5 +81,9 @@
         }, 
       270);
     }
+  });
+  
+  ReadLater = Backbone.View.extend({
+    
   });
 })(jQuery);

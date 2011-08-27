@@ -3,8 +3,8 @@
     idAttribute : '_id',
     
     initialize : function() {
-      this.set({ summary : $(this.get('body')).text() });      
-      this.set({ sourceClass : this.sourceClass(this.get('source').name) });
+      this.set({ summary      : $(this.get('body')).text().ellipsisAfter(20) });      
+      this.set({ sourceClass  : this.sourceClass(this.get('source').name) });
     },
     
     sourceClass : function(name) {
@@ -17,6 +17,8 @@
           return 'conversation';
         case 'Engadget':
           return 'engadget';
+        default:
+          return 'foo';
       }
     }
   });
