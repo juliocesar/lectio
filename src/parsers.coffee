@@ -44,7 +44,7 @@ engadget = (post, cb) ->
     title: post.title
     published: new Date()
     source:
-      link: post.link
+      url: post.link
       name: "Engadget"
     images: []
     body: post.description
