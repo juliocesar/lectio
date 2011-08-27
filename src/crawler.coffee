@@ -1,17 +1,10 @@
 parsers    = require './parsers'
 sources    = require './sources'
+Item       = require './item'
 util       = require 'util'
 mongoose   = require 'mongoose'
 
 mongoose.connect 'mongodb://localhost/lectio'
-
-Item = mongoose.model 'Item', new mongoose.Schema
-  title: String
-  source:
-    link: String
-    name: String
-  images: [String]
-  body: String
 
 exports.crawl = ->
   sources.engadget (posts) ->
