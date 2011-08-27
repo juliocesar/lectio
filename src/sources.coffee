@@ -16,6 +16,11 @@ hn = (cb) ->
   rss.parseURL feed, (posts) ->
     cb posts
 
+functionsource = (cb) ->
+  feed = 'http://functionsource.com/feeds/entries'
+  rss.parseURL feed, (posts) ->
+    cb posts
+
 tc = (cb) ->
   feed = 'http://theconversation.edu.au/articles'
   rss.parseURL feed, (posts) ->
@@ -24,4 +29,5 @@ tc = (cb) ->
 exports.nytimes = nytimes
 exports.engadget = engadget
 exports.hn = hn
+exports.functionsource = functionsource
 exports.tc = tc

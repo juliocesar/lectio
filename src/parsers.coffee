@@ -64,6 +64,16 @@ hn = (post, cb) ->
       catch error
         cb error
 
+functionsource = (post, cb) ->
+  cb null,
+    title: post.title
+    published: new Date(post.pubDate)
+    source: "Function Source"
+    url: post.link
+    images: []
+    body: post.content
+  #console.log post
+
 tc = (post, cb) ->
   cb null,
     title: post.title
@@ -76,4 +86,5 @@ exports.retrieve = retrieve
 exports.nytimes = nytimes
 exports.engadget = engadget
 exports.hn = hn
+exports.functionsource = functionsource
 exports.tc = tc

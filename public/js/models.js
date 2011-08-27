@@ -17,6 +17,8 @@
           return 'conversation';
         case 'Engadget':
           return 'engadget';
+        case 'Function Source':
+          return 'functionsource'
         default:
           return 'foo';
       }
