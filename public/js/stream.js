@@ -11,7 +11,7 @@
     },
     
     read : function() {
-      Lectio.Stream.read(this.model);
+      Lectio.Router.navigate('/items/' + this.model.get('_id'), true);
     }
   });
   
@@ -32,6 +32,7 @@
       _.bindAll(this, 'add', 'addBunch');
       Lectio.StreamCollection.bind('add',   this.add);
       Lectio.StreamCollection.bind('reset', this.addBunch);
+      Lectio.StreamCollection.trigger('reset');
     },
     
     add : function(item) {
@@ -44,8 +45,9 @@
       Lectio.StreamCollection.each(this.add);
     },
     
-    read : function(item) {
-      if (this.reading.attr('data-id') === item.get('id')) return false;
+    read : function(id) {
+      var item = Lectio.StreamCollection.get(id);
+      if (!item || (this.reading.attr('data-id') === item.get('_id'))) return false;
       var self = this,
         article = new ArticleView({ model : item });
       self.reading.removeClass('reading');
@@ -53,7 +55,7 @@
         function() {
           self.reading
             .html(article.render().el.innerHTML)
-            .attr('data-id', item.get('id'))
+            .attr('data-id', item.get('_id'))
             .addClass('reading');
         }, 
       250);

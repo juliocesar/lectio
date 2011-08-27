@@ -1,13 +1,12 @@
-(function($, undefined) {
-  Lectio.boot = function() {
-    Lectio.StreamCollection.reset(Fixtures);
-  };
-  
+(function($, undefined) {  
   // Collections
   Lectio.StreamCollection = new StreamCollection;
+  Lectio.StreamCollection.reset(Fixtures);  
+  
   
   // Views
   Lectio.Stream = new Stream;
+  Lectio.Router = new Router;
+  Backbone.history.start();
   
-  $(document).ready(Lectio.boot);
 })(jQuery);

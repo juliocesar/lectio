@@ -1,5 +1,7 @@
 (function($, undefined) {
   Preview = Backbone.Model.extend({
+    idAttribute : '_id',
+    
     initialize : function() {
       this.set({ summary : $(this.get('body')).text() });      
       this.set({ sourceClass : this.sourceClass(this.get('source').name) });

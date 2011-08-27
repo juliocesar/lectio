@@ -104,7 +104,7 @@
       </p>
     </article>
     <script type="text/template" id="preview-template">
-      <article class="<%= sourceClass %>" id="preview-<%= id %>">
+      <article class="<%= sourceClass %>" id="preview-<%= _id %>">
         <h1><%= title %></h1>
         <p><%= summary %></p>
       </article>
@@ -119,18 +119,10 @@
       </header>
       <%= body %>
     </script>
-    <script src="/public/js/jquery-1.6.2.min.js"></script>
-    <script src="/public/js/underscore-min.js"></script>
-    <script src="/public/js/backbone-min.js"></script>
-    <script>Lectio = {};</script>
-    <script src="/public/js/models.js"></script>
-    <script src="/public/js/stream.js"></script>
-    <script src="/public/js/app.js"></script>    
-    <script src="/public/js/shambolic.js"></script>
     <script>
       Fixtures = [
         {
-          id: "123123",
+          _id: "123123",
           title: "Opinion: Quit Facebook Day was a success even as it flopped",
           body: "<p>Yes in my opinion that's all true and fine and yeah stuff.</p>",
           source: {
@@ -141,7 +133,7 @@
           images: []
         },
         {
-          id: "234234",
+          _id: "234234",
           title: "Daily Deals: $928 MacBook Pro, App Store price drops, $39 1GB iPod Shuffle",
           body: "<p>Daily deals bla bla bla.</p>",
           source: {
@@ -152,7 +144,7 @@
           images: []
         },
         {
-          id: "345345",
+          _id: "345345",
           title: "Adobe Rolls out iPad-focused magazine publishing tools",
           body: "<p>Test test test.</p>",
           source: {
@@ -163,7 +155,7 @@
           images: []
         },
         {
-          id: "456456",
+          _id: "456456",
           title: "iPad RSS apps reviews",
           body: "<p>Test test test.</p>",
           source: {
@@ -174,6 +166,15 @@
           images: []
         }
       ];
-    </script>
+    </script>    
+    <script src="/public/js/jquery-1.6.2.min.js"></script>
+    <script src="/public/js/underscore-min.js"></script>
+    <script src="/public/js/backbone.js"></script>
+    <script>Lectio = {};</script>
+    <script src="/public/js/models.js"></script>
+    <script src="/public/js/stream.js"></script>
+    <script src="/public/js/router.js"></script>    
+    <script src="/public/js/app.js"></script>    
+    <script src="/public/js/shambolic.js"></script>
   </body>
 </html>

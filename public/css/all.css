@@ -178,7 +178,7 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 #stream article.conversation:hover  { background: url(/public/img/sources/conversation.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
 #stream article.nyt           { background: url(/public/img/sources/nyt.png) no-repeat 15px 11px }
 #stream article.nyt:hover     { background: url(/public/img/sources/nyt.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
-p.meta.ycombinator  { background: url(/public/img/sources/ycombinator.png) no-repeat top left }
+p.meta.yc           { background: url(/public/img/sources/ycombinator.png) no-repeat top left }
 p.meta.nyt          { background: url(/public/img/sources/nyt.png) no-repeat top left }
 p.meta.conversation { background: url(/public/img/sources/conversation.png) no-repeat top left }
 
