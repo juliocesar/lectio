@@ -39,7 +39,9 @@ nytimes = (post, cb) ->
 engadget = (post, cb) ->
   cb null
     title: post.title
-    link: post.link
+    source:
+      link: post.link
+      name: "Engadget"
     summary: post.description
 
 hn = (post, cb) ->

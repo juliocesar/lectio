@@ -1,6 +1,9 @@
-parsers    = require './src/parsers'
-sources    = require './src/sources'
+#parsers    = require './src/parsers'
+#sources    = require './src/sources'
+crawler    = require './src/crawler'
 util       = require 'util'
+
+crawler.crawl()
 
 #itemparser.retrieve 'http://www.nytimes.com/', (error, $) ->
 #  if error
@@ -31,11 +34,11 @@ util       = require 'util'
 #      else
 #        util.log(util.inspect(item))
 
-sources.engadget (posts) ->
-  for post in posts
-    parsers.engadget post, (error, item) ->
-      if error
-        util.debug util.inspect(error)
-        util.debug error.stack
-      else
-        util.log(util.inspect(item))
+#sources.engadget (posts) ->
+#  for post in posts
+#    parsers.engadget post, (error, item) ->
+#      if error
+#        util.debug util.inspect(error)
+#        util.debug error.stack
+#      else
+#        util.log(util.inspect(item))
