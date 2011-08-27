@@ -44,7 +44,7 @@ engadget = (post, cb) ->
     title: post.title
     published: new Date()
     source:
-      link: post.link
+      url: post.link
       name: "Engadget"
     images: []
     body: post.description
@@ -73,7 +73,7 @@ tc = (post, cb) ->
     published: new Date()
     source:
       url: post.link
-      name: "TheConversationEDU"
+      name: "ConversationEDU"
     body: post.content
 
 exports.retrieve = retrieve
