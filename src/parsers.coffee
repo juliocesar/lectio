@@ -21,12 +21,14 @@ retrieve = (uri, cb) ->
       jsdom.env { html: body, scripts: [jquery] }, (err, window) ->
         cb null, window.jQuery
 
-nytimes = (cb) ->
-  (error, $) ->
+nytimes = (post, cb) ->
+  uri = post.link
+  retrieve uri, (error, $) ->
     if error
       cb error
     else
-      cb
+      util.log $('.articleBody').text()
+      cb null,
         title: $('h1').text()
         link: $('link[rel=canonical]').attr('href')
         byline: $('.byline').text()

@@ -4,7 +4,7 @@ util = require 'util'
 nytimes = (cb) ->
   feed = 'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml'
   rss.parseURL feed, (posts) ->
-    cb(post.link for post in posts)
+    cb posts
 
 engadget = (cb) ->
   feed = 'http://www.engadget.com/rss.xml'
