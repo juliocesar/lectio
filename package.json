@@ -15,7 +15,7 @@
         "coffee-script": "1.1.2",
         "zappa": "0.2.0beta",
         "jsdom": "0.2.3",
-        "easyrss": "0.2.3",
+        "nodepie": "0.3.0",
         "request": "2.1.1",
         "mongoose": "2.0.2"
     },
