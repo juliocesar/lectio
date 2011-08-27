@@ -22,7 +22,7 @@ retrieve = (uri, cb) ->
         cb err, window?.jQuery
 
 nytimes = (post, cb) ->
-  retrieve post.uri, (error, $) ->
+  retrieve post.link, (error, $) ->
     return cb error if error
     $ -> cb null,
       title: $('h1').text()
