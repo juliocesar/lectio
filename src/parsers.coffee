@@ -73,7 +73,7 @@ tc = (post, cb) ->
     published: new Date()
     source:
       url: post.link
-      name: "TheConversationEDU"
+      name: "ConversationEDU"
     body: post.content
 
 exports.retrieve = retrieve
