@@ -120,7 +120,7 @@ body        { background: #eeedec url(/img/noise.png) repeat }
   padding-top: 70px;
   top: 0px;
   bottom: 0;
-  overflow-y: auto;
+/*  overflow-y: auto;*/
   opacity: 1;
   -webkit-transform:  translate3d(0px,0px,0);
   -moz-transform:     translateY(0px);
