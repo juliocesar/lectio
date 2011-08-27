@@ -23,6 +23,8 @@
           return 'engadget';
         case 'Function Source':
           return 'functionsource';
+        case 'The Setup':
+          return 'usesthis';
         default:
           return 'foo';
       }

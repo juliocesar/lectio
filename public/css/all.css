@@ -210,18 +210,21 @@ article ul        { list-style-position: inside }
 }
 
 /* Source icons */
-#stream article.yc            { background: url(/img/sources/ycombinator.png) no-repeat 15px 11px }
-#stream article.yc:hover      { background: url(/img/sources/ycombinator.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
-#stream article.conversation  { background: url(/img/sources/conversation.png) no-repeat 15px 11px }
-#stream article.conversation:hover  { background: url(/img/sources/conversation.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
-#stream article.nyt           { background: url(/img/sources/nyt.png) no-repeat 15px 11px }
-#stream article.nyt:hover     { background: url(/img/sources/nyt.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
-#stream article.functionsource           { background: url(/img/sources/functionsource.png) no-repeat 15px 11px }
-#stream article.functionsource:hover     { background: url(/img/sources/functionsource.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
-p.meta.yc           { background: url(/img/sources/ycombinator.png) no-repeat top left }
-p.meta.nyt          { background: url(/img/sources/nyt.png) no-repeat top left }
-p.meta.functionsource    { background: url(/img/sources/functionsource.png) no-repeat top left }
-p.meta.conversation { background: url(/img/sources/conversation.png) no-repeat top left }
+#stream article,
+p.meta {background: url(/img/sources/lectio.jpg) no-repeat 15px 11px }
+#stream article:hover {background: url(/img/sources/lectio.jpg) no-repeat 15px 11px, rgba(0,0,0,0.1)}
+p.meta {background-position: top left;}
+
+#stream article.yc,
+p.meta.yc { background-image: url(/img/sources/ycombinator.png) }
+#stream article.conversation,
+p.meta.conversation { background-image: url(/img/sources/conversation.png) }
+#stream article.nyt,
+p.meta.nyt { background-image: url(/img/sources/nyt.png) }
+#stream article.usesthis,
+p.meta.usesthis { background-image: url(/img/sources/usesthis.png) }
+#stream article.functionsource,
+p.meta.functionsource { background-image: url(/img/sources/functionsource.png) }
 
 /* Read later */
 #read-later menu      { position: absolute; bottom: 0; right: 0; left: 0; padding: 12px 20px 10px 40px; box-shadow: 0 -1px 3px rgba(0,0,0,0.2); z-index: 10 }
