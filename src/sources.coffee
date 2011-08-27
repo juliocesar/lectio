@@ -11,5 +11,11 @@ hn = (cb) ->
   rss.parseURL feed, (posts) ->
     cb posts
 
+tc = (cb) ->
+  feed = 'http://theconversation.edu.au/articles'
+  rss.parseURL feed, (posts) ->
+    cb posts
+
 exports.nytimes = nytimes
 exports.hn = hn
+exports.tc = tc

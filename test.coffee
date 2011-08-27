@@ -13,9 +13,18 @@ util       = require 'util'
 #  parsers.retrieve uri, parsers.nytimes (item) ->
 #    util.log util.inspect(item)
 
-sources.hn (posts) ->
+#sources.hn (posts) ->
+#  for post in posts
+#    parsers.hn post, (error, item) ->
+#      if error
+#        util.debug util.inspect(error)
+#        util.debug error.stack
+#      else
+#        util.log(util.inspect(item))
+
+sources.tc (posts) ->
   for post in posts
-    parsers.hn post, (error, item) ->
+    parsers.tc post, (error, item) ->
       if error
         util.debug util.inspect(error)
         util.debug error.stack

@@ -50,6 +50,13 @@ hn = (post, cb) ->
       catch error
         cb error
 
+tc = (post, cb) ->
+  cb null,
+    title: post.title
+    link: post.link
+    body: post.content
+
 exports.retrieve = retrieve
 exports.nytimes = nytimes
 exports.hn = hn
+exports.tc = tc
