@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Lectio</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,max-scale=1,user-scalable=0">
     <link rel='stylesheet' href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|Abel|Questrial">
     <link rel="stylesheet" href="/public/css/all.css">
     <script src="/public/js/modernizr-custom.js"></script>
@@ -27,12 +28,13 @@ c0.479-0.875-0.344-1.496,0.253-2.16C67.038,49.426,68.058,49.975,69.905,49.738z"/
           <polygon fill="#fff" points="7.742,99.988 0,92.248 27.928,64.319 35.67,72.06 7.742,99.988 "/>
           </svg>
         </button>
-        <button id="go-reading-now">
+        <button id="go-read-later">
           <svg version="1.0" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 67.541 100" enable-background="new 0 0 67.541 100" xml:space="preserve"><path fill="#fff" d="M67.541,0L14.616,2.714L0,7.311V73.49l45.855,26.474V100l0.039-0.012l0,0l16.991-5.338V66.18h4.655V0z M60.492,93.025l-12.223,3.94V33.062L4.358,7.571l12.081-3.804l44.071,25.444L60.492,66.18V93.025z"/>
           </svg>
         </button>
       </menu>
     </header>
+    <div id="reading-area"></div>
     <div id="stream" class="inactive"></div>
     <article id="reading-now">
       <header>
@@ -226,8 +228,8 @@ c0.479-0.875-0.344-1.496,0.253-2.16C67.038,49.426,68.058,49.975,69.905,49.738z"/
     <script>Lectio = {};</script>
     <script src="/public/js/models.js"></script>
     <script src="/public/js/stream.js"></script>
+    <script src="/public/js/main-menu.js"></script>
     <script src="/public/js/router.js"></script>    
     <script src="/public/js/app.js"></script>    
-    <script src="/public/js/shambolic.js"></script>
   </body>
 </html>

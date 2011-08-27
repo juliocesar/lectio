@@ -116,8 +116,27 @@ button {  width: auto; overflow: visible; }
 
 html, body  { height: 100%; width: 100%; color: #fff; font-family: 'PT Sans Narrow' }
 body        { background: #eeedec url(/public/img/noise.png) repeat; overflow: hidden }
-#main-menu, #stream, #reading-now { position: fixed }
-#stream, #reading-now { padding-top: 70px; top: 0px; bottom: 0; overflow-y: auto }
+#main-menu, #stream, #reading-now { position: absolute }
+#stream, #reading-now { 
+  padding-top: 70px; 
+  top: 0px; 
+  bottom: 0; 
+  overflow-y: auto;
+  opacity: 1;
+  -webkit-transform:  translate3d(0px,0px,0);
+  -moz-transform:     translateY(0px);
+  transform:          translate3d(0px,0px,0)
+}
+body.read-later #stream,
+body.read-later #reading-now  { 
+  opacity: 0; 
+  pointer-events: none;
+  -webkit-transform:  translate3d(0px,20px,0);
+  -moz-transform:     translateY(20px);
+  transform:          translate3d(0px,20px,0)
+}
+#read-later                   { opacity: 0; pointer-events: none }
+body.read-later #read-later   { opacity: 1; pointer-events: auto }
 
 /* General article styles' */
 article     { text-shadow: 1px 1px 0px #fff }
