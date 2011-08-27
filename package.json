@@ -1,0 +1,17 @@
+{
+  "author": "Shambolic",
+  "name": "shambolic",
+  "description": "Lectio: a reader",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nko2/shambolic.git"
+  },
+  "engines": {
+    "node": "~v0.4.8"
+  },
+  "dependencies": {
+    "nko": "~0.1.1"
+  },
+  "devDependencies": {}
+}
