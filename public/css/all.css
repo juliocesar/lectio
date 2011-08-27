@@ -114,7 +114,7 @@ button {  width: auto; overflow: visible; }
 /* End reset */
 
 
-html, body  { height: 100%; width: 100%; background: #474747; color: #fff; font-family: 'PT Sans Narrow' }
+html, body  { height: 100%; width: 100%; color: #fff; font-family: 'PT Sans Narrow' }
 body        { background: #eeedec url(/public/img/noise.png) repeat; overflow: hidden }
 #main-menu, #stream, #reading-now { position: fixed }
 #stream, #reading-now { top: 57px; bottom: 0; overflow-y: auto }
@@ -123,6 +123,10 @@ body        { background: #eeedec url(/public/img/noise.png) repeat; overflow: h
 article     { text-shadow: 1px 1px 0px #fff }
 article h1  { color: #333; font-family: 'PT Sans Narrow'; font-weight: 700 }
 article p   { color: #666; font-family: 'Abel' }
+article p.meta { color: #999 }
+article em,
+article strong { font-weight: bold; font-style: italic }
+article a   { cursor: pointer; border-bottom: 1px dotted #333 }
 
 
 /* Top menu */
@@ -144,5 +148,7 @@ article p   { color: #666; font-family: 'Abel' }
 
 /* Reading now */
 #reading-now { left: 340px; right: 0; padding: 20px 60px }
-#reading-now h1 { font-size: 3em; color: #333 }
-#reading-now p  { font-size: 1.45em; line-height: 1.5em }
+#reading-now h1 { font-size: 3.4em; color: #333 }
+#reading-now p  { font-size: 1.45em; line-height: 1.5em; margin: 0.5em 0 }
+#reading-now p.meta { line-height: 1em; margin: 0; font-size: 1.25em }
+#reading-now header { padding-bottom: 30px; margin-bottom: 20px; border-bottom: 1px solid #ccc }
