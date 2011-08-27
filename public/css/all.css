@@ -140,11 +140,14 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 
 /* Stream */
 #stream { left: 0; padding: 70px 0 6px 0; width: 360px; border-right: 1px solid #ccc }
-#stream article {  margin: 0 0 0 6px; padding: 10px 20px 10px 40px; cursor: pointer }
+#stream article { position: relative; margin: 0 0 0 6px; padding: 10px 20px 10px 40px; cursor: pointer }
 #stream article:hover { background: rgba(0,0,0,0.1) }
 #stream article h1 { font-size: 1.5em }
 #stream article p  { font-size: 1.25em }
-#stream article { -moz-transition: all 0.25s linear; -webkit-transition: all 0.25s linear; transition: all 0.25s linear }
+#stream article button { position: absolute; top: 8px; right: 3px; padding: 0; border: 0; background: transparent; opacity: 0 }
+#stream article:hover button { opacity: 1 }
+#stream article, 
+#stream article button { -moz-transition: all 0.25s linear; -webkit-transition: all 0.25s linear; transition: all 0.25s linear }
 #stream::-webkit-scrollbar { width: 6px; padding: 18px; -webkit-border-radius: 1ex; opacity: 0 }
 #stream::-webkit-scrollbar-thumb { padding: 8px; width: 8px; height: 6px; background-color: rgba(0,0,0,0.2); -webkit-border-radius: 1ex }
 #stream.inactive::-webkit-scrollbar-thumb {background: rgba(0,0,0,0)}
@@ -154,6 +157,7 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 #reading-now h1 { font-size: 3.4em; color: #333 }
 #reading-now p  { font-size: 1.45em; line-height: 1.5em; margin: 0.5em 0 }
 #reading-now p.meta { line-height: 1.2em; margin: 0; font-size: 1.25em }
+#reading-now p.meta a { margin-left: 5px; border: 0 }
 #reading-now header { padding-bottom: 30px; margin-bottom: 20px; border-bottom: 1px solid #ccc }
 #reading-now {
   opacity: 0;
