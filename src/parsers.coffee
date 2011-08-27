@@ -34,5 +34,22 @@ nytimes = (cb) ->
         summary: $('.articleBody p').first().html()
         body: $(el).html() for el in $('.articleBody')
 
+hn = (post, cb) ->
+  uri = post.description.match(/https?:\/\/[^\"]+/)[0]
+  retrieve uri, (error, $) ->
+    if error
+      cb error
+    else
+      try
+        cb null,
+          title: post.title
+          link: post.link
+          alt: uri # TODO decide whether we want the HN uri as the 'link'
+          author: 'todo' # TODO grab the poster's nick
+          summary: ''
+      catch error
+        cb error
+
 exports.retrieve = retrieve
 exports.nytimes = nytimes
+exports.hn = hn
