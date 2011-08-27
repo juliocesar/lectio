@@ -60,6 +60,7 @@ hn = (post, cb) ->
           source: "Hacker News"
           url: uri #post.link
           images: []
+          body: post.description
           #alt: uri # TODO decide whether we want the HN uri as the 'link'
       catch error
         cb error
