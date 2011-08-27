@@ -44,6 +44,7 @@
       Lectio.StreamCollection.bind('add',   this.add);
       Lectio.StreamCollection.bind('reset', this.addBunch);
       Lectio.StreamCollection.trigger('reset');
+      this.fixScrollbars();
     },
     
     add : function(item) {
