@@ -6,6 +6,11 @@ nytimes = (cb) ->
   rss.parseURL feed, (posts) ->
     cb(post.link for post in posts)
 
+engadget = (cb) ->
+  feed = 'http://www.engadget.com/rss.xml'
+  rss.parseURL feed, (posts) ->
+    cb posts
+
 hn = (cb) ->
   feed = 'http://news.ycombinator.com/rss'
   rss.parseURL feed, (posts) ->
@@ -17,5 +22,6 @@ tc = (cb) ->
     cb posts
 
 exports.nytimes = nytimes
+exports.engadget = engadget
 exports.hn = hn
 exports.tc = tc

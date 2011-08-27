@@ -22,9 +22,18 @@ util       = require 'util'
 #      else
 #        util.log(util.inspect(item))
 
-sources.tc (posts) ->
+#sources.tc (posts) ->
+#  for post in posts
+#    parsers.tc post, (error, item) ->
+#      if error
+#        util.debug util.inspect(error)
+#        util.debug error.stack
+#      else
+#        util.log(util.inspect(item))
+
+sources.engadget (posts) ->
   for post in posts
-    parsers.tc post, (error, item) ->
+    parsers.engadget post, (error, item) ->
       if error
         util.debug util.inspect(error)
         util.debug error.stack

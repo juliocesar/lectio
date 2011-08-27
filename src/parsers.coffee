@@ -34,6 +34,12 @@ nytimes = (cb) ->
         summary: $('.articleBody p').first().html()
         body: $(el).html() for el in $('.articleBody')
 
+engadget = (post, cb) ->
+  cb null
+    title: post.title
+    link: post.link
+    summary: post.description
+
 hn = (post, cb) ->
   uri = post.description.match(/https?:\/\/[^\"]+/)[0]
   retrieve uri, (error, $) ->
@@ -58,5 +64,6 @@ tc = (post, cb) ->
 
 exports.retrieve = retrieve
 exports.nytimes = nytimes
+exports.engadget = engadget
 exports.hn = hn
 exports.tc = tc
