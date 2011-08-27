@@ -1,7 +1,8 @@
 (function($, undefined) {  
   // Collections
   Lectio.StreamCollection = new StreamCollection;
-  Lectio.StreamCollection.reset(Fixtures);
+  //Lectio.StreamCollection.reset(Fixtures);
+  Lectio.StreamCollection.fetch();
   
   // Views
   Lectio.Stream = new Stream;

@@ -15,12 +15,15 @@
           return 'nyt';
         case 'ConversationEDU':
           return 'conversation';
+        case 'Engadget':
+          return 'engadget';
       }
     }
   });
 
   StreamCollection = Backbone.Collection.extend({
     model : Preview,
-    url   : '/api/items.json'
+    url   : '/api/items/engadget'
+    //url   : '/api/items.json'
   });
 })(jQuery);
