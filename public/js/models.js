@@ -25,6 +25,8 @@
           return 'functionsource';
         case 'The Setup':
           return 'usesthis';
+        case 'Flickr Explore Interestingess':
+          return 'flickr';
         default:
           return 'foo';
       }

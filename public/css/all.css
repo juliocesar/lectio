@@ -225,6 +225,8 @@ p.meta.nyt { background-image: url(/img/sources/nyt.png) }
 p.meta.usesthis { background-image: url(/img/sources/usesthis.jpg) }
 #stream article.functionsource,
 p.meta.functionsource { background-image: url(/img/sources/functionsource.png) }
+#stream article.flickr,
+p.meta.flickr { background-image: url(/img/sources/flickr.jpg) }
 
 /* Read later */
 #read-later menu      { position: absolute; bottom: 0; right: 0; left: 0; padding: 12px 20px 10px 40px; box-shadow: 0 -1px 3px rgba(0,0,0,0.2); z-index: 10 }

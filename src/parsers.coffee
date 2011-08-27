@@ -84,9 +84,19 @@ usesthis = (post, cb) ->
     url: post.link
     body: ''
 
+flickr = (post, cb) ->
+  #console.log post
+  cb null,
+    title: post.title
+    published: post.published
+    source: "Flickr Explore Interestingess"
+    url: post.link
+    body: post.description
+
 exports.nytimes = nytimes
 exports.engadget = engadget
 exports.hn = hn
 exports.functionsource = functionsource
 exports.tc = tc
 exports.usesthis = usesthis
+exports.flickr = flickr
