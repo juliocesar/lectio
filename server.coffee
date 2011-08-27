@@ -5,6 +5,8 @@ app = require('zappa').app {lectio}, ->
   requiring 'util'
   def lectio: lectio
 
+  use 'static'
+
   get '/': 'hi'
   get '/api/items/engadget': ->
     #lectio.Item.find { source: { name: 'Engadget' } }, (err, items) =>
