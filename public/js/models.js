@@ -8,7 +8,7 @@
       } else {
         this.set({ body : '', summary : '' });
       }
-      this.set({ sourceClass  : this.sourceClass(this.get('source').name) });
+      this.set({ sourceClass : this.sourceClass(this.get('source').name) });
     },
     
     sourceClass : function(name) {
