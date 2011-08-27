@@ -15,7 +15,6 @@ jsdom.defaultDocumentFeatures = {
 
 retrieve = (uri, cb) ->
   request uri: uri, (error, response, body) ->
-    util.log response.statusCode
     if error and response.statusCode != 200
       cb error
     else
