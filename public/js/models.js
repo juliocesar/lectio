@@ -23,7 +23,7 @@
 
   StreamCollection = Backbone.Collection.extend({
     model : Item,
-    url   : '/api/items/engadget'
+    url   : '/api/items'
   });
   
   ReadingList = Backbone.Collection.extend({

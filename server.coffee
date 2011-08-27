@@ -8,10 +8,10 @@ app = require('zappa').app {lectio}, ->
   use 'static'
 
   get '/': 'hi'
-  get '/api/items/engadget': ->
-    #lectio.Item.find { source: { name: 'Engadget' } }, (err, items) =>
+  get '/api/items': ->
     lectio.Item.find {}, (err, items) =>
-      send JSON.stringify items
+      json = (item.clientJSON() for item in items)
+      send json
 
 port = if process.env.NODE_ENV == 'production' then 80 else 8000
 app.app.listen port, ->

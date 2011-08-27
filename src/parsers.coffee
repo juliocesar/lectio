@@ -27,25 +27,23 @@ nytimes = (post, cb) ->
     if error
       cb error
     else
-      util.log $('.articleBody').text()
-      cb null,
-        title: $('h1').text()
-        published: new Date()
-        source:
+      $ ->
+        cb null,
+          title: $('h1').text()
+          published: new Date()
+          source: "New York Times"
           url: $('link[rel=canonical]').attr('href')
-          name: "New York Times"
-        #byline: $('.byline').text()
-        #author: $('a[rel=author]').attr('href')
-        images: []
-        body: $(el).html() for el in $('.articleBody')
+          #byline: $('.byline').text()
+          #author: $('a[rel=author]').attr('href')
+          images: []
+          body: $(el).html() for el in $('.articleBody')
 
 engadget = (post, cb) ->
   cb null
     title: post.title
     published: new Date()
-    source:
-      url: post.link
-      name: "Engadget"
+    source: "Engadget"
+    url: post.link
     images: []
     body: post.description
 
@@ -59,9 +57,8 @@ hn = (post, cb) ->
         cb null,
           title: post.title
           published: new Date()
-          source:
-            url: uri #post.link
-            name: "Hacker News"
+          source: "Hacker News"
+          url: uri #post.link
           images: []
           #alt: uri # TODO decide whether we want the HN uri as the 'link'
       catch error
@@ -71,9 +68,8 @@ tc = (post, cb) ->
   cb null,
     title: post.title
     published: new Date()
-    source:
-      url: post.link
-      name: "ConversationEDU"
+    source: "ConversationEDU"
+    url: post.link
     body: post.content
 
 exports.retrieve = retrieve

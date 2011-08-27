@@ -13,5 +13,5 @@ exports.crawl = (source, parser) ->
           util.debug error.stack
         else
           util.log "Updating #{item.source.url}"
-          Item.update { source: item.source }, item, upsert: true, (err) ->
+          Item.update { url: item.url }, item, upsert: true, (err) ->
             util.log util.inspect err if err
