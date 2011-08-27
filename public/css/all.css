@@ -121,7 +121,7 @@ body        { background: #eeedec url(/public/img/noise.png) repeat; overflow: h
 
 /* Typesettin' */
 article     { text-shadow: 1px 1px 0px #fff }
-article h1  { color: #333; font-family: 'Questrial'}
+article h1  { color: #333; font-family: 'PT Sans Narrow'; font-weight: 700 }
 article p   { color: #666; font-family: 'Abel' }
 
 
@@ -141,9 +141,8 @@ article p   { color: #666; font-family: 'Abel' }
 #stream article { -moz-transition: all 0.25s linear; -webkit-transition: all 0.25s linear; transition: all 0.25s linear }
 #stream::-webkit-scrollbar { width: 6px; padding: 18px; -webkit-border-radius: 1ex; opacity: 0 }
 #stream::-webkit-scrollbar-thumb { padding: 8px; width: 8px; height: 6px; background-color: rgba(0,0,0,0.2); -webkit-border-radius: 1ex }  
-#stream::-webkit
 
 /* Reading now */
-#reading-now { left: 340px; right: 0; padding: 5px 60px }
+#reading-now { left: 340px; right: 0; padding: 20px 60px }
 #reading-now h1 { font-size: 3em; color: #333 }
-#reading-now p  { font-size: 1.4em}
+#reading-now p  { font-size: 1.45em; line-height: 1.5em }
