@@ -139,8 +139,8 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 #main-menu button { border: 0; margin-right: 20px; color: #fff; background: transparent }
 
 /* Stream */
-#stream { left: 0; width: 340px; border-right: 1px solid #ccc }
-#stream article { padding: 10px 20px }
+#stream { left: 0; width: 360px; border-right: 1px solid #ccc }
+#stream article { padding: 10px 20px 10px 40px }
 #stream article:hover { background: rgba(0,0,0,0.1) }
 #stream article h1 { font-size: 1.5em }
 #stream article p  { font-size: 1.25em }
@@ -149,11 +149,20 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 #stream::-webkit-scrollbar-thumb { padding: 8px; width: 8px; height: 6px; background-color: rgba(0,0,0,0.2); -webkit-border-radius: 1ex }  
 
 /* Reading now */
-#reading-now { left: 340px; right: 0; padding: 20px 60px }
+#reading-now { left: 360px; right: 0; padding: 20px 60px }
 #reading-now h1 { font-size: 3.4em; color: #333 }
 #reading-now p  { font-size: 1.45em; line-height: 1.5em; margin: 0.5em 0 }
-#reading-now p.meta { line-height: 1em; margin: 0; font-size: 1.25em }
+#reading-now p.meta { line-height: 1.2em; margin: 0; font-size: 1.25em }
 #reading-now header { padding-bottom: 30px; margin-bottom: 20px; border-bottom: 1px solid #ccc }
 
 /* Source icons */
-p.meta.ycombinator { background: transparent url(/public/img/sources/ycombinator.png) no-repeat top left }
+#stream article.yc            { background: url(/public/img/sources/ycombinator.png) no-repeat 15px 11px }
+#stream article.yc:hover      { background: url(/public/img/sources/ycombinator.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
+#stream article.conversation  { background: url(/public/img/sources/conversation.png) no-repeat 15px 11px }
+#stream article.conversation:hover  { background: url(/public/img/sources/conversation.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
+#stream article.nyt           { background: url(/public/img/sources/nyt.png) no-repeat 15px 11px }
+#stream article.nyt:hover     { background: url(/public/img/sources/nyt.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
+p.meta.ycombinator  { background: url(/public/img/sources/ycombinator.png) no-repeat top left }
+p.meta.nyt          { background: url(/public/img/sources/nyt.png) no-repeat top left }
+p.meta.conversation { background: url(/public/img/sources/conversation.png) no-repeat top left }
+
