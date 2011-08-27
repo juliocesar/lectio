@@ -3,7 +3,8 @@ jsdom   = require 'jsdom'
 util    = require 'util'
 fs      = require 'fs'
 
-jquery = fs.readFileSync("./jquery.min.js").toString();
+#jquery = fs.readFileSync("../jquery.min.js").toString();
+jquery = "../jquery.min.js"
 
 jsdom.defaultDocumentFeatures = {
   FetchExternalResources   : ['script']
