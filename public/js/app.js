@@ -1,13 +1,13 @@
 (function($, undefined) {  
   // Collections
   Lectio.StreamCollection = new StreamCollection;
-  //Lectio.StreamCollection.reset(Fixtures);
+  Lectio.ReadLaterCollection = new ReadingList;  
   Lectio.StreamCollection.fetch();
-  Lectio.ReadingList = new ReadingList;
   
   // Views
   Lectio.Stream = new Stream;
   Lectio.MainMenu = new MainMenu;
+  Lectio.ReadLater = new ReadLater;
   Lectio.Router = new Router;
   Backbone.history.start();
   
