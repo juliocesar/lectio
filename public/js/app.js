@@ -2,8 +2,7 @@
   // Collections
   Lectio.StreamCollection = new StreamCollection;
   //Lectio.StreamCollection.reset(Fixtures);
-  // Lectio.StreamCollection.fetch();
-  Lectio.StreamCollection.reset(Fixtures);
+  Lectio.StreamCollection.fetch();
   Lectio.ReadingList = new ReadingList;
   
   // Views
