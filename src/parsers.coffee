@@ -30,19 +30,24 @@ nytimes = (post, cb) ->
       util.log $('.articleBody').text()
       cb null,
         title: $('h1').text()
-        link: $('link[rel=canonical]').attr('href')
-        byline: $('.byline').text()
-        author: $('a[rel=author]').attr('href')
-        summary: $('.articleBody p').first().html()
+        published: new Date()
+        source:
+          url: $('link[rel=canonical]').attr('href')
+          name: "New York Times"
+        #byline: $('.byline').text()
+        #author: $('a[rel=author]').attr('href')
+        images: []
         body: $(el).html() for el in $('.articleBody')
 
 engadget = (post, cb) ->
   cb null
     title: post.title
+    published: new Date()
     source:
       link: post.link
       name: "Engadget"
-    summary: post.description
+    images: []
+    body: post.description
 
 hn = (post, cb) ->
   uri = post.description.match(/https?:\/\/[^\"]+/)[0]
@@ -53,17 +58,22 @@ hn = (post, cb) ->
       try
         cb null,
           title: post.title
-          link: post.link
-          alt: uri # TODO decide whether we want the HN uri as the 'link'
-          author: 'todo' # TODO grab the poster's nick
-          summary: ''
+          published: new Date()
+          source:
+            url: uri #post.link
+            name: "Hacker News"
+          images: []
+          #alt: uri # TODO decide whether we want the HN uri as the 'link'
       catch error
         cb error
 
 tc = (post, cb) ->
   cb null,
     title: post.title
-    link: post.link
+    published: new Date()
+    source:
+      url: post.link
+      name: "TheConversationEDU"
     body: post.content
 
 exports.retrieve = retrieve
