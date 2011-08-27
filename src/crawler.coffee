@@ -1,10 +1,8 @@
+require './db'
 parsers    = require './parsers'
 sources    = require './sources'
 Item       = require './item'
 util       = require 'util'
-mongoose   = require 'mongoose'
-
-mongoose.connect 'mongodb://localhost/lectio'
 
 exports.crawl = ->
   sources.engadget (posts) ->
