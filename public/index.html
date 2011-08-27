@@ -55,46 +55,6 @@
       </menu>
     </header>
     <div id="stream">
-      <article class="nyt">
-        <h1>Opinion: Quick Facebook Day was a success even as it flopped</h1>
-        <p>Test test test test test test test</p>
-      </article>
-      <article class="nyt">
-        <h1>Daily Deals: $928 MacBook Pro, App Store price drops, $39 1GB iPod Shuffle</h1>
-        <p>Test test test test test test test</p>
-      </article>
-      <article class="conversation">
-        <h1>Adobe Rolls out iPad-focused magazine publishing tools</h1>
-        <p>Test test test test test test test</p>
-      </article>
-      <article class="yc">
-        <h1>iPad RSS apps reviews</h1>
-        <p>Test test test test test test test</p>
-      </article>
-      <article class="yc">
-        <h1>Euro operators push cheap Android-based smartphones</h1>
-        <p>Test test test test test test test</p>
-      </article>
-      <article class="nyt">
-        <h1>Brazil takes off, kinda. Well, if you believe in it.</h1>
-        <p>Test test test test test test test</p>
-      </article>
-      <article class="conversation">
-        <h1>Adobe Rolls out iPad-focused magazine publishing tools</h1>
-        <p>Test test test test test test test</p>
-      </article>
-      <article class="conversation">
-        <h1>Opinion: Quick Facebook Day was a success even as it flopped</h1>
-        <p>Test test test test test test test</p>
-      </article>
-      <article class="yc">
-        <h1>iPad RSS apps reviews</h1>
-        <p>Test test test test test test test</p>
-      </article>
-      <article class="yc">
-        <h1>Adobe Rolls out iPad-focused magazine publishing tools</h1>
-        <p>Test test test test test test test</p>
-      </article>
     </div>
     <article id="reading-now">
       <header>
@@ -144,9 +104,67 @@
         Tech giant Apple,Inc. has got a new interim CEO as Mr. Jobs has taken a leave from the company due to his medical reasons. As we all are well aware of the fact that Steve had a liver transplant and due to which he has previously taken a break for his regular work at Apple and now he has taken a leave as his illness has been finally confirmed.The confirmation came out as the people working at Apple got a personal note from the CEO sayting that he won’t be working in the company anymore as he has been diagnosed with Terminal pancreatic Cancer due to which he won’t be able to live more that a few weeks(most 7 weeks as rumored).
       </p>
     </article>
-    <script src="/public/js/jquery-1.6.2.min.js"></script>    
+    <script type="text/template" id="preview-template">
+      <article class="<%= sourceClass %>" id="preview-<%= id %>">
+        <h1><%= title %></h1>
+        <p><%= summary %></p>
+      </article>
+    </script>
+    <script src="/public/js/jquery-1.6.2.min.js"></script>
+    <script src="/public/js/underscore-min.js"></script>
+    <script src="/public/js/backbone-min.js"></script>
+    <script>Lectio = {};</script>
+    <script src="/public/js/models.js"></script>
+    <script src="/public/js/stream.js"></script>
+    <script src="/public/js/app.js"></script>
+    
     <script>
-      
+      Fixtures = [
+        {
+          id: "123123",
+          title: "Opinion: Quit Facebook Day was a success even as it flopped",
+          body: "<p>Yes in my opinion that's all true and fine and yeah stuff.</p>",
+          source: {
+            name: "New York Times",
+            url: "http://somewherefoo.com/12312"
+          },
+          published: "January 1st, 2011",
+          images: []
+        },
+        {
+          id: "234234",
+          title: "Daily Deals: $928 MacBook Pro, App Store price drops, $39 1GB iPod Shuffle",
+          body: "<p>Daily deals bla bla bla.</p>",
+          source: {
+            name: "New York Times",
+            url: "http://somewherefoo.com/234234"
+          },
+          published: "January 1st, 2011",
+          images: []
+        },
+        {
+          id: "345345",
+          title: "Adobe Rolls out iPad-focused magazine publishing tools",
+          body: "<p>Test test test.</p>",
+          source: {
+            name: "ConversationEDU",
+            url: "http://conversation/1234"
+          },
+          published: "January 1st, 2011",
+          images: []
+        },
+        {
+          id: "456456",
+          title: "iPad RSS apps reviews",
+          body: "<p>Test test test.</p>",
+          source: {
+            name: "Hacker News",
+            url: "http://yc/1234"
+          },
+          published: "January 1st, 2011",
+          images: []
+        }
+      ];
     </script>
   </body>
 </html>
