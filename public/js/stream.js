@@ -45,6 +45,15 @@
       Lectio.StreamCollection.each(this.add);
     },
     
+    fixScrollbars : function() {
+      var self = this, timer;
+      this.el.scroll(function() {
+        self.el.removeClass('inactive');
+        clearTimeout(timer);
+        timer = setTimeout(function() { self.el.addClass('inactive'); }, 500);
+      });
+    },
+    
     read : function(id) {
       var item = Lectio.StreamCollection.get(id);
       if (!item || (this.reading.attr('data-id') === item.get('_id'))) return false;
@@ -58,7 +67,7 @@
             .attr('data-id', item.get('_id'))
             .addClass('reading');
         }, 
-      250);
+      270);
     }
   });
 })(jQuery);
