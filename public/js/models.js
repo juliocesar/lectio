@@ -1,5 +1,5 @@
 (function($, undefined) {
-  Item = Backbone.Model.extend({
+  Preview = Backbone.Model.extend({
     idAttribute : '_id',
     
     initialize : function() {
@@ -22,15 +22,17 @@
         case 'Engadget':
           return 'engadget';
         case 'Function Source':
-          return 'functionsource'
+          return 'functionsource';
         default:
           return 'foo';
       }
     }
   });
+  
+  Item = Preview.extend();
 
   StreamCollection = Backbone.Collection.extend({
-    model : Item,
+    model : Preview,
     url   : '/api/items'
   });
   

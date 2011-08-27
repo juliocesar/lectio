@@ -12,7 +12,7 @@
         .find('button')
           .click(function(event) {
             event.stopPropagation();
-            Lectio.ReadLaterCollection.add(self.model);
+            Lectio.ReadLaterCollection.create(self.model.attributes);
           });
       return this;
     },
@@ -85,6 +85,21 @@
   });
   
   ReadLater = Backbone.View.extend({
+    el : $('#read-later'),
     
+    initialize : function() {
+      _.bindAll(this, 'add', 'addBunch');
+      Lectio.ReadLaterCollection.bind('add',    this.add);
+      Lectio.ReadLaterCollection.bind('reset',  this.addBunch);
+      Lectio.ReadLaterCollection.fetch();
+    },
+    
+    add : function() {
+      
+    },
+    
+    addBunch : function() {
+      Lectio.ReadLaterCollection.each(this.add);
+    }
   });
 })(jQuery);
