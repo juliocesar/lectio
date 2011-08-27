@@ -1,0 +1,46 @@
+[
+  {
+    id: "123123",
+    title: "Opinion: Quit Facebook Day was a success even as it flopped",
+    body: "<p>Yes in my opinion that's all true and fine and yeah stuff.</p>",
+    source: {
+      name: "New York Times",
+      url: "http://somewherefoo.com/12312"
+    },
+    published: "January 1st, 2011",
+    images: []
+  },
+  {
+    id: "234234",
+    title: "Daily Deals: $928 MacBook Pro, App Store price drops, $39 1GB iPod Shuffle",
+    body: "<p>Daily deals bla bla bla.</p>",
+    source: {
+      name: "New York Times",
+      url: "http://somewherefoo.com/234234"
+    },
+    published: "January 1st, 2011",
+    images: []
+  },
+  {
+    id: "345345",
+    title: "Adobe Rolls out iPad-focused magazine publishing tools",
+    body: "<p>Test test test.</p>",
+    source: {
+      name: "Conversation EDU",
+      url: "http://conversation/1234"
+    },
+    published: "January 1st, 2011",
+    images: []
+  },
+  {
+    id: "456456",
+    title: "iPad RSS apps reviews",
+    body: "<p>Test test test.</p>",
+    source: {
+      name: "Hacker News",
+      url: "http://yc/1234"
+    },
+    published: "January 1st, 2011",
+    images: []
+  }
+]
