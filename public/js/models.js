@@ -3,7 +3,11 @@
     idAttribute : '_id',
     
     initialize : function() {
-      this.set({ summary      : $(this.get('body')).text().ellipsisAfter(20) });      
+      if (this.has('body')) {
+        this.set({ summary : $(this.get('body')).text().ellipsisAfter(20) });
+      } else {
+        this.set({ body : '', summary : '' });
+      }
       this.set({ sourceClass  : this.sourceClass(this.get('source').name) });
     },
     
