@@ -139,7 +139,7 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 #main-menu button { border: 0; margin-right: 20px; color: #fff; background: transparent }
 
 /* Stream */
-#stream { left: 0; padding: 6px 0 6px 0; width: 360px; border-right: 1px solid #ccc }
+#stream { left: 0; padding: 70px 0 6px 0; width: 360px; border-right: 1px solid #ccc }
 #stream article {  margin: 0 0 0 6px; padding: 10px 20px 10px 40px; cursor: pointer }
 #stream article:hover { background: rgba(0,0,0,0.1) }
 #stream article h1 { font-size: 1.5em }
