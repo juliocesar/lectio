@@ -203,11 +203,11 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 #stream article.conversation:hover  { background: url(/img/sources/conversation.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
 #stream article.nyt           { background: url(/img/sources/nyt.png) no-repeat 15px 11px }
 #stream article.nyt:hover     { background: url(/img/sources/nyt.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
-#stream article.endgadget           { background: url(/img/sources/endgadget.png) no-repeat 15px 11px }
-#stream article.endgadget:hover     { background: url(/img/sources/endgadget.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
+#stream article.engadget           { background: url(/img/sources/engadget.png) no-repeat 15px 11px }
+#stream article.engadget:hover     { background: url(/img/sources/engadget.png) no-repeat 15px 11px, rgba(0,0,0,0.1) }
 p.meta.yc           { background: url(/img/sources/ycombinator.png) no-repeat top left }
 p.meta.nyt          { background: url(/img/sources/nyt.png) no-repeat top left }
-p.meta.endgadget    { background: url(/img/sources/endgadget.png) no-repeat top left }
+p.meta.engadget    { background: url(/img/sources/engadget.png) no-repeat top left }
 p.meta.conversation { background: url(/img/sources/conversation.png) no-repeat top left }
 
 /* Read later */
