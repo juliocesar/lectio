@@ -128,6 +128,7 @@ article ul        { list-style-position: inside }
 #main-menu h1 { margin: 2px 0 0 7px; font: 700 1.6em 'PT Sans Narrow'; color: #fff; vertical-align: bottom; text-transform: uppercase }
 #main-menu h1 a {color: #fff; text-decoration: none;}
 #main-menu button { margin-right: 20px; color: #fff }
+#main-menu .vote {background: #fff; border-radius: 1ex; -webkit-border-radius: 1ex; -moz-border-radius: 1ex; padding: 8px 6px 6px 12px; position: absolute; right: 12px; top: 7px;}
 
 /* Stream */
 #stream { left: 0; padding: 70px 0 6px 0; width: 360px; border-right: 1px solid #ccc }

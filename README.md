@@ -8,3 +8,4 @@ Things to fix:
  - proper ipad stylings
  - read later
  - search
+ - find date parsing JS library
