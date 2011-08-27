@@ -22,24 +22,20 @@ retrieve = (uri, cb) ->
         cb err, window?.jQuery
 
 nytimes = (post, cb) ->
-  uri = post.link
-  retrieve uri, (error, $) ->
-    if error
-      cb error
-    else
-      $ ->
-        cb null,
-          title: $('h1').text()
-          published: new Date()
-          source: "New York Times"
-          url: $('link[rel=canonical]').attr('href')
-          #byline: $('.byline').text()
-          #author: $('a[rel=author]').attr('href')
-          images: []
-          body: $(el).html() for el in $('.articleBody')
+  retrieve post.uri, (error, $) ->
+    return cb error if error
+    $ -> cb null,
+      title: $('h1').text()
+      published: new Date()
+      source: "New York Times"
+      url: $('link[rel=canonical]').attr('href')
+      #byline: $('.byline').text()
+      #author: $('a[rel=author]').attr('href')
+      images: []
+      body: $(el).html() for el in $('.articleBody')
 
 engadget = (post, cb) ->
-  cb null
+  cb null,
     title: post.title
     published: new Date()
     source: "Engadget"
@@ -50,20 +46,17 @@ engadget = (post, cb) ->
 hn = (post, cb) ->
   uri = post.description.match(/https?:\/\/[^\"]+/)[0]
   retrieve uri, (error, $) ->
-    if error
+    return cb error if error
+    try
+      cb null,
+        title: post.title
+        published: new Date()
+        source: "Hacker News"
+        url: uri #post.link
+        images: []
+        body: post.description
+    catch error
       cb error
-    else
-      try
-        cb null,
-          title: post.title
-          published: new Date()
-          source: "Hacker News"
-          url: uri #post.link
-          images: []
-          body: post.description
-          #alt: uri # TODO decide whether we want the HN uri as the 'link'
-      catch error
-        cb error
 
 functionsource = (post, cb) ->
   cb null,
@@ -83,7 +76,6 @@ tc = (post, cb) ->
     url: post.link
     body: post.content
 
-exports.retrieve = retrieve
 exports.nytimes = nytimes
 exports.engadget = engadget
 exports.hn = hn
