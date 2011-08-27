@@ -142,12 +142,13 @@ button { border: 0; background: transparent }
 
 /* General article styles' */
 article     { text-shadow: 1px 1px 0px #fff }
-article h1  { color: #333; font-family: 'PT Sans Narrow'; font-weight: 700 }
-article p   { color: #666; font-family: 'Abel' }
+article h1, h2, h3, h4, h5 { color: #333; font-weight: 700 }
+article h1  { font-family: 'PT Sans Narrow' }
+article p, article figcaption { color: #666; font-family: 'Abel' }
 article p.meta { color: #999; padding-left: 21px }
 article em,
 article strong { font-weight: bold }
-article a   { cursor: pointer; border-bottom: 1px dotted #333 }
+article a   { cursor: pointer; border-bottom: 1px dotted #333; color: inherit; text-decoration: none }
 article img       { border-radius: 4px }
 article img.small { width: 200px }
 article img.right { float: right; margin: 0.25em 0 1em 1em }
@@ -176,7 +177,15 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 
 /* Reading now */
 #reading-now { left: 360px; right: 0; padding: 70px 60px 20px }
-#reading-now h1 { font-size: 3.4em; color: #333 }
+#reading-now header h1 { font-size: 3.4em; color: #333 }
+#reading-now > h1, #reading-now > h2,
+#reading-now > h3, #reading-now > h4,
+#reading-now > h5, #reading-now > h6 { margin-top: 0.5em }
+#reading-now h1 { font-size: 2.8em }
+#reading-now h2 { font-size: 2.4em }
+#reading-now h3 { font-size: 2.2em }
+#reading-now h4 { font-size: 2em }
+
 #reading-now p  { font-size: 1.45em; line-height: 1.5em; margin: 0.5em 0 }
 #reading-now p.meta { line-height: 1.2em; margin: 0; font-size: 1.25em }
 #reading-now p.meta a { margin-left: 5px; border: 0 }

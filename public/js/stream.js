@@ -59,11 +59,11 @@
     
     fixScrollbars : function() {
       var self = this, timer;
-      this.el.scroll(function() {
+      this.el.scroll(_.throttle(function() {
         self.el.removeClass('inactive');
         clearTimeout(timer);
         timer = setTimeout(function() { self.el.addClass('inactive'); }, 500);
-      });
+      }, 250));
     },
     
     read : function(id) {
@@ -78,6 +78,7 @@
             .html(article.render().el.innerHTML)
             .attr('data-id', item.get('_id'))
             .addClass('reading');
+          self.reading.scrollTop(0);
         }, 
       270);
     }
