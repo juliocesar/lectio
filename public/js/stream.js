@@ -2,16 +2,27 @@
   PreviewView = Backbone.View.extend({
     template  : _.template($('#preview-template').html()),
     events    : {
-      'click' : 'read'
+      'click'         : 'read'
     },
         
     render : function() {
-      $(this.el).html(this.template(this.model.toJSON()));
+      var self = this;
+      $(self.el)
+        .html(self.template(self.model.toJSON()))
+        .find('button')
+          .click(function(event) {
+            event.stopPropagation();
+            Lectio.ReadingList.add(self.model);
+          });
       return this;
     },
     
     read : function() {
       Lectio.Router.navigate('/items/' + this.model.get('_id'), true);
+    },
+    
+    readLater : function(event) {
+      Lectio.ReadingList.add(this.model);
     }
   });
   
