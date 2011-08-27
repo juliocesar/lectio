@@ -154,9 +154,10 @@ article img.right { float: right; margin: 0.25em 0 1em 1em }
 
 /* Top menu */
 #main-menu { left: 0; right: 0; padding: 12px 20px 10px; background: #000; background: rgba(0,0,0,0.8); box-shadow: 0 3px 5px rgba(0,0,0,0.2); z-index: 10 }
-#main-menu > * { float: left  }
+#main-menu > * { float: left }
 #main-menu menu { margin-left: 100px }
 #main-menu h1 { margin: 2px 0 0 7px; font: 700 1.6em 'PT Sans Narrow'; color: #fff; vertical-align: bottom; text-transform: uppercase }
+#main-menu h1 a {color: #fff; text-decoration: none;}
 #main-menu button { margin-right: 20px; color: #fff }
 
 /* Stream */
