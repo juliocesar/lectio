@@ -19,7 +19,7 @@ retrieve = (uri, cb) ->
       cb error
     else
       jsdom.env { html: body, scripts: [jquery] }, (err, window) ->
-        cb null, window.jQuery
+        cb err, window?.jQuery
 
 nytimes = (post, cb) ->
   uri = post.link
