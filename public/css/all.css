@@ -114,7 +114,7 @@ button {  width: auto; overflow: visible; }
 /* End reset */
 
 html, body  { height: 100%; width: 100%; color: #fff; font-family: 'PT Sans Narrow' }
-body        { background: #eeedec url(/img/noise.png) repeat; overflow: hidden }
+body        { background: #eeedec url(/img/noise.png) repeat }
 #main-menu, #stream, #reading-now { position: absolute }
 #stream, #reading-now {
   padding-top: 70px;
@@ -139,6 +139,9 @@ body.read-later #read-later   { opacity: 1; pointer-events: auto }
 
 /* Shit that's a given */
 button { border: 0; background: transparent }
+
+/* Scrollability */
+.scrollable { -webkit-transform: translate3d(0,0,0) }
 
 /* General article styles' */
 article     { text-shadow: 1px 1px 0px #fff; color: #666; font-family: 'Abel' }
@@ -176,11 +179,6 @@ article ul        { list-style-position: inside }
 #stream::-webkit-scrollbar { width: 6px; padding: 18px; -webkit-border-radius: 1ex; opacity: 0 }
 #stream::-webkit-scrollbar-thumb { padding: 8px; width: 8px; height: 6px; background-color: rgba(0,0,0,0.2); -webkit-border-radius: 1ex }
 #stream.inactive::-webkit-scrollbar-thumb {background: rgba(0,0,0,0)}
-
-/* Scrollabality */
-.scrollable {
-    -webkit-transform: translate3d(0,0,0);
-}
 
 /* Reading now */
 #reading-now { left: 360px; right: 0; padding: 70px 60px 20px }
@@ -237,4 +235,4 @@ p.meta.flickr { background-image: url(/img/sources/flickr.jpg) }
 #read-later menu      { position: absolute; bottom: 0; right: 0; left: 0; padding: 12px 20px 10px 40px; box-shadow: 0 -1px 3px rgba(0,0,0,0.2); z-index: 10 }
 #read-later menu > *  { float: left }
 #read-later menu.yc   { background: url(/img/sources/ycombinator.png) no-repeat 15px 15px, rgba(255,255,255,0.8) }
-#read-later h1        { width: 400px; font-size: 1.6em; color: #cccccc  }
+#read-later h1        { width: 400px; font-size: 1.6em; color: #ccc  }

@@ -7,7 +7,6 @@ app = require('zappa').app {lectio}, ->
 
   use 'static'
 
-  get '/': 'hi'
   get '/api/items': ->
     lectio.Item.find {}, (err, items) =>
       json = (item.clientJSON() for item in items)
