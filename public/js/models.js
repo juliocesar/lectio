@@ -1,5 +1,5 @@
 (function($, undefined) {
-  Preview = Backbone.Model.extend({
+  Item = Backbone.Model.extend({
     idAttribute : '_id',
     
     initialize : function() {
@@ -20,7 +20,12 @@
   });
 
   StreamCollection = Backbone.Collection.extend({
-    model : Preview,
+    model : Item,
     url   : '/api/items.json'
+  });
+  
+  ReadingList = Backbone.Collection.extend({
+    model         : Item,
+    localStorage  : new Store('reading-list-yo')
   });
 })(jQuery);
