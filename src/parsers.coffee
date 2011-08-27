@@ -66,7 +66,6 @@ functionsource = (post, cb) ->
     url: post.link
     images: []
     body: post.content
-  #console.log post
 
 tc = (post, cb) ->
   cb null,
@@ -76,8 +75,18 @@ tc = (post, cb) ->
     url: post.link
     body: post.content
 
+usesthis = (post, cb) ->
+  #console.log post
+  cb null,
+    title: post.title
+    published: post.published
+    source: "The Setup"
+    url: post.link
+    body: ''
+
 exports.nytimes = nytimes
 exports.engadget = engadget
 exports.hn = hn
 exports.functionsource = functionsource
 exports.tc = tc
+exports.usesthis = usesthis
