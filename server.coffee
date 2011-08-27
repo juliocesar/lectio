@@ -1,6 +1,8 @@
 lectio = require './lectio'
+nko = require('nko')('DFw7dX4Eim56nfD9')
 
-require('zappa') {lectio}, ->
+port = parseInt(process.env.PORT) || 7777
+require('zappa') port, {lectio}, ->
   requiring 'util'
   def lectio: lectio
 
