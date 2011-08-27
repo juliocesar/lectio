@@ -1,17 +1,25 @@
 {
-  "author": "Shambolic",
-  "name": "shambolic",
-  "description": "Lectio: a reader",
-  "version": "0.0.1",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/nko2/shambolic.git"
-  },
-  "engines": {
-    "node": "~v0.4.8"
-  },
-  "dependencies": {
-    "nko": "~0.1.1"
-  },
-  "devDependencies": {}
+    "author": "Shambolic",
+    "description": "Lectio: a reader",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/nko2/shambolic.git"
+    },
+    "engines": {
+        "node": "~v0.4.8"
+    },
+    "name": "lectio",
+    "version": "0.1.0",
+    "dependencies": {
+        "nko": "~0.1.1"
+        "coffee-script": "1.1.2",
+        "zappa": "0.2.0beta",
+        "jsdom": "0.2.3",
+        "easyrss": "0.2.3",
+        "request": "2.1.1",
+        "mongoose": "2.0.2"
+    },
+    "scripts": {
+        "start": "coffee server.coffee"
+    }
 }
