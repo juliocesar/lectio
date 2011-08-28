@@ -19,6 +19,13 @@ app = require('zappa').app {lectio}, ->
       json = (item.clientJSON())
       send json
 
+  get '/api/items/:id': ->
+    lectio.Item.findOne {_id: @id}, (err, item) =>
+      if err
+        # TODO send a 404
+      else
+        send item.clientJSON()
+
 port = if process.env.NODE_ENV == 'production' then 80 else 8000
 app.app.listen port, ->
   console.log 'Ready'
