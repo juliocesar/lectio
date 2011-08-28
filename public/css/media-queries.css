@@ -1,0 +1,58 @@
+/* Media Queries FTW */
+
+/* Small screen! */
+@media screen and (max-device-width: 480px),
+screen and (max-width: 600px) {
+    /* Magic incantations to make iOS and Windows Mobile happy with font-size changes */
+    html {
+        -ms-text-size-adjust: none;
+        -webkit-text-size-adjust: none;
+    }
+
+}
+
+/* iPhone landscape mojo */
+@media screen and (min-width:321px) and (max-width:480px) {
+
+}
+
+/* it's probably an iPad */
+@media screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+    body {font-size: 0.8em;}
+
+    #main-menu .vote {top: 0.35em;}
+
+    #stream, #reading-now {overflow-y: visible;}
+    #stream {width: 300px;}
+    #reading-now { left: 300px; right: 0; padding: 70px 30px 20px }
+}
+
+
+/* portrait iPad */
+@media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+
+    #stream {font-size: 0.8em; width: 240px;}
+    #reading-now { left: 240px;}
+    #stream article {background-position: 5px 11px; margin: 0; padding: 10px 20px 10px 30px;}
+    #stream article:hover {background-position: 5px 11px}
+
+}
+
+/* landscape iPad */
+@media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+/*    * { background: blue !important; }*/
+
+}
+
+/* Still small! (but scaling up) */
+@media screen and (min-width: 600px) {
+
+}
+/* Desktop! */
+@media screen and (min-width: 860px) {
+
+}
+/* IT'S OVER 9000 */
+@media screen and (min-width: 1200px) {
+
+}
