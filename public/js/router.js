@@ -9,6 +9,7 @@
     },
     
     root : function() {
+      console.log("ROUTE");
       this.body.removeClass('read-later');
     },
     

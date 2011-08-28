@@ -4,7 +4,7 @@
   Lectio.ReadLaterCollection = new ReadLaterCollection;
   Lectio.Items.fetch({
     success : function() {
-      Lectio.Stream.read(Lectio.Items.at(0));
+      if (!location.hash) Lectio.Stream.read(Lectio.Items.at(0));
     }
   });
 
