@@ -1,7 +1,7 @@
 Lectio = {};
 
 (function($, undefined) {
-  Preview = Backbone.Model.extend({
+  Item = Backbone.Model.extend({
     idAttribute : '_id',
     
     initialize : function() {
@@ -11,7 +11,7 @@ Lectio = {};
       } else {
         this.set({ body : '', summary : '' });
       }
-      this.set({ sourceClass : this.sourceClass(this.get('source').name) });
+      if (this.has('source')) this.set({ sourceClass : this.sourceClass(this.get('source').name) });
     },
     
     sourceClass : function(name) {
@@ -35,19 +35,19 @@ Lectio = {};
       }
     }
   });
-  
-  Item = Preview.extend();
 
-  StreamCollection = Backbone.Collection.extend({
-    model      : Preview,
-    url        : '/api/items',
+  ReadLaterItem = Item.extend();
+
+  ItemsCollection = Backbone.Collection.extend({
+    model : Item,
+    url   : '/api/items',
     comparator : function(item) {
       return item.get("date");
     }
   });
-  
-  ReadingList = Backbone.Collection.extend({
-    model         : Item,
+
+  ReadLaterCollection = Backbone.Collection.extend({
+    model         : ReadLaterItem,
     localStorage  : new Store('reading-list-yo')
   });
 })(jQuery);
