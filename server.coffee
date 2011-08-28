@@ -16,9 +16,10 @@ assetManagerGroups =
     files: [ "prototypes.js", "jquery-1.6.2.min.js", "underscore-min.js", "backbone.js", "localstorage.js", "scrollability.js", "pretty-date.js", "jquery.tipsy.js", "models.js", "views.js", "router.js", "focusmanager.js", "offlinemanager.js", "app.js" ]
     route: /\/js\/lectio.js/
   css:
+    debug: true
     dataType: "css"
     path: __dirname + "/public/css/"
-    files: [ "reset.css", "main.css", "media-queries.css", "tipsy.css" ]
+    files: [ "reset.css", "images.css", "main.css", "media-queries.css", "tipsy.css" ]
     route: /\/css\/lectio.css/
 assetsManagerMiddleware = assetManager(assetManagerGroups)
 
@@ -28,8 +29,7 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
   requiring 'util'
   def lectio: lectio
 
-  # use gzip.gzip(), assetsManagerMiddleware, 'static'
-  use assetsManagerMiddleware, 'static'
+  use gzip.gzip(), assetsManagerMiddleware, 'static'
 
   io.configure 'production', ->
     io.enable 'browser client minification'
@@ -45,7 +45,7 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
 
   get '/': ->
     response.render 'index.ejs', locals: {env: process.env.NODE_ENV}, layout: false
-  
+
   get '/api/items': ->
     query = lectio.Item.find({})
     query.sort 'published', -1
@@ -75,10 +75,10 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
 
     connect document.location.origin
 
-lectio.Item.on 'save', (item) ->
+lectio.Item.on 'new', (item) ->
   console.log "Broadcasting!"
   try
-    app.io.sockets.emit 'item', item: item # item.clientJSON()
+    app.io.sockets.emit 'item', item: item.clientJSON()
   catch error
     console.log error.stack
 
