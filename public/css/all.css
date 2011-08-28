@@ -77,7 +77,7 @@ a:link { -webkit-tap-highlight-color: #FF5E99; }
 button {  width: auto; overflow: visible; }
 /* End reset */
 
-html, body  { height: 100%; width: 100%; color: #fff; font-family: 'PT Sans Narrow' }
+html, body  { height: 100%; width: 100%; color: #fff; font-family: 'Abel' }
 body        { background: #eeedec url(/img/noise.png) repeat; overflow: hidden }
 #main-menu, #stream, #reading-now, #read-later { position: absolute }
 #stream, #reading-now, #read-later {
@@ -132,18 +132,20 @@ article ul        { list-style-position: inside }
 #main-menu > * { float: left }
 #main-menu menu { margin-left: 100px }
 #main-menu h1 { margin: 2px 0 0 7px; font: 700 1.6em 'PT Sans Narrow'; color: #fff; vertical-align: bottom; text-transform: uppercase }
-#main-menu h1 a {color: #fff; text-decoration: none;}
+#main-menu h1 a { color: #fff; text-decoration: none }
 #main-menu button { margin-right: 20px; color: #fff }
-#main-menu .vote {background: #fff; border-radius: 1ex; -webkit-border-radius: 1ex; -moz-border-radius: 1ex; padding: 8px 6px 6px 12px; position: absolute; right: 12px; top: 7px;}
+#main-menu .vote { background: #fff; border-radius: 1ex; -webkit-border-radius: 1ex; -moz-border-radius: 1ex; padding: 8px 6px 6px 12px; position: absolute; right: 12px; top: 7px }
 
 /* Stream */
 #stream { left: 0; padding: 70px 0 6px 0; width: 360px; border-right: 1px solid #ccc }
 #stream article { position: relative; margin: 0 0 0 6px; padding: 10px 20px 10px 40px; cursor: pointer }
 #stream article:hover { background: rgba(0,0,0,0.1) }
-#stream article h1 { font-size: 1.5em }
+#stream article h1 { margin-right: 5px; font-size: 1.5em }
 #stream article p  { font-size: 1.25em }
 #stream article button { position: absolute; top: 8px; right: 3px; padding: 0; border: 0; background: transparent; opacity: 0 }
 #stream article:hover button { opacity: 1 }
+#stream article.in-read-later button,
+#stream article.in-read-later:hover button { opacity: 1}
 #stream article,
 #stream article button { -moz-transition: all 0.25s linear; -webkit-transition: all 0.25s linear; transition: all 0.25s linear }
 #stream::-webkit-scrollbar { width: 6px; padding: 18px; -webkit-border-radius: 1ex; opacity: 0 }
@@ -203,9 +205,9 @@ p.meta.functionsource             { background-image: url(/img/sources/functions
 p.meta.flickr                     { background-image: url(/img/sources/flickr.jpg) }
 
 /* Read later */
-#read-later-menu      { position: absolute; bottom: 0; right: 0; left: 0; padding: 12px 20px 10px 75px; color: #999; box-shadow: 0 -1px 3px rgba(0,0,0,0.2); z-index: 10; background: rgba(255,255,255,0.8) }
+#read-later-menu      { position: absolute; bottom: 0; right: 0; left: 0; padding: 12px 75px 10px; color: #999; box-shadow: 0 -1px 3px rgba(0,0,0,0.2); z-index: 10; background: rgba(255,255,255,0.8) }
 #read-later-menu > *  { float: left }
-#read-later-menu h1   { margin-left: 20px; font-size: 1.6em; line-height: 22px }
+#read-later-menu h1   { margin-left: 20px; font-size: 1.6em; line-height: 22px; min-width: 300px }
 #current-article      { display: block; font-size: 1.6em; margin: 0 5px }
 #read-later-menu.yc   { background: url(/img/sources/ycombinator.png) no-repeat 15px 15px, rgba(255,255,255,0.8) }
 #read-later { overflow-x: hidden }
@@ -250,3 +252,6 @@ p.meta.flickr                     { background-image: url(/img/sources/flickr.jp
 #read-later article ol { font-size: 1.45em; line-height: 1.5em; margin: 0.5em 0 }
 #read-later article p.meta { line-height: 1.2em; margin: 0; font-size: 1.25em }
 #read-later article p.meta a { margin-left: 5px; border: 0 }
+#empty    { position: relative; width: 550px; top: 50%; margin: -120px auto auto; color: #666; text-align: center }
+#empty h1 { font: 700 3em 'PT Sans Narrow' } 
+#empty p  { font: normal 1.8em 'Abel' }

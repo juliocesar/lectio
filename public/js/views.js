@@ -5,7 +5,11 @@
     events    : {
       'click' : 'read'
     },
-        
+
+    initialize : function() {
+      this.model.preview = this;
+    },
+
     render : function() {
       var self = this;
       $(self.el)
@@ -17,21 +21,22 @@
             event.stopPropagation();
             Lectio.ReadLaterCollection.create(self.model.attributes);
           });
+      $(self.el).find('button').tipsy({ title: 'data-title', fade : true, gravity: 'w'});
       return this;
     },
-    
+
     read : function() {
       Lectio.Router.navigate('/items/' + this.model.get('_id'), true);
     },
-    
+
     readLater : function(event) {
       Lectio.ReadLaterCollection.add(this.model);
     }
   });
-  
+
   var ArticleView = Backbone.View.extend({
     template : _.template($('#article-template').html()),
-    
+
     render : function() {
       $(this.el)
         .html(this.template(this.model.toJSON()))
@@ -39,29 +44,43 @@
       return this;
     }
   });
-    
+
   Stream = Backbone.View.extend({
     el      : $('#stream'),
     reading : $('#reading-now'),
-    
+
     initialize : function() {
-      _.bindAll(this, 'add', 'addBunch', 'read', 'fetch');
-      Lectio.Items.bind('add',   this.add);
-      Lectio.Items.bind('reset', this.addBunch);
+      _.bindAll(this, 'add', 'addBunch', 'read', 'fetch', 'highlight', 'highlightAll');
+      Lectio.Items.bind('add',    this.add);
+      Lectio.Items.bind('add',    this.highlight);
+      Lectio.Items.bind('reset',  this.addBunch);
+      Lectio.Items.bind('reset',  this.highlightAll);
       Lectio.Items.trigger('reset');
       this.fixScrollbars();
     },
+
+    highlight : function(item) {
+      var preview = this.el.find('#preview-' + item.get('_id'));
+      preview.addClass('in-read-later');
+    },
     
+    highlightAll : function() {
+      var self = this;
+      Lectio.ReadLaterCollection.each(function(item) {
+        self.highlight(item);
+      });
+    },
+
     add : function(item) {
       var view = new PreviewView({ model : item });
       this.el.append(view.render().el);
       return this;
     },
-    
+
     addBunch : function() {
       Lectio.Items.each(this.add);
     },
-    
+
     fixScrollbars : function() {
       var self = this, timer;
       this.el.scroll(_.throttle(function() {
@@ -70,7 +89,7 @@
         timer = setTimeout(function() { self.el.addClass('inactive'); }, 500);
       }, 250));
     },
-    
+
     read : function(id) {
       var self = this, item = Lectio.Items.get(id);
       if (item && self.reading.attr('data-id') === item.get('_id')) return false;
@@ -84,14 +103,13 @@
             .attr('data-id', item.get('_id'))
             .addClass('reading');
           self.reading.scrollTop(0);
-          self.currentItem = item;
-        }, 
+        },
       270);
     },
-    
+
     fetch : function(id, callback) {
       var item = new Item;
-      item.fetch({ 
+      item.fetch({
         url : '/api/items/' + id,
         success : function(model, response) {
           item.initialize();
@@ -101,35 +119,40 @@
       });
     }
   });
-  
+
   var ReadLaterArticleView = Backbone.View.extend({
     tagName   : 'article',
     template  : _.template($('#read-later-template').html()),
-    
+
     initialize : function() {
       this.model.viewLater = this;
     },
-    
+
     render : function() {
-      $(this.el).html(this.template(this.model.toJSON()));
-      return this;      
+      $(this.el)
+        .html(this.template(this.model.toJSON()))
+        .attr('data-id', this.model.get('_id'));
+      return this;
     }
   });
-  
+
   ReadLaterMenu = Backbone.View.extend({
     el      : $('#read-later-menu'),
     current : $('#current-article'),
     events  : {
       'click #go-next'      : 'next',
-      'click #go-previous'  : 'previous'
+      'click #go-previous'  : 'previous',
+      'click #remove'       : 'remove'
     },
-    
+
     initialize : function() {
       _.bindAll(this, 'updateCurrent');
-      Lectio.ReadLater.bind('open', this.updateCurrent);
+      Lectio.ReadLater.bind('open',   this.updateCurrent);
+      Lectio.ReadLaterCollection.bind('remove', this.updateCurrent);
+      this.el.find('#remove').tipsy({ title : 'data-title', fade : true, gravity : 's' });
       this.setupArrowsBindings();
     },
-    
+
     setupArrowsBindings : function() {
       var self = this;
       $(window).keydown(function(event) {
@@ -145,15 +168,25 @@
         }
       });
     },
-    
+
     next : function() {
       Lectio.ReadLater.next();
     },
-    
+
     previous : function() {
       Lectio.ReadLater.previous();
     },
     
+    remove : function() {
+      var article = Lectio.ReadLater.el.find('.current'),
+          id = article.attr('data-id'),
+          item = Lectio.ReadLaterCollection.get(id),
+          next = Lectio.ReadLaterCollection.indexOf(item) + 1;
+      item.destroy();
+      if (Lectio.ReadLaterCollection.length)
+        Lectio.ReadLater.open(Lectio.ReadLaterCollection.at(next) || Lectio.ReadLaterCollection.last());
+    },
+
     updateCurrent : function(item) {
       this.el.find('h1')
         .html(item.get('title'));
@@ -162,27 +195,54 @@
       );
     }
   });
-  
+
   ReadLater = Backbone.View.extend({
     el : $('#read-later'),
-    
+
     initialize : function() {
-      _.bindAll(this, 'add', 'addBunch', 'open', 'next', 'previous');
+      _.bindAll(this, 'add', 'addBunch', 'open', 'next', 'previous', 'isEmpty');
       Lectio.ReadLaterCollection.bind('add',    this.add);
+      Lectio.ReadLaterCollection.bind('add',    this.isEmpty);
+      Lectio.ReadLaterCollection.bind('add',    this.highlightPreview);
+      Lectio.ReadLaterCollection.bind('remove', this.remove);
+      Lectio.ReadLaterCollection.bind('remove', this.isEmpty);
+      // Lectio.ReadLaterCollection.bind('remove', this.deHighlightPreview);
       Lectio.ReadLaterCollection.bind('reset',  this.addBunch);
+      Lectio.ReadLaterCollection.bind('reset',  this.isEmpty);
       Lectio.ReadLaterCollection.fetch();
     },
-    
+
     add : function(item) {
       var view = new ReadLaterArticleView({ model : item });
       this.el.append(view.render().el);
-      return this; 
+      return this;
     },
-    
+
     addBunch : function() {
       Lectio.ReadLaterCollection.each(this.add);
     },
     
+    isEmpty : function() {
+      if (Lectio.ReadLaterCollection.length) {
+        this.el.find('#empty').hide();
+        $('#read-later-menu').show();
+      } else {
+        this.el.find('#empty').show();
+        $('#read-later-menu').hide();
+      }
+    },
+        
+    remove : function(item) {
+      item.viewLater.remove();
+    },
+
+    highlightPreview : function(model) {
+      var preview = Lectio.Stream.el.find('#preview-' + model.get('_id'));
+      preview
+        .addClass('in-read-later')
+        .find('svg').attr('fill', '#000');
+    },
+
     open : function(item) {
       this.currentItem = item;
       var article = $(item.viewLater.el);
@@ -194,32 +254,37 @@
       this.el.find('article').not(article).removeClass('current');
       this.trigger('open', item);
     },
-    
+
     next : function() {
       var nextIndex = Lectio.ReadLaterCollection.indexOf(this.currentItem);
       if (nextIndex == -1 || nextIndex >= Lectio.ReadLaterCollection.length - 1) {
         return false;
       } else {
         return this.open(Lectio.ReadLaterCollection.at(nextIndex + 1));
-      }   
+      }
     },
-    
+
     previous : function() {
       var prevIndex = Lectio.ReadLaterCollection.indexOf(this.currentItem);
       if (prevIndex <= 0) {
         return false;
       } else {
         return this.open(Lectio.ReadLaterCollection.at(prevIndex - 1));
-      }      
+      }
     }
   });
-  
+
   MainMenu = Backbone.View.extend({
     el      : $('#main-menu menu'),
     events  : {
       'click #go-read-later' : 'readLater'
     },
-    
+
+    initialize : function() {
+      this.el.find('#go-read-later').tipsy({ title : 'data-title', gravity : 'n' });
+
+    },
+
     readLater : function() {
       Lectio.Router.navigate('/read-later', true);
     }

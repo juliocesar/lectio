@@ -20,7 +20,11 @@
     
     readLater : function() {
       this.body.addClass('read-later');
-      Lectio.ReadLater.open(Lectio.ReadLaterCollection.at(0));
+      if (Lectio.ReadLaterCollection.length) {
+        Lectio.ReadLater.open(Lectio.ReadLaterCollection.at(0));
+      } else {
+        Lectio.ReadLater.isEmpty();
+      }
     }
   });
 })(jQuery);

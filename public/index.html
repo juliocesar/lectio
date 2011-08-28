@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,max-scale=1,user-scalable=0">
     <link rel='stylesheet' href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|Abel|Questrial">
     <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="/css/tipsy.css">
     <script src="/js/modernizr-custom.js"></script>
   </head>
   <body>
@@ -23,13 +24,13 @@
       </a>
       <h1><a href="/">Lectio</a></h1>
       <menu>
-        <button id="go-search">
+        <!-- <button id="go-search">
           <svg version="1.0" class="search_icon" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 100 99.988" enable-background="new 0 0 100 99.988">
           <path fill="#fff" d="M61.912,76.213c-10.179,0-19.749-3.964-26.945-11.162c-7.197-7.197-11.162-16.767-11.162-26.945s3.965-19.748,11.162-26.945  C42.162,3.963,51.731,0,61.911,0C72.09,0,81.659,3.963,88.856,11.162c14.857,14.855,14.857,39.031,0.001,53.889  C81.66,72.25,72.091,76.213,61.912,76.213L61.912,76.213z M61.911,6.57c-8.424,0-16.344,3.279-22.299,9.235  c-12.297,12.297-12.297,32.305,0,44.602c5.957,5.955,13.875,9.235,22.3,9.235c8.424,0,16.344-3.28,22.3-9.235  c5.956-5.958,9.237-13.878,9.237-22.302s-3.281-16.342-9.238-22.3C78.254,9.851,70.334,6.57,61.911,6.57L61.911,6.57z"/>
           <polygon fill="#fff" points="7.742,99.988 0,92.248 27.928,64.319 35.67,72.06 7.742,99.988 "/>
           </svg>
-        </button>
-        <button id="go-read-later">
+        </button> -->
+        <button id="go-read-later" data-title="Reading area">
           <svg version="1.0" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 67.541 100" enable-background="new 0 0 67.541 100"><path fill="#fff" d="M67.541,0L14.616,2.714L0,7.311V73.49l45.855,26.474V100l0.039-0.012l0,0l16.991-5.338V66.18h4.655V0z M60.492,93.025l-12.223,3.94V33.062L4.358,7.571l12.081-3.804l44.071,25.444L60.492,66.18V93.025z"/>
           </svg>
         </button>
@@ -38,7 +39,13 @@
         <iframe src="http://nodeknockout.com/iframe/shambolic" scrolling=no allowtransparency=true width=115 height=25></iframe>
       </div>
     </header>
-    <div id="read-later"></div>
+    <div id="read-later">
+      <div id="empty">
+        <h1>Your reading area is empty!</h1>
+        <p>Add to it by clicking the star icon on articles in your stream.</p>
+        <p>Items added here are readable even if you are offline.</p>
+      </div>
+    </div>
     <menu id="read-later-menu">
       <button id="go-previous">
         <svg version="1.0" x="0px" y="0px" width="20px" height="20px" fill="#999999" viewBox="0 0 100 83.584" enable-background="new 0 0 100 83.584"><polygon points="41.791,83.527 0,41.736 41.791,0 69.337,0 37.562,31.777 100,31.777 100,51.977 37.785,51.977 69.394,83.584  41.791,83.527 "/></svg>
@@ -47,12 +54,16 @@
       <button id="go-next">
         <svg version="1.0" x="0px" y="0px" width="20px" height="20px" fill="#999999" viewBox="0 0 100 83.641" enable-background="new 0 0 100 83.641"><polygon points="58.263,0.056 100,41.85 58.263,83.641 30.662,83.641 62.438,51.866 0,51.866 0,31.611 62.213,31.611 30.605,0   58.263,0.056 "/></svg>          
       </button>
-      <h1></h1>      
+      <h1></h1>
+      <button id="remove" data-title="Remove from list">
+        <svg version="1.0" x="0px" y="0px" width="20px" height="20px" fill="#999999" viewBox="0 0 77.196 100" enable-background="new 0 0 77.196 100"><path d="M70.525,10.839H59.484V8.457C59.484,3.793,55.69,0,51.027,0H26.169c-4.663,0-8.457,3.793-8.457,8.457v2.382H6.671  C2.987,10.839,0,13.826,0,17.51v4.329h4.13v67.678C4.13,95.297,8.833,100,14.613,100h47.969c5.78,0,10.483-4.703,10.483-10.483  V21.839h4.13V17.51C77.196,13.826,74.208,10.839,70.525,10.839z M23.863,8.457c0-1.271,1.034-2.307,2.306-2.307h24.858  c1.271,0,2.307,1.035,2.307,2.307v2.382H23.863V8.457z M65.442,89.517c0,1.576-1.283,2.858-2.859,2.858H14.613  c-1.577,0-2.859-1.282-2.859-2.858V21.839h53.688V89.517z"/><rect x="34.786" y="24.958" width="7.625" height="64.486"/><rect x="51.86" y="24.958" width="7.624" height="64.486"/><rect x="17.712" y="24.958" width="7.625" height="64.486"/>
+        </svg>
+      </button>
     </menu>
     <div id="stream" class="inactive scrollable vertical"></div>
     <article id="reading-now" class="scrollable vertical"></article>
     <script type="text/template" id="preview-template">
-      <button class="read-later">
+      <button class="read-later" data-title="Read later">
         <svg fill="#999999" version="1.0" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 100 95.105" enable-background="new 0 0 100 95.105"><polygon points="50,0 61.803,36.327 100,36.327 69.098,58.778 80.902,95.105 50,72.654 19.098,95.105 30.902,58.778 0,36.327  38.197,36.327 "/>
         </svg>
       </button>
@@ -93,6 +104,7 @@
     <script src="/js/backbone.js"></script>
     <script src="/js/localstorage.js"></script>
     <script src="/js/scrollability.js"></script>    
+    <script src="/js/jquery.tipsy.js"></script>    
     <script>Lectio = {};</script>
     <script src="/js/models.js"></script>
     <script src="/js/views.js"></script>
