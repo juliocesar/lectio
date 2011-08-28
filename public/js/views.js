@@ -126,6 +126,7 @@
           self.reading.scrollTop(0);
         },
       270);
+      $('title').text(item.get('title'));
     },
 
     fetch : function(id, callback) {
@@ -283,6 +284,7 @@
       this.el
         .scrollTop(0)
         .find('article').not(article).removeClass('current');
+      $('title').text(item.get('title'));
       this.trigger('open', item);
     },
 
