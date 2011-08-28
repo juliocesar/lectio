@@ -26,7 +26,7 @@ Dave
   x make crawler run inside server
   - improve API
     - search
-    - sorting
+    x sorting
   - fix sources
   - moar sources
   - users
