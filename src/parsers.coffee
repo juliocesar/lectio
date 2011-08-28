@@ -65,21 +65,20 @@ functionsource = (post, cb) ->
     source: "Function Source"
     url: post.link
     images: []
-    body: post.content
+    body: post.body
 
 tc = (post, cb) ->
   cb null,
     title: post.title
-    published: new Date()
+    published: new Date(post.pubDate)
     source: "ConversationEDU"
     url: post.link
-    body: post.content
+    body: post.body
 
 usesthis = (post, cb) ->
-  #console.log post
   cb null,
     title: post.title
-    published: post.published
+    published: new Date(post.pubDate)
     source: "The Setup"
     url: post.link
     body: ''

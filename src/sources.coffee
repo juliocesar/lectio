@@ -1,8 +1,23 @@
-rss = require 'easyrss'
+#rss = require 'easyrss'
+nodepie = require 'nodepie'
+request = require 'request'
 util = require 'util'
 
+jsonify = (item) ->
+  title: item.getTitle()
+  link: item.getPermalink()
+  description: item.getDescription()
+  body: item.getContents()
+  pubDate: item.getDate()
+  updateDate: item.getUpdateDate()
+
 rssSource = (feed) ->
-  (cb) -> rss.parseURL feed, (posts) -> cb posts
+  (cb) ->
+    request uri: feed, (error, response, body) ->
+      return cb error if error and response?.statusCode != 200
+      rss = new nodepie(body)
+      rss.init()
+      cb(jsonify item for item in rss.getItems(0))
 
 exports.nytimes = rssSource 'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml'
 exports.engadget = rssSource 'http://www.engadget.com/rss.xml'
