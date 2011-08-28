@@ -141,7 +141,15 @@ gimmeWanderlust = (post, cb) ->
   cb null,
     title: post.title
     published: new Date(post.pubDate)
-    source: "Gimme Bar Collection: Wanderlust"
+    source: "Gimme Bar Collection: Illustration"
+    url: post.link
+    body: post.body
+
+gimmeIllustration = (post, cb) ->
+  cb null,
+    title: post.title
+    published: new Date(post.pubDate)
+    source: "Gimme Bar Collection: Illustration"
     url: post.link
     body: post.body
 
@@ -156,4 +164,5 @@ exports.kalina = kalina
 exports.gimmeColor = gimmeColor
 exports.freakonomics = freakonomics
 exports.gimmeWanderlust = gimmeWanderlust
+exports.gimmeIllustration = gimmeIllustration
 

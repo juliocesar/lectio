@@ -32,3 +32,4 @@ exports.gimmeColor =rssSource 'https://gimmebar.com/public/feed/user/rose22/coll
 exports.freakonomics = rssSource 'http://andrewtrusty.appspot.com/readability/feed?url=http%3A//freakonomics.blogs.nytimes.com/feed/'
 exports.gimmeColor = rssSource 'https://gimmebar.com/public/feed/user/rose22/collection/color'
 exports.gimmeWanderlust = rssSource 'https://gimmebar.com/public/feed/user/meagan/collection/wanderlust'
+exports.gimmeIllustration = rssSource 'https://gimmebar.com/public/feed/user/squaredeye/collection/illustration'

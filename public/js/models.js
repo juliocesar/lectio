@@ -34,6 +34,8 @@ Lectio = {};
           return 'gimmebar'
         case 'Gimme Bar Collection: Wanderlust':
           return 'gimmebar'
+        case 'Gimme Bar Collection: Illustration':
+          return 'gimmebar'
         default:
           return 'foo';
       }
