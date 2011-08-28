@@ -9,6 +9,9 @@ Julio
  - read later
    - stars should have an effect
    - swipe should work
+   - up and down arrows should scroll
+   - trashing in read-later leaves them starred in reading-now
+   - articles can be added to read-later multiple times
 
 Lachlan
  - find date parsing JS library
