@@ -70,10 +70,17 @@ flickrParser = (feedName) ->
             image.replace(/_m\.(jpg|gif|png)/, "_z.$1")
             image.replace(/_m\.(jpg|gif|png)/, "_b.$1")
             image.replace(/_m\.(jpg|gif|png)/, "_o.$1")
-            'cowfucker'
           ]
           $(this).attr('src', post.images[3])
       post.body = body.html()
+      cb null, post
+
+iwdrmParser = (feedName) ->
+  parser = easyParser(feedName)
+  (post, cb) ->
+    parser post, (error, post) ->
+      post.title = post.title.replace(/(“.+”).+/, "$1" )
+      post.body = post.body.replace(/“.+”(.+)/, "$1")
       cb null, post
 
 exports.nytimes  = easyParser "New York Times"
@@ -91,6 +98,6 @@ exports.gimmeIllustration = easyParser "Gimme Bar Collection: Illustration"
 exports.gimmeMusicArt = easyParser "Gimme Bar Collection: Music Art"
 exports.wired = easyParser "Wired"
 exports.commentisfree = easyParser "Comment is free"
-exports.iwdrm = easyParser "If we don&rsquo;t, remember me"
+exports.iwdrm = iwdrmParser "If we don&rsquo;t, remember me"
 exports.anildash = easyParser "Anil Dash"
 exports.atlantictech = easyParser "The Atlantic: Technology"
