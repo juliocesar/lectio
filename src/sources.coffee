@@ -19,7 +19,11 @@ rssSource = (feed) ->
       rss.init()
       cb(jsonify item for item in rss.getItems(0))
 
+readableRssSource = (feed) ->
+  rssSource "http://andrewtrusty.appspot.com/readability/feed?url=#{encodeURIComponent(feed)}"
+
 #exports.nytimes = rssSource 'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml'
+exports.nytimes = readableRssSource 'http://feeds.nytimes.com/nyt/rss/HomePage'
 #exports.engadget = rssSource 'http://www.engadget.com/rss.xml'
 #exports.hn = rssSource 'http://news.ycombinator.com/rss'
 exports.hn = rssSource 'http://andrewtrusty.appspot.com/readability/feed?url=http%3A//news.ycombinator.com/rss'

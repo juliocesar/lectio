@@ -40,16 +40,13 @@ getContent = (item, cb) ->
 
 
 nytimes = (post, cb) ->
-  console.log post
-  attributes =
+  cb null,
     title: post.title
     published: new Date(post.pubDate)
     source: "New York Times"
     url: post.link
     images: []
     body: post.body
-  getContent attributes, (error, item) ->
-    cb error, item
 
   #retrieve post.link, (error, $) ->
   #  return cb error if error
