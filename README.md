@@ -19,7 +19,10 @@ Lachlan
 
 Dave
   - make feed parsing less shit
-  - threshold for crawler
+  x threshold for crawler
+    - NOTE investigate:
+      - node-pool https://github.com/coopernurse/node-pool
+      - poolr https://github.com/codingforce/poolr
   - make crawler run inside server
   - improve API
     - search
