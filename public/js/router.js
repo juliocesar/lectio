@@ -22,6 +22,7 @@
       this.body
         .removeClass('read-later')
         .addClass('offline');
+      $('#go-read-later').tipsy('show');
     },
     
     open : function(id) {
