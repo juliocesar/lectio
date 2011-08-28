@@ -55,19 +55,13 @@ nytimes = (post, cb) ->
 #    body: post.description
 
 hn = (post, cb) ->
-  uri = post.description.match(/https?:\/\/[^\"]+/)[0]
-  retrieve uri, (error, $) ->
-    return cb error if error
-    try
-      cb null,
-        title: post.title
-        published: new Date()
-        source: "Hacker News"
-        url: uri #post.link
-        images: []
-        body: post.description
-    catch error
-      cb error
+  cb null,
+    title: post.title
+    published: new Date()
+    source: "Hacker News"
+    url: post.link
+    images: []
+    body: post.description
 
 functionsource = (post, cb) ->
   cb null,
