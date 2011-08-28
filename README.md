@@ -11,8 +11,6 @@ Julio
  - search
 
 Lachlan
- - asset pipelining
-  - dev environment
  - find date parsing JS library
  - proper ipad stylings
   - scrolling on ipad is still pretty lame
