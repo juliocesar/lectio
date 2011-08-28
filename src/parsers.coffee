@@ -48,8 +48,14 @@ easyParser = (feedName) ->
       images: []
       body: post.body or ''
 
+readabilityParser = (feedName) ->
+  parser = easyParser(feedName)
+  (post, cb) ->
+    parser post, ->
+      getContent post, cb
+
 exports.nytimes  = easyParser "New York Times"
-exports.engadget = easyParser "Engadget"
+exports.engadget = readabilityParser "Engadget"
 exports.hn       = easyParser "Hacker News"
 exports.functionsource = easyParser "Function Source"
 exports.tc       = easyParser "ConversationEDU"

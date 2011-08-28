@@ -23,8 +23,8 @@ readableRssSource = (feed) ->
   rssSource "http://andrewtrusty.appspot.com/readability/feed?url=#{encodeURIComponent(feed)}"
 
 exports.nytimes = readableRssSource 'http://feeds.nytimes.com/nyt/rss/HomePage'
-exports.engadget = readableRssSource 'http://www.engadget.com/rss.xml'
-exports.hn = rssSource 'http://andrewtrusty.appspot.com/readability/feed?url=http%3A//news.ycombinator.com/rss'
+#exports.engadget = readableRssSource 'http://www.engadget.com/rss.xml'
+#exports.hn = rssSource 'http://andrewtrusty.appspot.com/readability/feed?url=http%3A//news.ycombinator.com/rss'
 exports.functionsource = rssSource 'http://functionsource.com/feeds/entries'
 exports.tc = rssSource 'http://theconversation.edu.au/articles'
 #exports.usesthis = readableRssSource 'http://usesthis.com/feed/'
