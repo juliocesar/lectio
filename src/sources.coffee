@@ -39,3 +39,4 @@ exports.gimmeMusicArt = rssSource 'https://gimmebar.com/public/feed/user/jonnygo
 exports.wired = readableRssSource 'http://feeds.wired.com/wired/index'
 exports.commentisfree = rssSource 'http://feeds.guardian.co.uk/theguardian/commentisfree/rss'
 exports.iwdrm = rssSource 'http://iwdrm.tumblr.com/rss'
+exports.anildash = rssSource 'http://feeds.dashes.com/AnilDash'

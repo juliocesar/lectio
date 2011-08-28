@@ -49,6 +49,8 @@ Lectio = {};
           return 'commentisfree';
         case 'If we don&rsquo;t, remember me':
           return 'iwdrm';
+        case 'Anil Dash':
+          return 'anildash';
         default:
           return 'foo';
       }
