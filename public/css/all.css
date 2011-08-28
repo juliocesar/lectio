@@ -202,10 +202,12 @@ p.meta.functionsource             { background-image: url(/img/sources/functions
 p.meta.flickr                     { background-image: url(/img/sources/flickr.jpg) }
 
 /* Read later */
-#read-later-menu      { position: absolute; bottom: 0; right: 0; left: 0; padding: 12px 20px 10px 75px; box-shadow: 0 -1px 3px rgba(0,0,0,0.2); z-index: 10; background: rgba(255,255,255,0.8) }
+#read-later-menu      { position: absolute; bottom: 0; right: 0; left: 0; padding: 12px 20px 10px 75px; color: #999; box-shadow: 0 -1px 3px rgba(0,0,0,0.2); z-index: 10; background: rgba(255,255,255,0.8) }
 #read-later-menu > *  { float: left }
-#read-later-menu h1   { margin-left: 20px; font-size: 1.6em; line-height: 22px; color: #999 }
+#read-later-menu h1   { margin-left: 20px; font-size: 1.6em; line-height: 22px }
+#current-article      { display: block; font-size: 1.6em; margin: 0 5px }
 #read-later-menu.yc   { background: url(/img/sources/ycombinator.png) no-repeat 15px 15px, rgba(255,255,255,0.8) }
+#read-later { overflow-x: hidden }
 #read-later article         { 
   position: absolute; 
   right: 85px; 

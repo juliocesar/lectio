@@ -105,6 +105,7 @@
   
   ReadLaterMenu = Backbone.View.extend({
     el      : $('#read-later-menu'),
+    current : $('#current-article'),
     events  : {
       'click #go-next'      : 'next',
       'click #go-previous'  : 'previous'
@@ -126,6 +127,9 @@
     updateCurrent : function(item) {
       this.el.find('h1')
         .html(item.get('title'));
+      this.current.text(
+        (Lectio.ReadLaterCollection.indexOf(item) + 1) + ' / ' + Lectio.ReadLaterCollection.length
+      );
     }
   });
   
