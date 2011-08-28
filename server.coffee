@@ -44,7 +44,7 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
 
   get '/': ->
     response.render 'index.ejs', locals: {env: process.env.NODE_ENV}, layout: false
-
+  
   get '/api/items': ->
     query = lectio.Item.find({})
     query.sort 'published', -1
