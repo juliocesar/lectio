@@ -22,18 +22,16 @@ rssSource = (feed) ->
 readableRssSource = (feed) ->
   rssSource "http://andrewtrusty.appspot.com/readability/feed?url=#{encodeURIComponent(feed)}"
 
-#exports.nytimes = rssSource 'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml'
 exports.nytimes = readableRssSource 'http://feeds.nytimes.com/nyt/rss/HomePage'
 exports.engadget = readableRssSource 'http://www.engadget.com/rss.xml'
-#exports.hn = rssSource 'http://news.ycombinator.com/rss'
 exports.hn = rssSource 'http://andrewtrusty.appspot.com/readability/feed?url=http%3A//news.ycombinator.com/rss'
 exports.functionsource = rssSource 'http://functionsource.com/feeds/entries'
 exports.tc = rssSource 'http://theconversation.edu.au/articles'
-# exports.usesthis = rssSource 'http://usesthis.com/feed/'
-# exports.flickr = rssSource 'http://feeds.feedburner.com/flickr_interestingness'
+#exports.usesthis = readableRssSource 'http://usesthis.com/feed/'
+#exports.flickr = readableRssSource 'http://feeds.feedburner.com/flickr_interestingness'
 exports.kalina = rssSource 'http://picturesthatlooklikethis.com/rss'
 exports.gimmeColor =rssSource 'https://gimmebar.com/public/feed/user/rose22/collection/color'
-exports.freakonomics = rssSource 'http://andrewtrusty.appspot.com/readability/feed?url=http%3A//freakonomics.blogs.nytimes.com/feed/'
+exports.freakonomics = readableRssSource 'http://freakonomics.blogs.nytimes.com/feed/'
 exports.gimmeColor = rssSource 'https://gimmebar.com/public/feed/user/rose22/collection/color'
 exports.gimmeWanderlust = rssSource 'https://gimmebar.com/public/feed/user/meagan/collection/wanderlust'
 exports.gimmeIllustration = rssSource 'https://gimmebar.com/public/feed/user/squaredeye/collection/illustration'
