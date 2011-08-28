@@ -8,7 +8,12 @@ assetManagerGroups =
     dataType: "javascript"
     path: __dirname + "/public/js/"
     files: [ "prototypes.js", "jquery-1.6.2.min.js", "underscore-min.js", "backbone.js", "localstorage.js", "scrollability.js", "models.js", "views.js", "router.js", "app.js" ]
-    route: /\/public\/js\/lectio.js/
+    route: /\/js\/lectio.js/
+  css:
+    dataType: "css"
+    path: __dirname + "/public/css/"
+    files: [ "reset.css", "main.css", "media-queries.css" ]
+    route: /\/css\/lectio.css/
 assetsManagerMiddleware = assetManager(assetManagerGroups)
 
 app = require('zappa').app {lectio, assetsManagerMiddleware, gzip}, ->

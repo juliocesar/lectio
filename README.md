@@ -12,8 +12,6 @@ Julio
 
 Lachlan
  - asset pipelining
-  - gzip it
-  - break out CSS
   - dev environment
  - find date parsing JS library
  - proper ipad stylings
