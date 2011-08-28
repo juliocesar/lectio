@@ -2,7 +2,13 @@ lectio = require './lectio'
 nko = require('nko')('DFw7dX4Eim56nfD9')
 assetManager = require 'connect-assetmanager'
 gzip = require 'connect-gzip'
+ejs = require "ejs"
 
+# tell EJS to man up
+ejs.open = "{{"
+ejs.close = "}}"
+
+# minify and concatenate assets
 assetManagerGroups =
   js:
     dataType: "javascript"
@@ -16,11 +22,14 @@ assetManagerGroups =
     route: /\/css\/lectio.css/
 assetsManagerMiddleware = assetManager(assetManagerGroups)
 
-app = require('zappa').app {lectio, assetsManagerMiddleware, gzip}, ->
+app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
   requiring 'util'
   def lectio: lectio
 
   use gzip.gzip(), assetsManagerMiddleware, 'static'
+
+  get '/': ->
+    render 'index.ejs', layout: false
 
   get '/api/items': ->
     lectio.Item.find {}, (err, items) =>

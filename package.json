@@ -14,6 +14,7 @@
         "coffee-script": "1.1.2",
         "connect-assetmanager": "0.0.23",
         "connect-gzip": "0.1.0",
+        "ejs": "0.4.3",
         "jsdom": "0.2.3",
         "mongoose": "2.0.2",
         "nko": "~0.1.1",
