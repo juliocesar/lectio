@@ -70,8 +70,8 @@ input:invalid, textarea:invalid {
 }
 .no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
-::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
-::selection { background:#FF5E99; color:#fff; text-shadow: none; }
+::-moz-selection{ background: #333; color:#ebebed; text-shadow: none; }
+::selection { background:#333; color:#ebebed; text-shadow: none; }
 
 a:link { -webkit-tap-highlight-color: #FF5E99; }
 button {  width: auto; overflow: visible; }

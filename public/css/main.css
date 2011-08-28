@@ -35,7 +35,7 @@ button { border: 0; background: transparent }
 .scrollable { -webkit-transform: translate3d(0,0,0) }
 
 /* General article styles' */
-article     { text-shadow: 1px 1px 1px #E5E5E5; color: #666; font-family: 'Abel'; text-rendering: optimizeLegibility }
+article     { text-shadow: 1px 1px 1px #cbcbcb; color: #666; font-family: 'Abel'; text-rendering: optimizeLegibility }
 article h1, h2, h3, h4, h5 { color: #333; font-weight: 700; font-family: 'PT Sans Narrow' }
 article p.meta { color: #999; padding-left: 21px }
 article em,
@@ -59,7 +59,7 @@ article ul        { list-style-position: inside }
 
 /* Stream */
 #stream { left: 0; padding: 70px 0 6px 0; width: 360px; border-right: 1px solid #ccc }
-#stream article { position: relative; margin: 0 0 0 6px; padding: 10px 20px 10px 40px; cursor: pointer }
+#stream article { position: relative; margin: 0 0 0 6px; padding: 10px 20px 10px 40px; cursor: pointer; text-shadow: 1px 1px 1px #E5E5E5 }
 #stream article > *         { 
   opacity: 1;
   -webkit-transition: opacity 0.25s linear;
@@ -145,6 +145,7 @@ p.meta.flickr                     { background-image: url(/img/sources/flickr.jp
   left: 85px; 
   pointer-events: none; 
   opacity: 0;
+  text-shadow: 1px 1px 1px #cbcbcb;
   -webkit-transition: all 0.25s linear;
   -moz-transition:    all 0.25s linear;
   transition:         all 0.25s linear;
