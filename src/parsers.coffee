@@ -1,4 +1,5 @@
 readability = require 'readability'
+$ = require 'jquery'
 request = require 'request'
 jsdom   = require 'jsdom'
 util    = require 'util'
@@ -58,18 +59,21 @@ flickrParser = (feedName) ->
   parser = easyParser(feedName)
   (post, cb) ->
     parser post, (error, post) ->
-      console.log post
-      image = post.body.match(/"([^"]+_m\.(jpg|gif|png))/)[1]
-      post.images = [
-        image,
-        image.replace(/_m\.(jpg|gif|png)/, ".$1")
-        image.replace(/_m\.(jpg|gif|png)/, "_z.$1")
-        image.replace(/_m\.(jpg|gif|png)/, "_b.$1")
-        image.replace(/_m\.(jpg|gif|png)/, "_o.$1")
-      ]
-      post.body = post.body.replace(/_m\.(jpg|gif|png)/, "_z.$1")
-      post.body = post.body.replace(/<br \/>/, "<p>")
-      post.body = post.body + "</p>"
+      body = $("<div>" + post.body + "</div>")
+      $('img[src*="_m."]', body).each ->
+        if $(this).attr('src').match(/_m\.(jpg|gif|png)/)
+          image = $(this).attr('src')
+          console.log image
+          post.images = [
+            image,
+            image.replace(/_m\.(jpg|gif|png)/, ".$1")
+            image.replace(/_m\.(jpg|gif|png)/, "_z.$1")
+            image.replace(/_m\.(jpg|gif|png)/, "_b.$1")
+            image.replace(/_m\.(jpg|gif|png)/, "_o.$1")
+            'cowfucker'
+          ]
+          $(this).attr('src', post.images[3])
+      post.body = body.html()
       cb null, post
 
 exports.nytimes  = easyParser "New York Times"

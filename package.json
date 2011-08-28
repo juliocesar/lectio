@@ -16,6 +16,7 @@
         "connect-gzip": "0.1.0",
         "ejs": "0.4.3",
         "generic-pool": "1.0.6",
+        "jquery": "1.6.2",
         "jsdom": "0.2.3",
         "mongoose": "2.0.2",
         "nko": "~0.1.1",
