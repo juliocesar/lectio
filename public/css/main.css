@@ -133,6 +133,8 @@ p.meta.usesthis                   { background-image: url(/img/sources/usesthis.
 p.meta.functionsource             { background-image: url(/img/sources/functionsource.png) }
 #stream article.flickr,
 p.meta.flickr                     { background-image: url(/img/sources/flickr.jpg) }
+#stream article.gimmebar,
+p.meta.gimmebar                   { background-image: url(/img/sources/gimmebar.png) }
 
 /* Read later */
 #read-later-menu      { position: absolute; bottom: 0; right: 0; left: 0; padding: 12px 75px 10px; color: #999; box-shadow: 0 -1px 3px rgba(0,0,0,0.2); z-index: 10; background: rgba(255,255,255,0.8) }
@@ -155,6 +157,7 @@ p.meta.flickr                     { background-image: url(/img/sources/flickr.jp
 #read-later article.current { 
   pointer-events: auto; 
   opacity: 1;
+  padding: 0 0 60px 0;
   -webkit-transform:  translate3d(0,0,0);
   -moz-transform:     translateX(0);
   transform:          translate3d(0,0,0)  

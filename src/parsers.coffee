@@ -121,6 +121,12 @@ kalina = (post, cb) ->
     title: post.title
     published: new Date(post.pubDate)
     source: "Pictures That Look Like This"
+
+gimmeColor = (post, cb) ->
+  cb null,
+    title: post.title
+    published: new Date(post.pubDate)
+    source: "Gimme Bar Collection: Color"
     url: post.link
     body: post.body
 
@@ -132,3 +138,5 @@ exports.tc = tc
 exports.usesthis = usesthis
 exports.flickr = flickr
 exports.kalina = kalina
+exports.gimmeColor = gimmeColor
+
