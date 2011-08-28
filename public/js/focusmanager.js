@@ -14,7 +14,7 @@
       }
     });
         
-    $(window).keydown(function(event) {
+    $(window).keyup(function(event) {
       if (self.focused === 'stream') {
         event.preventDefault();
         switch(event.keyCode) {

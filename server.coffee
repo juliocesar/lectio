@@ -57,7 +57,8 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
       if item = Lectio.Items.get @item._id
         item.set @item
       else
-        Lectio.Items.add @item
+        item = new Item @item
+        Lectio.Items.add item unless item.isNew()
 
     connect document.location.origin
 
