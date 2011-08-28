@@ -48,6 +48,28 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
       else
         send item.clientJSON()
 
+  at connection: ->
+    console.log "Server time, bitches"
+    setTimeout (=> broadcast 'test'), 1000
+
+  client '/realtime.js': ->
+    at 'item': ->
+      if item = Lectio.Items.get @item._id
+        console.log "Updating", item
+        item.set @item
+      else
+        console.log "Adding", @item
+        Lectio.Items.add @item
+
+    connect 'http://localhost:8000'
+
+lectio.Item.on 'save', (item) ->
+  console.log "Broadcasting!"
+  try
+    app.io.sockets.emit 'item', item: item # item.clientJSON()
+  catch error
+    console.log error.stack
+
 port = if process.env.NODE_ENV == 'production' then 80 else 8000
 app.app.listen port, ->
   console.log 'Ready'
