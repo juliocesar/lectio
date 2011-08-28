@@ -16,8 +16,9 @@ Lachlan
  - find date parsing JS library
 
 Dave
-  - make feed parsing not shit
+  - make feed parsing less shit
   - threshold for crawler
   - make crawler run inside server
   - fix sources
+  - moar sources
   - users
