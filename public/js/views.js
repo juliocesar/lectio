@@ -25,7 +25,7 @@
     },
     
     readLater : function(event) {
-      Lectio.ReadingList.add(this.model);
+      Lectio.ReadLaterCollection.add(this.model);
     }
   });
   
@@ -45,10 +45,10 @@
     reading : $('#reading-now'),
     
     initialize : function() {
-      _.bindAll(this, 'add', 'addBunch');
-      Lectio.StreamCollection.bind('add',   this.add);
-      Lectio.StreamCollection.bind('reset', this.addBunch);
-      Lectio.StreamCollection.trigger('reset');
+      _.bindAll(this, 'add', 'addBunch', 'read', 'fetch');
+      Lectio.Items.bind('add',   this.add);
+      Lectio.Items.bind('reset', this.addBunch);
+      Lectio.Items.trigger('reset');
       this.fixScrollbars();
     },
     
@@ -59,7 +59,7 @@
     },
     
     addBunch : function() {
-      Lectio.StreamCollection.each(this.add);
+      Lectio.Items.each(this.add);
     },
     
     fixScrollbars : function() {
@@ -72,10 +72,10 @@
     },
     
     read : function(id) {
-      var item = Lectio.StreamCollection.get(id);
-      if (!item || (this.reading.attr('data-id') === item.get('_id'))) return false;
-      var self = this,
-        article = new ArticleView({ model : item });
+      var self = this, item = Lectio.Items.get(id);
+      if (item && self.reading.attr('data-id') === item.get('_id')) return false;
+      if (!item) return self.fetch(id, self.read);
+      var article = new ArticleView({ model : item });
       self.reading.removeClass('reading');
       _.delay(
         function() {
@@ -86,6 +86,18 @@
           self.reading.scrollTop(0);
         }, 
       270);
+    },
+    
+    fetch : function(id, callback) {
+      var item = new Item;
+      item.fetch({ 
+        url : '/api/items/' + id,
+        success : function(model, response) {
+          item.initialize();
+          Lectio.Items.add(item);
+          if (_.isFunction(callback)) callback(item.get('_id'));
+        }
+      });
     }
   });
   

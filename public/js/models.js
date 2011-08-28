@@ -1,5 +1,5 @@
 (function($, undefined) {
-  Preview = Backbone.Model.extend({
+  Item = Backbone.Model.extend({
     idAttribute : '_id',
     
     initialize : function() {
@@ -9,7 +9,7 @@
       } else {
         this.set({ body : '', summary : '' });
       }
-      this.set({ sourceClass : this.sourceClass(this.get('source').name) });
+      if (this.has('source')) this.set({ sourceClass : this.sourceClass(this.get('source').name) });
     },
     
     sourceClass : function(name) {
@@ -34,15 +34,15 @@
     }
   });
   
-  Item = Preview.extend();
+  ReadLaterItem = Item.extend();
 
-  StreamCollection = Backbone.Collection.extend({
-    model : Preview,
+  ItemsCollection = Backbone.Collection.extend({
+    model : Item,
     url   : '/api/items'
   });
   
-  ReadingList = Backbone.Collection.extend({
-    model         : Item,
+  ReadLaterCollection = Backbone.Collection.extend({
+    model         : ReadLaterItem,
     localStorage  : new Store('reading-list-yo')
   });
 })(jQuery);
