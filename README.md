@@ -12,10 +12,14 @@ Julio
 
 Lachlan
  - asset pipelining
+  - gzip it
+  - break out CSS
+  - dev environment
  - find date parsing JS library
  - proper ipad stylings
   - scrolling on ipad is still pretty lame
   - make star buttons permanently visible
+ - give home link hot backbone action
 
 Dave
   - make feed parsing less shit

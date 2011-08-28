@@ -1,11 +1,20 @@
 lectio = require './lectio'
 nko = require('nko')('DFw7dX4Eim56nfD9')
+assetManager = require 'connect-assetmanager'
 
-app = require('zappa').app {lectio}, ->
+assetManagerGroups =
+  js:
+    dataType: "javascript"
+    path: __dirname + "/public/js/"
+    files: [ "prototypes.js", "jquery-1.6.2.min.js", "underscore-min.js", "backbone.js", "localstorage.js", "scrollability.js", "models.js", "views.js", "router.js", "app.js" ]
+    route: /\/public\/js\/lectio.js/
+assetsManagerMiddleware = assetManager(assetManagerGroups)
+
+app = require('zappa').app {lectio, assetsManagerMiddleware}, ->
   requiring 'util'
   def lectio: lectio
 
-  use 'static'
+  use assetsManagerMiddleware, 'static'
 
   get '/api/items': ->
     lectio.Item.find {}, (err, items) =>

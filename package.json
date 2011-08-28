@@ -17,7 +17,8 @@
         "jsdom": "0.2.3",
         "nodepie": "0.3.0",
         "request": "2.1.1",
-        "mongoose": "2.0.2"
+        "mongoose": "2.0.2",
+        "connect-assetmanager": "0.0.23"
     },
     "scripts": {
         "start": "coffee server.coffee"

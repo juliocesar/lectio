@@ -1,3 +1,5 @@
+Lectio = {};
+
 (function($, undefined) {
   Preview = Backbone.Model.extend({
     idAttribute : '_id',
