@@ -51,6 +51,8 @@ Lectio = {};
           return 'iwdrm';
         case 'Anil Dash':
           return 'anildash';
+        case 'The Atlantic: Technology':
+          return 'atlantictech';
         default:
           return 'foo';
       }
