@@ -9,7 +9,8 @@ Julio
  - read later
    - stars should have an effect
    - swipe should work
-   - stars should be cancellable in reading-now
+   - filter on sources in reading-now
+   - read-later icon borked in prod
    
 Lachlan
  - find date parsing JS library
