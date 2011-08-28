@@ -28,7 +28,8 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
   requiring 'util'
   def lectio: lectio
 
-  use gzip.gzip(), assetsManagerMiddleware, 'static'
+  # use gzip.gzip(), assetsManagerMiddleware, 'static'
+  use assetsManagerMiddleware, 'static'
 
   io.configure 'production', ->
     io.enable 'browser client minification'
