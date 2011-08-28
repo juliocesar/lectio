@@ -42,136 +42,22 @@ easyParser = (feedName) ->
   (post, cb) ->
     cb null,
       title: post.title
-      published: new Date(post.pubDate)
+      published: new Date(post.pubDate or null)
       source: feedName
-      url: post.link
+      url: post.link or ''
       images: []
-      body: post.body
+      body: post.body or ''
 
-exports.nytimes = easyParser "New York Times"
+exports.nytimes  = easyParser "New York Times"
 exports.engadget = easyParser "Engadget"
-
-  #retrieve post.link, (error, $) ->
-  #  return cb error if error
-  #  $ -> cb null,
-  #    title: $('h1').text()
-  #    published: new Date()
-  #    source: "New York Times"
-  #    url: $('link[rel=canonical]').attr('href')
-  #    #byline: $('.byline').text()
-  #    #author: $('a[rel=author]').attr('href')
-  #    images: []
-  #    body: $(el).html() for el in $('.articleBody')
-
-#engadget = (post, cb) ->
-#  cb null,
-#    title: post.title
-#    published: new Date()
-#    source: "Engadget"
-#    url: post.link
-#    images: []
-#    body: post.description
-
-hn = (post, cb) ->
-  cb null,
-    title: post.title
-    published: new Date(post.pubDate)
-    source: "Hacker News"
-    url: post.link
-    images: []
-    body: post.description
-
-functionsource = (post, cb) ->
-  cb null,
-    title: post.title
-    published: new Date(post.pubDate)
-    source: "Function Source"
-    url: post.link
-    images: []
-    body: post.body
-
-tc = (post, cb) ->
-  cb null,
-    title: post.title
-    published: new Date(post.pubDate)
-    source: "ConversationEDU"
-    url: post.link
-    body: post.body
-
-usesthis = (post, cb) ->
-  cb null,
-    title: post.title
-    published: new Date(post.pubDate)
-    source: "The Setup"
-    url: post.link
-    body: ''
-
-flickr = (post, cb) ->
-  cb null,
-    title: post.title
-    published: new Date() # TODO photo's date is not in the feed!
-    source: "Flickr Explore Interestingess"
-    url: post.link
-    body: post.body
-
-kalina = (post, cb) ->
-  cb null,
-    title: post.title
-    published: new Date(post.pubDate)
-    source: "Pictures That Look Like This"
-
-gimmeColor = (post, cb) ->
-  cb null,
-    title: post.title
-    published: new Date(post.pubDate)
-    source: "Gimme Bar Collection: Color"
-    url: post.link
-    body: post.body
-
-freakonomics = (post, cb) ->
-  cb null,
-    title: post.title
-    published: new Date(post.pubDate)
-    source: "Freakonomics"
-    url: post.link
-    images: []
-    body: post.description
-
-gimmeWanderlust = (post, cb) ->
-  cb null,
-    title: post.title
-    published: new Date(post.pubDate)
-    source: "Gimme Bar Collection: Illustration"
-    url: post.link
-    body: post.body
-
-gimmeIllustration = (post, cb) ->
-  cb null,
-    title: post.title
-    published: new Date(post.pubDate)
-    source: "Gimme Bar Collection: Illustration"
-    url: post.link
-    body: post.body
-
-gimmeMusicArt = (post, cb) ->
-  cb null,
-    title: post.title
-    published: new Date(post.pubDate)
-    source: "Gimme Bar Collection: Music Art"
-    url: post.link
-    body: post.body
-
-#exports.nytimes = nytimes
-#exports.engadget = engadget
-exports.hn = hn
-exports.functionsource = functionsource
-exports.tc = tc
-exports.usesthis = usesthis
-exports.flickr = flickr
-exports.kalina = kalina
-exports.gimmeColor = gimmeColor
-exports.freakonomics = freakonomics
-exports.gimmeWanderlust = gimmeWanderlust
-exports.gimmeIllustration = gimmeIllustration
-exports.gimmeMusicArt = gimmeMusicArt
-
+exports.hn       = easyParser "Hacker News"
+exports.functionsource = easyParser "Function Source"
+exports.tc       = easyParser "ConversationEDU"
+exports.usesthis = easyParser "The Setup"
+exports.flickr   = easyParser "Flickr Explore Interestingess"
+exports.kalina   = easyParser "Pictures That Look Like This"
+exports.gimmeColor = easyParser "Gimme Bar Collection: Color"
+exports.freakonomics = easyParser "Freakonomics"
+exports.gimmeWanderlust = easyParser "Gimme Bar Collection: Illustration"
+exports.gimmeIllustration = easyParser "Gimme Bar Collection: Illustration"
+exports.gimmeMusicArt = easyParser "Gimme Bar Collection: Music Art"
