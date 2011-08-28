@@ -20,6 +20,7 @@
         "mongoose": "2.0.2",
         "nko": "~0.1.1",
         "nodepie": "0.3.0",
+        "readability": "0.1.0",
         "request": "2.1.1",
         "zappa": "0.2.0beta"
     },
