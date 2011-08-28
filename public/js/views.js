@@ -53,6 +53,7 @@
         .attr('id', 'laters-' + this.model.get('_id'));
       return this;
     }
+
   });
 
   Stream = Backbone.View.extend({
@@ -75,7 +76,7 @@
         .find('button')
           .attr('data-title', 'Remove from reading list');
     },
-    
+
     highlightAll : function() {
       var self = this;
       Lectio.ReadLaterCollection.each(function(item) {
@@ -93,7 +94,7 @@
       } else {
         this.el.prepend(el);
       }
-      el.removeClass('adding');      
+      el.removeClass('adding');
       return this;
     },
 
