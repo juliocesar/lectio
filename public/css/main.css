@@ -60,6 +60,13 @@ article ul        { list-style-position: inside }
 /* Stream */
 #stream { left: 0; padding: 70px 0 6px 0; width: 360px; border-right: 1px solid #ccc }
 #stream article { position: relative; margin: 0 0 0 6px; padding: 10px 20px 10px 40px; cursor: pointer }
+#stream article > *         { 
+  opacity: 1;
+  -webkit-transition: opacity 0.25s linear;
+  -moz-transition:    opacity 0.25s linear;
+  transition:         opacity 0.25s linear;
+}
+#stream article.adding > *  { opacity: 0 }
 #stream article:hover { background: rgba(0,0,0,0.1) }
 #stream article h1 { margin-right: 10px; font-size: 1.5em }
 #stream article p  { font-size: 1.25em }
@@ -173,6 +180,6 @@ p.meta.flickr                     { background-image: url(/img/sources/flickr.jp
 #read-later article ol { font-size: 1.45em; line-height: 1.5em; margin: 0.5em 0 }
 #read-later article p.meta { line-height: 1.2em; margin: 0; font-size: 1.25em }
 #read-later article p.meta a { margin-left: 5px; border: 0 }
-#empty    { position: relative; width: 550px; top: 50%; margin: -120px auto auto; color: #666; text-align: center }
+#empty    { position: absolute; width: 550px; top: 50%; left: 50%; margin: -120px 0 0 -275px; color: #666; text-align: center; text-shadow: 1px 1px 1px #E5E5E5 }
 #empty h1 { font: 700 3em 'PT Sans Narrow' } 
 #empty p  { font: normal 1.8em 'Abel' }

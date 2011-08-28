@@ -55,10 +55,8 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
   client '/realtime.js': ->
     at 'item': ->
       if item = Lectio.Items.get @item._id
-        console.log "Updating", item
         item.set @item
       else
-        console.log "Adding", @item
         Lectio.Items.add @item
 
     connect document.location.origin

@@ -71,8 +71,16 @@
     },
 
     add : function(item) {
-      var view = new PreviewView({ model : item });
-      this.el.append(view.render().el);
+      var view = new PreviewView({ model : item }),
+        el = $(view.render().el);
+      el.addClass('adding');
+      if (!this.el.scrollTop()) {
+        this.el.prepend(el);
+        this.el.scrollTop(0);
+      } else {
+        this.el.prepend(el);
+      }
+      el.removeClass('adding');      
       return this;
     },
 
