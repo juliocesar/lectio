@@ -39,15 +39,16 @@ getContent = (item, cb) ->
           item.body = result.content
           cb null, item
 
-easyParser = (feedName) ->
+easyParser = (feedName, filters) ->
   (post, cb) ->
-    cb null,
+    post =
       title: post.title
       published: post.pubDate or new Date()
       source: feedName
       url: post.link or ''
       images: []
       body: post.body or ''
+    if filters then filters(post, cb) else cb(null, post)
 
 readabilityParser = (feedName) ->
   parser = easyParser(feedName)
@@ -74,6 +75,17 @@ flickrParser = (feedName) ->
           $(this).attr('src', post.images[3])
       post.body = body.html()
       cb null, post
+
+scriptStripper = (next) ->
+  (post, cb) ->
+    try
+      body = $("<div>" + post.body + "</div>")
+      console.log "w00t"
+      $("script", body).remove()
+      post.body = body.html()
+      if next then next(post, cb) else cb(null, post)
+    catch error
+      cb error, post
 
 iwdrmParser = (feedName) ->
   parser = easyParser(feedName)
@@ -108,5 +120,5 @@ exports.wired = easyParser "Wired"
 exports.commentisfree = easyParser "Comment is free"
 exports.iwdrm = iwdrmParser "If we don&rsquo;t, remember me"
 exports.anildash = easyParser "Anil Dash"
-exports.atlantictech = easyParser "The Atlantic: Technology"
+exports.atlantictech = easyParser "The Atlantic: Technology", scriptStripper()
 exports.bigpicture = bigpictureParser "The Big Picture"
