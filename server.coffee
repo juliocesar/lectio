@@ -31,6 +31,7 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
   use gzip.gzip(), assetsManagerMiddleware, 'static'
 
   get '/': ->
+    def environment: process.env.NODE_ENV
     render 'index.ejs', layout: false
 
   get '/api/items': ->
@@ -73,6 +74,7 @@ lectio.Item.on 'save', (item) ->
 port = if process.env.NODE_ENV == 'production' then 80 else 8000
 app.app.listen port, ->
   console.log 'Ready'
+  console.log process.env.NODE_ENV
 
   # if run as root, downgrade to the owner of this file
   if process.getuid() == 0

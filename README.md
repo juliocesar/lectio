@@ -1,5 +1,7 @@
 Sources: Hacker News, NY Times, Conversation EDU, Endgadget.
 
+Our Vote CSS lives here: https://gist.github.com/1176452
+
 
 Things to fix:
 
