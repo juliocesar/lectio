@@ -98,7 +98,7 @@
       </header>
       <%= body %>
     </script>
-    {{ if (env == "production") { }}
+    {{ if (env == "not-production") { }}
     <script src="/js/lectio.js"></script>
     {{  } else { }}
     <script src="/js/prototypes.js"></script>
