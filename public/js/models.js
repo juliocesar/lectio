@@ -13,7 +13,8 @@ Lectio = {};
       }
       if (this.has('source')) this.set({ sourceClass : this.sourceClass(this.get('source').name) });
       if (this.has('published'))
-        this.set({ date: prettyDate(this.get('published').replace(/.000/g, "")) });
+        this.set({ published: this.get('published').replace(/\.\d\d\d/g, "") });
+        this.set({ date: prettyDate(this.get('published')) });
     },
     
     sourceClass : function(name) {
@@ -54,7 +55,7 @@ Lectio = {};
     model : Item,
     url   : '/api/items',
     comparator : function(item) {
-      return item.get("date");
+      return (new Date(item.get("published"))).getTime() * -1;
     }
   });
 

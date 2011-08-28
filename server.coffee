@@ -13,7 +13,7 @@ assetManagerGroups =
   js:
     dataType: "javascript"
     path: __dirname + "/public/js/"
-    files: [ "prototypes.js", "jquery-1.6.2.min.js", "underscore-min.js", "backbone.js", "localstorage.js", "scrollability.js", "pretty-date.js", "jquery.tipsy.js", "models.js", "views.js", "router.js", "app.js" ]
+    files: [ "prototypes.js", "jquery-1.6.2.min.js", "underscore-min.js", "backbone.js", "localstorage.js", "scrollability.js", "pretty-date.js", "jquery.tipsy.js", "models.js", "views.js", "router.js", "focusmanager.js", "app.js" ]
     route: /\/js\/lectio.js/
   css:
     dataType: "css"
@@ -28,7 +28,8 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
   requiring 'util'
   def lectio: lectio
 
-  use gzip.gzip(), assetsManagerMiddleware, 'static'
+  # use gzip.gzip(), assetsManagerMiddleware, 'static'
+  use assetsManagerMiddleware, 'static'
 
   io.configure 'production', ->
     io.enable 'browser client minification'
