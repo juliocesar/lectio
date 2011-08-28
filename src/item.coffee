@@ -1,6 +1,7 @@
 mongoose = require 'mongoose'
+events = require 'events'
 
-Item = mongoose.model 'Item', new mongoose.Schema
+Item = new mongoose.Schema
   title: String
   published: Date
   source: String
@@ -8,7 +9,7 @@ Item = mongoose.model 'Item', new mongoose.Schema
   images: [String]
   body: String
 
-Item.prototype.clientJSON = ->
+Item.methods.clientJSON = ->
   _id:       @_id
   title:     @title
   published: @published
@@ -18,5 +19,14 @@ Item.prototype.clientJSON = ->
   images:    @images
   body:      @body
 
+#events = new events.EventEmitter()
+#
+#Item.pre 'update', (next) ->
+#  console.log "Emitting!"
+#  events.emit 'save', this
+#
+#Item.statics.events = events
 
-module.exports = Item
+#mongoose.model 'Item', Item
+module.exports = mongoose.model 'Item', Item
+

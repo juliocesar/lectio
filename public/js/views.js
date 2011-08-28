@@ -52,7 +52,6 @@
     initialize : function() {
       _.bindAll(this, 'add', 'addBunch', 'read', 'fetch', 'highlight', 'highlightAll');
       Lectio.Items.bind('add',    this.add);
-      Lectio.Items.bind('add',    this.highlight);
       Lectio.Items.bind('reset',  this.addBunch);
       Lectio.Items.bind('reset',  this.highlightAll);
       Lectio.Items.trigger('reset');
@@ -238,9 +237,7 @@
 
     highlightPreview : function(model) {
       var preview = Lectio.Stream.el.find('#preview-' + model.get('_id'));
-      preview
-        .addClass('in-read-later')
-        .find('svg').attr('fill', '#000');
+      preview.addClass('in-read-later');
     },
 
     open : function(item) {

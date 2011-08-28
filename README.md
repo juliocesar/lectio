@@ -11,11 +11,11 @@ Julio
  - search
 
 Lachlan
- - asset pipelining
  - find date parsing JS library
  - proper ipad stylings
   - scrolling on ipad is still pretty lame
   - make star buttons permanently visible
+ - give home link hot backbone action
 
 Dave
   - make feed parsing less shit
@@ -26,7 +26,7 @@ Dave
   x make crawler run inside server
   - improve API
     - search
-    - sorting
+    x sorting
   - fix sources
   - moar sources
   - users

@@ -11,13 +11,16 @@
     "name": "lectio",
     "version": "0.1.0",
     "dependencies": {
-        "nko": "~0.1.1",
         "coffee-script": "1.1.2",
-        "zappa": "0.2.0beta",
+        "connect-assetmanager": "0.0.23",
+        "connect-gzip": "0.1.0",
+        "ejs": "0.4.3",
         "jsdom": "0.2.3",
+        "mongoose": "2.0.2",
+        "nko": "~0.1.1",
         "nodepie": "0.3.0",
         "request": "2.1.1",
-        "mongoose": "2.0.2"
+        "zappa": "0.2.0beta"
     },
     "scripts": {
         "start": "coffee server.coffee"

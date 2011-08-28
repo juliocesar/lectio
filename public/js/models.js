@@ -1,3 +1,5 @@
+Lectio = {};
+
 (function($, undefined) {
   Item = Backbone.Model.extend({
     idAttribute : '_id',
@@ -33,7 +35,7 @@
       }
     }
   });
-  
+
   ReadLaterItem = Item.extend();
 
   ItemsCollection = Backbone.Collection.extend({
@@ -43,7 +45,7 @@
       return item.get("date");
     }
   });
-  
+
   ReadLaterCollection = Backbone.Collection.extend({
     model         : ReadLaterItem,
     localStorage  : new Store('reading-list-yo')

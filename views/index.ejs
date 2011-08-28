@@ -5,8 +5,14 @@
     <title>Lectio</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,max-scale=1,user-scalable=0">
     <link rel='stylesheet' href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|Abel|Questrial">
-    <link rel="stylesheet" href="/css/all.css">
+    {{ if (process.env.ENV_VARIABLE == "production") { }}
+    <link rel="stylesheet" href="/css/lectio.css">
+    {{  } else { }}
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/media-queries.css">
     <link rel="stylesheet" href="/css/tipsy.css">
+    {{ } }}
     <script src="/js/modernizr-custom.js"></script>
   </head>
   <body>
@@ -52,7 +58,7 @@
       </button>
       <span id="current-article"></span>
       <button id="go-next">
-        <svg version="1.0" x="0px" y="0px" width="20px" height="20px" fill="#999999" viewBox="0 0 100 83.641" enable-background="new 0 0 100 83.641"><polygon points="58.263,0.056 100,41.85 58.263,83.641 30.662,83.641 62.438,51.866 0,51.866 0,31.611 62.213,31.611 30.605,0   58.263,0.056 "/></svg>          
+        <svg version="1.0" x="0px" y="0px" width="20px" height="20px" fill="#999999" viewBox="0 0 100 83.641" enable-background="new 0 0 100 83.641"><polygon points="58.263,0.056 100,41.85 58.263,83.641 30.662,83.641 62.438,51.866 0,51.866 0,31.611 62.213,31.611 30.605,0   58.263,0.056 "/></svg>
       </button>
       <h1></h1>
       <button id="remove" data-title="Remove from list">
@@ -82,7 +88,7 @@
           </a>
         </p>
       </header>
-      <%= body %>      
+      <%= body %>
     </script>
     <script type="text/template" id="read-later-template">
       <header>
@@ -96,8 +102,11 @@
           </a>
         </p>
       </header>
-      <%= body %>      
+      <%= body %>
     </script>
+    {{ if (process.env.ENV_VARIABLE == "production") { }}
+    <script src="/js/lectio.js"></script>
+    {{  } else { }}
     <script src="/js/prototypes.js"></script>
     <script src="/js/jquery-1.6.2.min.js"></script>
     <script src="/js/underscore-min.js"></script>
@@ -110,5 +119,9 @@
     <script src="/js/views.js"></script>
     <script src="/js/router.js"></script>
     <script src="/js/app.js"></script>
+    {{ } }}
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/zappa/zappa.js"></script>
+    <script src="/realtime.js"></script>
   </body>
 </html>
