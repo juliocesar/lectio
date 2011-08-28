@@ -42,7 +42,7 @@ easyParser = (feedName) ->
   (post, cb) ->
     cb null,
       title: post.title
-      published: new Date(post.pubDate or null)
+      published: post.pubDate or new Date()
       source: feedName
       url: post.link or ''
       images: []
