@@ -11,6 +11,7 @@ Julio
  - search
 
 Lachlan
+ - make sure pipeline works in production
  - find date parsing JS library
  - proper ipad stylings
   - scrolling on ipad is still pretty lame
