@@ -93,9 +93,39 @@
     tagName   : 'article',
     template  : _.template($('#read-later-template').html()),
     
+    initialize : function() {
+      this.model.viewLater = this;
+    },
+    
     render : function() {
       $(this.el).html(this.template(this.model.toJSON()));
       return this;      
+    }
+  });
+  
+  ReadLaterMenu = Backbone.View.extend({
+    el      : $('#read-later-menu'),
+    events  : {
+      'click #go-next'      : 'next',
+      'click #go-previous'  : 'previous'
+    },
+    
+    initialize : function() {
+      _.bindAll(this, 'updateCurrent');
+      Lectio.ReadLater.bind('open', this.updateCurrent);
+    },
+    
+    next : function() {
+      Lectio.ReadLater.next();
+    },
+    
+    previous : function() {
+      Lectio.ReadLater.previous();
+    },
+    
+    updateCurrent : function(item) {
+      this.el.find('h1')
+        .html(item.get('title'));
     }
   });
   
@@ -103,7 +133,7 @@
     el : $('#read-later'),
     
     initialize : function() {
-      _.bindAll(this, 'add', 'addBunch');
+      _.bindAll(this, 'add', 'addBunch', 'open', 'next', 'previous');
       Lectio.ReadLaterCollection.bind('add',    this.add);
       Lectio.ReadLaterCollection.bind('reset',  this.addBunch);
       Lectio.ReadLaterCollection.fetch();
@@ -117,6 +147,36 @@
     
     addBunch : function() {
       Lectio.ReadLaterCollection.each(this.add);
+    },
+    
+    open : function(item) {
+      this.currentItem = item;
+      var article = $(item.viewLater.el);
+      article
+        .addClass('current').removeClass('previous next')
+        .siblings('article').removeClass('previous next').end()
+        .prev('article').addClass('previous').end()
+        .next('article').addClass('next');
+      this.el.find('article').not(article).removeClass('current');
+      this.trigger('open', item);
+    },
+    
+    next : function() {
+      var nextIndex = Lectio.ReadLaterCollection.indexOf(this.currentItem);
+      if (nextIndex == -1 || nextIndex >= Lectio.ReadLaterCollection.length - 1) {
+        return false;
+      } else {
+        return this.open(Lectio.ReadLaterCollection.at(nextIndex + 1));
+      }   
+    },
+    
+    previous : function() {
+      var prevIndex = Lectio.ReadLaterCollection.indexOf(this.currentItem);
+      if (prevIndex <= 0) {
+        return false;
+      } else {
+        return this.open(Lectio.ReadLaterCollection.at(prevIndex - 1));
+      }      
     }
   });
   

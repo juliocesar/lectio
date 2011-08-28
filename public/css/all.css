@@ -82,8 +82,10 @@ body        { background: #eeedec url(/img/noise.png) repeat; overflow: hidden }
 #main-menu, #stream, #reading-now, #read-later { position: absolute }
 #stream, #reading-now, #read-later {
   padding-top: 70px;
-  top: 0px;
+  top: 0;
+  right: 0;
   bottom: 0;
+  left: 0;
   opacity: 1;
   overflow-y: auto;
   -webkit-transform:  translate3d(0px,0px,0);
@@ -187,25 +189,52 @@ p.meta {background: url(/img/sources/lectio.jpg) no-repeat 15px 11px }
 p.meta {background-position: top left;}
 
 #stream article.yc,
-p.meta.yc { background-image: url(/img/sources/ycombinator.png) }
+p.meta.yc                         { background-image: url(/img/sources/ycombinator.png) }
 #stream article.conversation,
-p.meta.conversation { background-image: url(/img/sources/conversation.png) }
+p.meta.conversation               { background-image: url(/img/sources/conversation.png) }
 #stream article.nyt,
-p.meta.nyt { background-image: url(/img/sources/nyt.png) }
+p.meta.nyt                        { background-image: url(/img/sources/nyt.png) }
 #stream article.usesthis,
-p.meta.usesthis { background-image: url(/img/sources/usesthis.jpg) }
+p.meta.usesthis                   { background-image: url(/img/sources/usesthis.jpg) }
 #stream article.functionsource,
-p.meta.functionsource { background-image: url(/img/sources/functionsource.png) }
+p.meta.functionsource             { background-image: url(/img/sources/functionsource.png) }
 #stream article.flickr,
-p.meta.flickr { background-image: url(/img/sources/flickr.jpg) }
+p.meta.flickr                     { background-image: url(/img/sources/flickr.jpg) }
 
 /* Read later */
-#read-later-menu      { position: absolute; bottom: 0; right: 0; left: 0; padding: 12px 20px 10px 40px; box-shadow: 0 -1px 3px rgba(0,0,0,0.2); z-index: 10; background: rgba(255,255,255,0.8) }
+#read-later-menu      { position: absolute; bottom: 0; right: 0; left: 0; padding: 12px 20px 10px 75px; box-shadow: 0 -1px 3px rgba(0,0,0,0.2); z-index: 10; background: rgba(255,255,255,0.8) }
 #read-later-menu > *  { float: left }
+#read-later-menu h1   { margin-left: 20px; font-size: 1.6em; line-height: 22px; color: #999 }
 #read-later-menu.yc   { background: url(/img/sources/ycombinator.png) no-repeat 15px 15px, rgba(255,255,255,0.8) }
-#read-later article { width: 90%; margin: 0 auto 70px }
-#read-later article header { padding-bottom: 30px; margin-bottom: 20px; border-bottom: 1px solid #ccc }
-#read-later article header h1 { font-size: 3.4em; color: #333 }
+#read-later article         { 
+  position: absolute; 
+  right: 85px; 
+  left: 85px; 
+  pointer-events: none; 
+  opacity: 0;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition:    all 0.25s linear;
+  transition:         all 0.25s linear;
+}
+#read-later article.current { 
+  pointer-events: auto; 
+  opacity: 1;
+  -webkit-transform:  translate3d(0,0,0);
+  -moz-transform:     translateX(0);
+  transform:          translate3d(0,0,0)  
+}
+#read-later article.next {
+  -webkit-transform:  translate3d(50%,0,0);
+  -moz-transform:     translateX(50%);
+  transform:          translate3d(50%,0,0)
+}
+#read-later article.previous {
+  -webkit-transform:  translate3d(-50%,0,0);
+  -moz-transform:     translateX(-50%);
+  transform:          translate3d(-50%,0,0);
+}
+#read-later article header      { padding-bottom: 30px; margin-bottom: 20px; border-bottom: 1px solid #ccc }
+#read-later article header h1   { font-size: 3.4em; color: #333 }
 #read-later article > h1, #reading-now > h2,
 #read-later article > h3, #reading-now > h4,
 #read-later article > h5, #reading-now > h6 { margin-top: 0.5em }

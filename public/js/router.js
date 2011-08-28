@@ -19,6 +19,7 @@
     
     readLater : function() {
       this.body.addClass('read-later');
+      Lectio.ReadLater.open(Lectio.ReadLaterCollection.at(0));
     }
   });
 })(jQuery);
