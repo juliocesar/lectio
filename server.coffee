@@ -18,7 +18,7 @@ assetManagerGroups =
   css:
     dataType: "css"
     path: __dirname + "/public/css/"
-    files: [ "reset.css", "main.css", "media-queries.css", "tipsy.css" ]
+    files: [ "reset.css", "images.css", "main.css", "media-queries.css", "tipsy.css" ]
     route: /\/css\/lectio.css/
 assetsManagerMiddleware = assetManager(assetManagerGroups)
 
