@@ -307,13 +307,13 @@
   MainMenu = Backbone.View.extend({
     el      : $('#main-menu'),
     events  : {
-      'click #go-read-later' : 'readLater',
-      'click #logo'   : 'home',
-      'click #title'  : 'home'
+      'click #go-read-later'  : 'readLater',
+      'click #go-stream'      : 'home'
     },
 
     initialize : function() {
       this.el.find('#go-read-later').tipsy({ title : 'data-title', gravity : 'n' });
+      this.el.find('#go-stream').tipsy({ title : 'data-title', gravity : 'n' });
     },
 
     readLater : function() {
