@@ -13,6 +13,7 @@
   Lectio.MainMenu = new MainMenu;
   Lectio.ReadLater = new ReadLater;
   Lectio.ReadLaterMenu = new ReadLaterMenu;
+  Lectio.FocusManager = new FocusManager;
 
   Lectio.Router = new Router;
   Backbone.history.start();

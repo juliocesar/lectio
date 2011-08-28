@@ -43,7 +43,7 @@ article strong { font-weight: bold }
 article a   { cursor: pointer; border-bottom: 1px dotted #333; color: inherit; text-decoration: none }
 article pre,
 article code  { font-family: Monaco, sans-serif }
-article img       { border-radius: 4px }
+article img       { max-width: 100%; border-radius: 4px }
 article img.small { width: 200px }
 article img.right { float: right; margin: 0.25em 0 1em 1em }
 article ul        { list-style-position: inside }
@@ -69,7 +69,8 @@ article br        { display: none }
   transition:         opacity 0.25s linear;
 }
 #stream article.adding > *  { opacity: 0 }
-#stream article:hover { background: rgba(0,0,0,0.1) }
+#stream article:hover,
+#stream article.focused { background-color: rgba(0,0,0,0.1) }
 #stream article h1 { margin-right: 10px; font-size: 1.5em }
 #stream article p  { font-size: 1.25em }
 #stream article button { position: absolute; top: 8px; right: 3px; padding: 0; border: 0; background: transparent; opacity: 0 }
@@ -122,8 +123,10 @@ p.meta {background: url(/img/sources/lectio.jpg) no-repeat 15px 11px }
 p.meta {background-position: top left;}
 
 #stream article.yc,
+#stream article.yc.focused,
 p.meta.yc                         { background-image: url(/img/sources/ycombinator.png) }
 #stream article.conversation,
+#stream article.conversation.focused,
 p.meta.conversation               { background-image: url(/img/sources/conversation.png) }
 #stream article.nyt,
 p.meta.nyt                        { background-image: url(/img/sources/nyt.png) }

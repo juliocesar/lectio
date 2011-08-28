@@ -15,6 +15,7 @@
       $(self.el)
         .html(self.template(self.model.toJSON()))
         .addClass(self.model.get('sourceClass'))
+        .addClass('preview')
         .attr('id', 'preview-' + self.model.get('_id'))
         .find('button')
           .click(function(event) {
@@ -313,8 +314,6 @@
 
     initialize : function() {
       this.el.find('#go-read-later').tipsy({ title : 'data-title', gravity : 'n' });
-      this.el.find('#logo').tipsy({ title : 'data-title', gravity : 'n' });
-      this.el.find('#title').tipsy({ title : 'data-title', gravity : 'n' });
     },
 
     readLater : function() {
