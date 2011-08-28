@@ -75,7 +75,7 @@ nytimes = (post, cb) ->
 hn = (post, cb) ->
   cb null,
     title: post.title
-    published: new Date()
+    published: new Date(post.pubDate)
     source: "Hacker News"
     url: post.link
     images: []
@@ -114,6 +114,29 @@ flickr = (post, cb) ->
     url: post.link
     body: post.body
 
+kalina = (post, cb) ->
+  cb null,
+    title: post.title
+    published: new Date(post.pubDate)
+    source: "Pictures That Look Like This"
+
+gimmeColor = (post, cb) ->
+  cb null,
+    title: post.title
+    published: new Date(post.pubDate)
+    source: "Gimme Bar Collection: Color"
+    url: post.link
+    body: post.body
+
+freakonomics = (post, cb) ->
+  cb null,
+    title: post.title
+    published: new Date(post.pubDate)
+    source: "Freakonomics"
+    url: post.link
+    images: []
+    body: post.description
+
 exports.nytimes = nytimes
 #exports.engadget = engadget
 exports.hn = hn
@@ -121,3 +144,7 @@ exports.functionsource = functionsource
 exports.tc = tc
 exports.usesthis = usesthis
 exports.flickr = flickr
+exports.kalina = kalina
+exports.gimmeColor = gimmeColor
+exports.freakonomics = freakonomics
+

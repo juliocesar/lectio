@@ -30,6 +30,8 @@ Lectio = {};
           return 'usesthis';
         case 'Flickr Explore Interestingess':
           return 'flickr';
+        case 'Gimme Bar Collection: Color':
+          return 'gimmebar'
         default:
           return 'foo';
       }

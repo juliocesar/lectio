@@ -19,11 +19,15 @@ rssSource = (feed) ->
       rss.init()
       cb(jsonify item for item in rss.getItems(0))
 
-exports.nytimes = rssSource 'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml'
+#exports.nytimes = rssSource 'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml'
 #exports.engadget = rssSource 'http://www.engadget.com/rss.xml'
 #exports.hn = rssSource 'http://news.ycombinator.com/rss'
+exports.hn = rssSource 'http://andrewtrusty.appspot.com/readability/feed?url=http%3A//news.ycombinator.com/rss'
 exports.functionsource = rssSource 'http://functionsource.com/feeds/entries'
 exports.tc = rssSource 'http://theconversation.edu.au/articles'
 # exports.usesthis = rssSource 'http://usesthis.com/feed/'
 # exports.flickr = rssSource 'http://feeds.feedburner.com/flickr_interestingness'
+exports.kalina = rssSource 'http://picturesthatlooklikethis.com/rss'
+exports.gimmeColor =rssSource 'https://gimmebar.com/public/feed/user/rose22/collection/color'
+exports.freakonomics = rssSource 'http://andrewtrusty.appspot.com/readability/feed?url=http%3A//freakonomics.blogs.nytimes.com/feed/'
 
