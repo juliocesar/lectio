@@ -18,6 +18,11 @@ saveItem = (error, attrs, cb) ->
           item = new Item(attrs)
           item.save()
           Item.emit 'new', item
+        else
+          attrs.published = items[0].get 'published'
+          for item in items
+            item.set(attrs)
+            item.save()
 
 # TODO set a timeout just in case the crawl just fails completely
 crawl = (source, parser, cb) ->
