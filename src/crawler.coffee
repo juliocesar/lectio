@@ -33,7 +33,8 @@ crawlIntermittently = (source, parser) ->
   crawl source, parser, ->
     unless done
       done = true
-      setTimeout (-> crawlIntermittently(source, parser)), 600000
+      seconds = if source == sources.dummy then 30000 else 600000
+      setTimeout (-> crawlIntermittently(source, parser)), seconds
 
 crawlAll = (options = {}) ->
   if options?.onlyOnce
