@@ -14,7 +14,7 @@ Lectio = {};
       if (this.has('source')) this.set({ sourceClass : this.sourceClass(this.get('source').name) });
       if (this.has('published'))
         this.set({ published: this.get('published').replace(/\.\d\d\d/g, "") });
-        this.set({ date: prettyDate(this.get('published')) });
+      this.set({ date: prettyDate(this.get('published')) });
     },
     
     sourceClass : function(name) {
@@ -34,15 +34,15 @@ Lectio = {};
         case 'Flickr Explore Interestingess':
           return 'flickr';
         case 'Gimme Bar Collection: Color':
-          return 'gimmebar'
+          return 'gimmebar';
         case 'Gimme Bar Collection: Wanderlust':
-          return 'gimmebar'
+          return 'gimmebar';
         case 'Gimme Bar Collection: Illustration':
-          return 'gimmebar'
+          return 'gimmebar';
         case 'Gimme Bar Collection: Music Art':
-          return 'gimmebar'
+          return 'gimmebar';
         case 'Freakonomics':
-          return 'freakonomics'
+          return 'freakonomics';
         default:
           return 'foo';
       }
