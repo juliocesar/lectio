@@ -67,6 +67,8 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
 
   client '/realtime.js': ->
     at 'item': ->
+      if !@item or !@item._id
+        console?.log "Got a bogus item", @item
       if item = Lectio.Items.get @item._id
         item.set @item
       else
