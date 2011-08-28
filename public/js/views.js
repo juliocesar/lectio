@@ -19,8 +19,16 @@
         .find('button')
           .click(function(event) {
             event.stopPropagation();
-            if (!Lectio.ReadLaterCollection.get(self.model.get('_id')))
-              Lectio.ReadLaterCollection.create(self.model.attributes);
+            var item = Lectio.ReadLaterCollection.get(self.model.get('_id'));
+            if (!item) {
+              $('body > div.tipsy')
+                .html('<div class="tipsy-arrow"></div><div class="tipsy-inner">Remove from reading list</div>');
+                Lectio.ReadLaterCollection.create(self.model.attributes);              
+            } else {
+              $('body > div.tipsy')
+                .html('<div class="tipsy-arrow"></div><div class="tipsy-inner">Read later</div>');              
+              item.destroy();
+            }
           });
       $(self.el).find('button').tipsy({ title: 'data-title', fade : true, gravity: 'w'});
       return this;
@@ -61,7 +69,10 @@
 
     highlight : function(item) {
       var preview = this.el.find('#preview-' + item.get('_id'));
-      preview.addClass('in-read-later');
+      preview
+        .addClass('in-read-later')
+        .find('button')
+          .attr('data-title', 'Remove from reading list');
     },
     
     highlightAll : function() {
@@ -214,7 +225,6 @@
       Lectio.ReadLaterCollection.bind('remove', this.remove);
       Lectio.ReadLaterCollection.bind('remove', this.isEmpty);
       Lectio.ReadLaterCollection.bind('remove', this.deHighlightPreview);
-      // Lectio.ReadLaterCollection.bind('remove', this.deHighlightPreview);
       Lectio.ReadLaterCollection.bind('reset',  this.addBunch);
       Lectio.ReadLaterCollection.bind('reset',  this.isEmpty);
       Lectio.ReadLaterCollection.fetch();
@@ -246,12 +256,18 @@
 
     highlightPreview : function(model) {
       var preview = Lectio.Stream.el.find('#preview-' + model.get('_id'));
-      preview.addClass('in-read-later');
+      preview
+        .addClass('in-read-later')
+        .find('button')
+          .attr('data-title', 'Remove from reading list');
     },
     
     deHighlightPreview : function(model) {
       var preview = Lectio.Stream.el.find('#preview-' + model.get('_id'));
-      preview.removeClass('in-read-later');
+      preview
+        .removeClass('in-read-later')
+        .find('button')
+          .attr('data-title', 'Read later');
     },
 
     open : function(item) {
