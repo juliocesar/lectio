@@ -23,7 +23,7 @@ Dave
     - NOTE investigate:
       - node-pool https://github.com/coopernurse/node-pool
       - poolr https://github.com/codingforce/poolr
-  - make crawler run inside server
+  x make crawler run inside server
   - improve API
     - search
     - sorting
