@@ -40,14 +40,9 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
     query.exec (err, items) =>
       json = (item.clientJSON() for item in items)
       send json
-  
-  get '/api/items/:id': ->
-    lectio.Item.findOne { _id: @id }, (err, item) =>
-      json = (item.clientJSON())
-      send json
 
   get '/api/items/:id': ->
-    lectio.Item.findOne {_id: @id}, (err, item) =>
+    lectio.Item.findOne { _id: @id }, (err, item) =>
       if err
         # TODO send a 404
       else
