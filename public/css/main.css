@@ -47,6 +47,7 @@ article img       { border-radius: 4px }
 article img.small { width: 200px }
 article img.right { float: right; margin: 0.25em 0 1em 1em }
 article ul        { list-style-position: inside }
+article br        { display: none }
 
 /* Top menu */
 #main-menu { left: 0; right: 0; padding: 12px 20px 10px; background: #000; background: rgba(0,0,0,0.8); box-shadow: 0 3px 5px rgba(0,0,0,0.2); z-index: 10 }
@@ -135,7 +136,7 @@ p.meta.flickr                     { background-image: url(/img/sources/flickr.jp
 /* Read later */
 #read-later-menu      { position: absolute; bottom: 0; right: 0; left: 0; padding: 12px 75px 10px; color: #999; box-shadow: 0 -1px 3px rgba(0,0,0,0.2); z-index: 10; background: rgba(255,255,255,0.8) }
 #read-later-menu > *  { float: left }
-#read-later-menu h1   { margin-left: 20px; font-size: 1.6em; line-height: 22px; min-width: 300px }
+#read-later-menu h1   { margin: 0 20px; font-size: 1.6em; line-height: 22px; min-width: 300px }
 #current-article      { display: block; font-size: 1.6em; margin: 0 5px }
 #read-later-menu.yc   { background: url(/img/sources/ycombinator.png) no-repeat 15px 15px, rgba(255,255,255,0.8) }
 #read-later { overflow-x: hidden }
@@ -184,3 +185,8 @@ p.meta.flickr                     { background-image: url(/img/sources/flickr.jp
 #empty    { position: absolute; width: 550px; top: 50%; left: 50%; margin: -120px 0 0 -275px; color: #666; text-align: center; text-shadow: 1px 1px 1px #E5E5E5 }
 #empty h1 { font: 700 3em 'PT Sans Narrow' } 
 #empty p  { font: normal 1.8em 'Abel' }
+
+
+/* Function source styles */
+article .gist         { padding: 0.5em; border: 1px dashed #999; border-radius: 4px }
+article .gist-meta a  { display: inline-block; padding: 0.15em 0.25em; font-size: 1.2em; background: #999; color: #ebebed; border: 0; margin-right: 1em; text-shadow: none; border-radius: 4px }
