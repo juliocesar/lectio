@@ -57,6 +57,8 @@ article br        { display: none }
 #main-menu h1 a { color: #fff; text-decoration: none }
 #main-menu button { margin-right: 20px; color: #fff }
 #main-menu .vote {position: absolute; right: 12px; top: 14px;}
+#logo,
+#title {cursor: pointer;}
 
 /* Stream */
 #stream { left: 0; padding: 70px 0 6px 0; width: 360px; border-right: 1px solid #ccc }
@@ -138,7 +140,7 @@ p.meta.flickr                     { background-image: url(/img/sources/flickr.jp
 #read-later-menu > *  { float: left }
 #read-later-menu h1   { margin: 0 20px; font-size: 1.6em; line-height: 22px; min-width: 300px }
 #current-article      { display: block; font-size: 1.6em; margin: 0 5px }
-#read-later-menu.yc   { background: url(/img/sources/ycombinator.png) no-repeat 15px 15px, rgba(255,255,255,0.8) }
+#read-later-menu.yc   { background:  rgba(255,255,255,0.8) url(/img/sources/ycombinator.png) no-repeat 15px 15px }
 #read-later { overflow-x: hidden }
 #read-later article         { 
   position: absolute; 

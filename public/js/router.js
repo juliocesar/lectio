@@ -10,6 +10,7 @@
     },
     
     root : function() {
+      Lectio.Stream.read(Lectio.Items.last());
       this.body.removeClass('read-later');
     },
     
