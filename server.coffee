@@ -22,7 +22,7 @@ assetManagerGroups =
     route: /\/css\/lectio.css/
 assetsManagerMiddleware = assetManager(assetManagerGroups)
 
-lectio.crawler.crawlAll()
+setTimeout lectio.crawler.crawlAll, 10000
 
 app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
   requiring 'util'
