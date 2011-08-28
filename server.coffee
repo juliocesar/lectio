@@ -1,6 +1,7 @@
 lectio = require './lectio'
 nko = require('nko')('DFw7dX4Eim56nfD9')
 assetManager = require 'connect-assetmanager'
+gzip = require 'connect-gzip'
 
 assetManagerGroups =
   js:
@@ -10,11 +11,11 @@ assetManagerGroups =
     route: /\/public\/js\/lectio.js/
 assetsManagerMiddleware = assetManager(assetManagerGroups)
 
-app = require('zappa').app {lectio, assetsManagerMiddleware}, ->
+app = require('zappa').app {lectio, assetsManagerMiddleware, gzip}, ->
   requiring 'util'
   def lectio: lectio
 
-  use assetsManagerMiddleware, 'static'
+  use gzip.gzip(), assetsManagerMiddleware, 'static'
 
   get '/api/items': ->
     lectio.Item.find {}, (err, items) =>
