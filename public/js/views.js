@@ -121,6 +121,7 @@
       var self = this;
       $(window).keydown(function(event) {
         if (!$('body').hasClass('read-later')) return true;
+        event.preventDefault();
         switch(event.keyCode) {
           case 37:
             self.previous();
