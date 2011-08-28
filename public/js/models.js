@@ -47,6 +47,8 @@ Lectio = {};
           return 'wired';
         case 'Comment is free':
           return 'commentisfree';
+        case 'If we don&rsquo;t, remember me':
+          return 'iwdrm';
         default:
           return 'foo';
       }
