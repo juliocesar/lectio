@@ -114,6 +114,14 @@ flickr = (post, cb) ->
     url: post.link
     body: post.body
 
+kalina = (post, cb) ->
+  cb null,
+    title: post.title
+    published: new Date(post.pubDate)
+    source: "Pictures That Look Like This"
+    url: post.link
+    body: post.body
+
 exports.nytimes = nytimes
 #exports.engadget = engadget
 exports.hn = hn
@@ -121,3 +129,4 @@ exports.functionsource = functionsource
 exports.tc = tc
 exports.usesthis = usesthis
 exports.flickr = flickr
+exports.kalina = kalina

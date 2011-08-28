@@ -26,4 +26,5 @@ exports.functionsource = rssSource 'http://functionsource.com/feeds/entries'
 exports.tc = rssSource 'http://theconversation.edu.au/articles'
 # exports.usesthis = rssSource 'http://usesthis.com/feed/'
 # exports.flickr = rssSource 'http://feeds.feedburner.com/flickr_interestingness'
+exports.kalina = rssSource 'http://picturesthatlooklikethis.com/rss'
 
