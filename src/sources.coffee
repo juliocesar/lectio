@@ -41,3 +41,4 @@ exports.commentisfree = rssSource 'http://feeds.guardian.co.uk/theguardian/comme
 exports.iwdrm = rssSource 'http://iwdrm.tumblr.com/rss'
 exports.anildash = rssSource 'http://feeds.dashes.com/AnilDash'
 exports.atlantictech = rssSource 'http://feeds.feedburner.com/AtlanticScienceAndTechnology'
+exports.bigpicture = rssSource 'http://www.boston.com/bigpicture/index.xml'

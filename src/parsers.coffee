@@ -83,6 +83,14 @@ iwdrmParser = (feedName) ->
       post.body = post.body.replace(/“.+”(.+)/, "$1")
       cb null, post
 
+bigpictureParser = (feedName) ->
+  parser = easyParser(feedName)
+  (post, cb) ->
+    parser post, (error, post) ->
+      post.body = post.body.replace(/<div class="bpBody">(.+)<\/div>.+/, "<p>$1<\/p>")
+      post.body = post.body.replace(/<div class="bpCaption">(.+)<\/div>.+/, "<p>$1<\/p>")
+      cb null, post
+
 exports.nytimes  = easyParser "New York Times"
 exports.engadget = readabilityParser "Engadget"
 exports.hn       = easyParser "Hacker News"
@@ -101,3 +109,4 @@ exports.commentisfree = easyParser "Comment is free"
 exports.iwdrm = iwdrmParser "If we don&rsquo;t, remember me"
 exports.anildash = easyParser "Anil Dash"
 exports.atlantictech = easyParser "The Atlantic: Technology"
+exports.bigpicture = bigpictureParser "The Big Picture"
