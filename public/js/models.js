@@ -38,6 +38,8 @@ Lectio = {};
           return 'gimmebar'
         case 'Gimme Bar Collection: Music Art':
           return 'gimmebar'
+        case 'Freakonomics':
+          return 'freakonomics'
         default:
           return 'foo';
       }
