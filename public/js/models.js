@@ -12,8 +12,8 @@ Lectio = {};
         this.set({ body : '', summary : '' });
       }
       if (this.has('source')) this.set({ sourceClass : this.sourceClass(this.get('source').name) });
-
-      this.set({ date: prettyDate(this.get('published').replace(/.000/g, "")) });
+      if (this.has('published'))
+        this.set({ date: prettyDate(this.get('published').replace(/.000/g, "")) });
     },
     
     sourceClass : function(name) {
