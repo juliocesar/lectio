@@ -1,3 +1,4 @@
 lectio = require './lectio'
 
-lectio.crawler.crawlAll(onlyOnce: true)
+lectio.crawler.crawl 'kalina'
+#lectio.crawler.crawlAll(onlyOnce: true)
