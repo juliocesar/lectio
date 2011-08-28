@@ -153,6 +153,14 @@ gimmeIllustration = (post, cb) ->
     url: post.link
     body: post.body
 
+gimmeMusicArt = (post, cb) ->
+  cb null,
+    title: post.title
+    published: new Date(post.pubDate)
+    source: "Gimme Bar Collection: Music Art"
+    url: post.link
+    body: post.body
+
 exports.nytimes = nytimes
 #exports.engadget = engadget
 exports.hn = hn
@@ -165,4 +173,5 @@ exports.gimmeColor = gimmeColor
 exports.freakonomics = freakonomics
 exports.gimmeWanderlust = gimmeWanderlust
 exports.gimmeIllustration = gimmeIllustration
+exports.gimmeMusicArt = gimmeMusicArt
 

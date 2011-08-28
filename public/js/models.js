@@ -36,6 +36,8 @@ Lectio = {};
           return 'gimmebar'
         case 'Gimme Bar Collection: Illustration':
           return 'gimmebar'
+        case 'Gimme Bar Collection: Music Art':
+          return 'gimmebar'
         default:
           return 'foo';
       }
