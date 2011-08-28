@@ -3,13 +3,13 @@
     body : $('body'),
     
     routes : {
+      ''            : 'root',
       '/'           : 'root',
       '/items/:id'  : 'open',
       '/read-later' : 'readLater'
     },
     
     root : function() {
-      console.log("ROUTE");
       this.body.removeClass('read-later');
     },
     
