@@ -51,9 +51,9 @@
       </button>
       <span id="current-article"></span>
       <button id="go-next">
-        <svg version="1.0" x="0px" y="0px" width="20px" height="20px" fill="#999999" viewBox="0 0 100 83.641" enable-background="new 0 0 100 83.641"><polygon points="58.263,0.056 100,41.85 58.263,83.641 30.662,83.641 62.438,51.866 0,51.866 0,31.611 62.213,31.611 30.605,0   58.263,0.056 "/></svg>          
+        <svg version="1.0" x="0px" y="0px" width="20px" height="20px" fill="#999999" viewBox="0 0 100 83.641" enable-background="new 0 0 100 83.641"><polygon points="58.263,0.056 100,41.85 58.263,83.641 30.662,83.641 62.438,51.866 0,51.866 0,31.611 62.213,31.611 30.605,0   58.263,0.056 "/></svg>
       </button>
-      <h1></h1>      
+      <h1></h1>
     </menu>
     <div id="stream" class="inactive scrollable vertical"></div>
     <article id="reading-now" class="scrollable vertical"></article>
@@ -77,7 +77,7 @@
           </a>
         </p>
       </header>
-      <%= body %>      
+      <%= body %>
     </script>
     <script type="text/template" id="read-later-template">
       <header>
@@ -107,5 +107,8 @@
     <script src="/js/router.js"></script>
     <script src="/js/app.js"></script>
     {{ } }}
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/zappa/zappa.js"></script>
+    <script src="/realtime.js"></script>
   </body>
 </html>

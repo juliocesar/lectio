@@ -17,7 +17,7 @@ saveItem = (error, attrs, cb) ->
         if items.length == 0
           item = new Item(attrs)
           item.save()
-          Item.emit 'save', item
+          Item.emit 'save', item.clientJSON()
 
 # TODO set a timeout just in case the crawl just fails completely
 crawl = (source, parser, cb) ->
@@ -33,7 +33,7 @@ crawlIntermittently = (source, parser) ->
   crawl source, parser, ->
     unless done
       done = true
-      setTimeout (-> crawlIntermittently(source, parser)), 600000
+      setTimeout (-> crawlIntermittently(source, parser)), 60000
 
 crawlAll = (options = {}) ->
   if options?.onlyOnce
