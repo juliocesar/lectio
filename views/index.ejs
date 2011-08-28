@@ -5,7 +5,7 @@
     <title>Lectio</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,max-scale=1,user-scalable=0">
     <link rel='stylesheet' href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|Abel|Questrial">
-    {{ if (process.env.ENV_VARIABLE == "production") { }}
+    {{ if (process.env.NODE_ENV == 'production') { }}
     <link rel="stylesheet" href="/css/lectio.css">
     {{  } else { }}
     <link rel="stylesheet" href="/css/reset.css">
@@ -16,7 +16,7 @@
     <script src="/js/modernizr-custom.js"></script>
   </head>
   <body>
-    <h1 style="color: black">ENV: {{ process.env.ENV_VARIABLE }}</h1>
+    <h1 style="color: black">ENV: {{ process.env.NODE_ENV }}</h1>
   
     <header id="main-menu">
       <a class="home" href="/">
