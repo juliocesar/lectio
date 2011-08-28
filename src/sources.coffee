@@ -30,4 +30,5 @@ exports.tc = rssSource 'http://theconversation.edu.au/articles'
 exports.kalina = rssSource 'http://picturesthatlooklikethis.com/rss'
 exports.gimmeColor =rssSource 'https://gimmebar.com/public/feed/user/rose22/collection/color'
 exports.freakonomics = rssSource 'http://andrewtrusty.appspot.com/readability/feed?url=http%3A//freakonomics.blogs.nytimes.com/feed/'
-
+exports.gimmeColor = rssSource 'https://gimmebar.com/public/feed/user/rose22/collection/color'
+exports.gimmeWanderlust = rssSource 'https://gimmebar.com/public/feed/user/meagan/collection/wanderlust'

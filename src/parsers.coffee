@@ -137,6 +137,14 @@ freakonomics = (post, cb) ->
     images: []
     body: post.description
 
+gimmeWanderlust = (post, cb) ->
+  cb null,
+    title: post.title
+    published: new Date(post.pubDate)
+    source: "Gimme Bar Collection: Wanderlust"
+    url: post.link
+    body: post.body
+
 exports.nytimes = nytimes
 #exports.engadget = engadget
 exports.hn = hn
@@ -147,4 +155,5 @@ exports.flickr = flickr
 exports.kalina = kalina
 exports.gimmeColor = gimmeColor
 exports.freakonomics = freakonomics
+exports.gimmeWanderlust = gimmeWanderlust
 

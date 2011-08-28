@@ -32,6 +32,8 @@ Lectio = {};
           return 'flickr';
         case 'Gimme Bar Collection: Color':
           return 'gimmebar'
+        case 'Gimme Bar Collection: Wanderlust':
+          return 'gimmebar'
         default:
           return 'foo';
       }
