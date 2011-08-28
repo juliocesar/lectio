@@ -1,24 +1,19 @@
-class Throttler
-  constructor: ->
-    @callbacks = []
-    @running = false
-    next = @next.bind(this)
-    @next = -> next()
+poolModule = require 'generic-pool'
 
-  add: (description, callback) ->
-    @callbacks.push { callback: callback, description: description }
-    @run() unless @running
+pool = poolModule.Pool
+  name: 'http',
+  create: (callback) ->
+    # TODO maybe...
+    callback null, {}
+  destroy: ->
+  max: 5
+  idleTimeoutMillis: 30000
+  log: false
 
-  next: ->
-    if @callbacks.length > 0
-      { callback, description } = @callbacks.shift()
-      console.log description
-      callback @next
-    else
-      @running = false
+exports.add = (description, callback) ->
+  pool.acquire (err, _) ->
+    console.log description
+    callback pool.release
 
-  run: ->
-    @running = true
-    @next()
+exports.run = ->
 
-module.exports = new Throttler()
