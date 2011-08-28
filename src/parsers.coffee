@@ -45,14 +45,14 @@ nytimes = (post, cb) ->
   #    images: []
   #    body: $(el).html() for el in $('.articleBody')
 
-engadget = (post, cb) ->
-  cb null,
-    title: post.title
-    published: new Date()
-    source: "Engadget"
-    url: post.link
-    images: []
-    body: post.description
+#engadget = (post, cb) ->
+#  cb null,
+#    title: post.title
+#    published: new Date()
+#    source: "Engadget"
+#    url: post.link
+#    images: []
+#    body: post.description
 
 hn = (post, cb) ->
   uri = post.description.match(/https?:\/\/[^\"]+/)[0]
@@ -103,7 +103,7 @@ flickr = (post, cb) ->
     body: post.description
 
 exports.nytimes = nytimes
-exports.engadget = engadget
+#exports.engadget = engadget
 exports.hn = hn
 exports.functionsource = functionsource
 exports.tc = tc

@@ -22,6 +22,8 @@ assetManagerGroups =
     route: /\/css\/lectio.css/
 assetsManagerMiddleware = assetManager(assetManagerGroups)
 
+lectio.crawler.crawlAll()
+
 app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
   requiring 'util'
   def lectio: lectio
