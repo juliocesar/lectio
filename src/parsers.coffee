@@ -91,10 +91,10 @@ usesthis = (post, cb) ->
 flickr = (post, cb) ->
   cb null,
     title: post.title
-    published: post.published
+    published: new Date() # TODO photo's date is not in the feed!
     source: "Flickr Explore Interestingess"
     url: post.link
-    body: post.description
+    body: post.body
 
 exports.nytimes = nytimes
 #exports.engadget = engadget
