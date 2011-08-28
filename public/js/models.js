@@ -55,7 +55,7 @@ Lectio = {};
     model : Item,
     url   : '/api/items',
     comparator : function(item) {
-      return item.get("date");
+      return (new Date(item.get("published"))).getTime() * -1;
     }
   });
 
