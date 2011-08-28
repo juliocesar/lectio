@@ -19,14 +19,5 @@ Item.methods.clientJSON = ->
   images:    @images
   body:      @body
 
-#events = new events.EventEmitter()
-#
-#Item.pre 'update', (next) ->
-#  console.log "Emitting!"
-#  events.emit 'save', this
-#
-#Item.statics.events = events
-
-#mongoose.model 'Item', Item
 module.exports = mongoose.model 'Item', Item
 
