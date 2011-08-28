@@ -17,4 +17,5 @@
 
   Lectio.Router = new Router;
   Backbone.history.start();
+
 })(jQuery);

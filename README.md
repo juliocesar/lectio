@@ -7,17 +7,18 @@ Things to fix:
 
 Julio
  - read later
+   - read-later icon borked in prod
+   - fix date parsing
    - stars should have an effect
    - swipe should work
    - filter on sources in reading-now
-   - read-later icon borked in prod
-   
+
 Lachlan
- - find date parsing JS library
  - proper ipad stylings
   - scrolling on ipad is still pretty lame
   - make star buttons permanently visible
  - set selected state for preview items?
+ - vote CSS in Firefox
 
 Dave
   - make feed parsing less shit
