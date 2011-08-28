@@ -84,6 +84,7 @@
             .attr('data-id', item.get('_id'))
             .addClass('reading');
           self.reading.scrollTop(0);
+          self.currentItem = item;
         }, 
       270);
     },
