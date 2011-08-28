@@ -134,12 +134,11 @@ article ul        { list-style-position: inside }
 #main-menu h1 { margin: 2px 0 0 7px; font: 700 1.6em 'PT Sans Narrow'; color: #fff; vertical-align: bottom; text-transform: uppercase }
 #main-menu h1 a {color: #fff; text-decoration: none;}
 #main-menu button { margin-right: 20px; color: #fff }
-#main-menu .vote {background: #fff; border-radius: 1ex; -webkit-border-radius: 1ex; -moz-border-radius: 1ex; padding: 8px 6px 6px 12px; position: absolute; right: 12px; top: 7px;}
+#main-menu .vote {background: #fff; border-radius: 1ex; -webkit-border-radius: 1ex; -moz-border-radius: 1ex; padding: 8px 6px 6px 12px; position: absolute; right: 0.6em; top: 0.5em;}
 
 /* Stream */
 #stream { left: 0; padding: 70px 0 6px 0; width: 360px; border-right: 1px solid #ccc }
 #stream article { position: relative; margin: 0 0 0 6px; padding: 10px 20px 10px 40px; cursor: pointer }
-#stream article:hover { background: rgba(0,0,0,0.1) }
 #stream article h1 { font-size: 1.5em }
 #stream article p  { font-size: 1.25em }
 #stream article button { position: absolute; top: 8px; right: 3px; padding: 0; border: 0; background: transparent; opacity: 0 }
@@ -185,7 +184,7 @@ article ul        { list-style-position: inside }
 /* Source icons */
 #stream article,
 p.meta {background: url(/img/sources/lectio.jpg) no-repeat 15px 11px }
-#stream article:hover {background: url(/img/sources/lectio.jpg) no-repeat 15px 11px, rgba(0,0,0,0.1)}
+#stream article:hover {background: rgba(0,0,0,0.1) url(/img/sources/lectio.jpg) no-repeat 15px 11px}
 p.meta {background-position: top left;}
 
 #stream article.yc,
@@ -271,16 +270,13 @@ screen and (max-width: 600px) {
 
 /* it's probably an iPad */
 @media screen and (min-device-width: 481px) and (max-device-width: 1024px) {
-    
-    #stream, #reading-now { position: absolute }
-    #stream, #reading-now {
-      padding-top: 70px;
-      top: 0px;
-      bottom: 0;
-      opacity: 1;
-      overflow-y: auto;
-    }
+    body {font-size: 0.8em;}
 
+    #main-menu .vote {top: 0.35em;}
+
+    #stream, #reading-now {overflow-y: visible;}
+    #stream {width: 300px;}
+    #reading-now { left: 300px; right: 0; padding: 70px 30px 20px }
 }
 
 
