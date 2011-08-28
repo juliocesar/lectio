@@ -54,13 +54,31 @@ readabilityParser = (feedName) ->
     parser post, ->
       getContent post, cb
 
+flickrParser = (feedName) ->
+  parser = easyParser(feedName)
+  (post, cb) ->
+    parser post, (error, post) ->
+      console.log post
+      image = post.body.match(/"([^"]+_m\.(jpg|gif|png))/)[1]
+      post.images = [
+        image,
+        image.replace(/_m\.(jpg|gif|png)/, ".$1")
+        image.replace(/_m\.(jpg|gif|png)/, "_z.$1")
+        image.replace(/_m\.(jpg|gif|png)/, "_b.$1")
+        image.replace(/_m\.(jpg|gif|png)/, "_o.$1")
+      ]
+      post.body = post.body.replace(/_m\.(jpg|gif|png)/, "_z.$1")
+      post.body = post.body.replace(/<br \/>/, "<p>")
+      post.body = post.body + "</p>"
+      cb null, post
+
 exports.nytimes  = easyParser "New York Times"
 exports.engadget = readabilityParser "Engadget"
 exports.hn       = easyParser "Hacker News"
 exports.functionsource = easyParser "Function Source"
 exports.tc       = easyParser "ConversationEDU"
 exports.usesthis = easyParser "The Setup"
-exports.flickr   = easyParser "Flickr Explore Interestingess"
+exports.flickr   = flickrParser "Flickr Explore Interestingess"
 exports.kalina   = easyParser "Pictures That Look Like This"
 exports.gimmeColor = easyParser "Gimme Bar Collection: Color"
 exports.freakonomics = easyParser "Freakonomics"
