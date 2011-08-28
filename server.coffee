@@ -33,6 +33,8 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
   get '/': ->
     render 'index.ejs', layout: false
 
+  lectio.Item.on 'save', (item) => console.log(item) and broadcast 'item', item.clientJSON()
+
   get '/api/items': ->
     query = lectio.Item.find({})
     query.sort 'published', -1
@@ -47,6 +49,9 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
         # TODO send a 404
       else
         send item.clientJSON()
+
+  at connection: ->
+    console.log "Server time, bitches"
 
 port = if process.env.NODE_ENV == 'production' then 80 else 8000
 app.app.listen port, ->

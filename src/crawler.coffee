@@ -5,21 +5,27 @@ throttler  = require './throttler'
 Item       = require './item'
 util       = require 'util'
 
+saveItem = (error, attrs, cb) ->
+  if error
+    util.debug util.inspect error
+    util.debug error.stack
+  else
+    Item.find { url: attrs.url }, (err, items) ->
+      if err
+        console.log err
+      else
+        if items.length == 0
+          item = new Item(attrs)
+          item.save()
+          Item.emit 'save', item
+
 # TODO set a timeout just in case the crawl just fails completely
 crawl = (source, parser, cb) ->
   parser = source unless parser?
   throttler.add "Grabbing source #{source}", (next) ->
     sources[source] (posts) ->
       next()
-      for post in posts
-        parsers[parser] post, (error, item) ->
-          if error
-            util.debug util.inspect error
-            util.debug error.stack
-          else
-            #util.log "Updating #{item.url}"
-            Item.update { url: item.url }, item, upsert: true, (err) ->
-              util.log util.inspect err if err
+      parsers[parser](post, saveItem) for post in posts
       cb() if cb?
 
 crawlIntermittently = (source, parser) ->
