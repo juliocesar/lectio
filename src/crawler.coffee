@@ -6,8 +6,6 @@ util       = require 'util'
 
 exports.crawl = (source, parser) ->
   sources[source] (posts) ->
-    console.log(posts)
-    return
     for post in posts
       parsers[parser] post, (error, item) ->
         if error
