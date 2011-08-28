@@ -128,6 +128,15 @@ gimmeColor = (post, cb) ->
     url: post.link
     body: post.body
 
+freakonomics = (post, cb) ->
+  cb null,
+    title: post.title
+    published: new Date(post.pubDate)
+    source: "Freakonomics"
+    url: post.link
+    images: []
+    body: post.description
+
 exports.nytimes = nytimes
 #exports.engadget = engadget
 exports.hn = hn
@@ -137,4 +146,5 @@ exports.usesthis = usesthis
 exports.flickr = flickr
 exports.kalina = kalina
 exports.gimmeColor = gimmeColor
+exports.freakonomics = freakonomics
 
