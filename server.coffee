@@ -75,10 +75,10 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
 
     connect document.location.origin
 
-lectio.Item.on 'save', (item) ->
+lectio.Item.on 'new', (item) ->
   console.log "Broadcasting!"
   try
-    app.io.sockets.emit 'item', item: item # item.clientJSON()
+    app.io.sockets.emit 'item', item: item.clientJSON()
   catch error
     console.log error.stack
 

@@ -17,7 +17,7 @@ saveItem = (error, attrs, cb) ->
         if items.length == 0
           item = new Item(attrs)
           item.save()
-          Item.emit 'save', item.clientJSON()
+          Item.emit 'new', item
 
 # TODO set a timeout just in case the crawl just fails completely
 crawl = (source, parser, cb) ->
