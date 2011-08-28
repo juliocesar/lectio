@@ -37,3 +37,4 @@ exports.gimmeWanderlust = rssSource 'https://gimmebar.com/public/feed/user/meaga
 exports.gimmeIllustration = rssSource 'https://gimmebar.com/public/feed/user/squaredeye/collection/illustration'
 exports.gimmeMusicArt = rssSource 'https://gimmebar.com/public/feed/user/jonnygotham/collection/music-art'
 exports.wired = readableRssSource 'http://feeds.wired.com/wired/index'
+exports.commentisfree = rssSource 'http://feeds.guardian.co.uk/theguardian/commentisfree/rss'

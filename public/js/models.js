@@ -45,6 +45,8 @@ Lectio = {};
           return 'freakonomics';
         case 'Wired':
           return 'wired';
+        case 'Comment is free':
+          return 'commentisfree';
         default:
           return 'foo';
       }
