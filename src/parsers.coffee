@@ -38,15 +38,18 @@ getContent = (item, cb) ->
           item.body = result.content
           cb null, item
 
+easyParser = (feedName) ->
+  (post, cb) ->
+    cb null,
+      title: post.title
+      published: new Date(post.pubDate)
+      source: feedName
+      url: post.link
+      images: []
+      body: post.body
 
-nytimes = (post, cb) ->
-  cb null,
-    title: post.title
-    published: new Date(post.pubDate)
-    source: "New York Times"
-    url: post.link
-    images: []
-    body: post.body
+exports.nytimes = easyParser "New York Times"
+exports.engadget = easyParser "Engadget"
 
   #retrieve post.link, (error, $) ->
   #  return cb error if error
@@ -158,7 +161,7 @@ gimmeMusicArt = (post, cb) ->
     url: post.link
     body: post.body
 
-exports.nytimes = nytimes
+#exports.nytimes = nytimes
 #exports.engadget = engadget
 exports.hn = hn
 exports.functionsource = functionsource
