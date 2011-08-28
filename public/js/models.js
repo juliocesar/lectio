@@ -4,7 +4,8 @@
     
     initialize : function() {
       if (this.has('body')) {
-        this.set({ summary : $(this.get('body')).text().ellipsisAfter(20) });
+        var words = $(this.get('body')).text().ellipsisAfter(20);
+        this.set({ summary : words.split(/\s+/).length > 1 ? words : '' });
       } else {
         this.set({ body : '', summary : '' });
       }

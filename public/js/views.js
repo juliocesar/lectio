@@ -114,6 +114,22 @@
     initialize : function() {
       _.bindAll(this, 'updateCurrent');
       Lectio.ReadLater.bind('open', this.updateCurrent);
+      this.setupArrowsBindings();
+    },
+    
+    setupArrowsBindings : function() {
+      var self = this;
+      $(window).keydown(function(event) {
+        if (!$('body').hasClass('read-later')) return true;
+        switch(event.keyCode) {
+          case 37:
+            self.previous();
+            break;
+          case 39:
+            self.next();
+            break;
+        }
+      });
     },
     
     next : function() {
