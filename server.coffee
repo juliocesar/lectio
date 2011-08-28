@@ -13,12 +13,12 @@ assetManagerGroups =
   js:
     dataType: "javascript"
     path: __dirname + "/public/js/"
-    files: [ "prototypes.js", "jquery-1.6.2.min.js", "underscore-min.js", "backbone.js", "localstorage.js", "scrollability.js", "models.js", "views.js", "router.js", "app.js" ]
+    files: [ "prototypes.js", "jquery-1.6.2.min.js", "underscore-min.js", "backbone.js", "localstorage.js", "scrollability.js", "jquery.tipsy.js", "models.js", "views.js", "router.js", "app.js" ]
     route: /\/js\/lectio.js/
   css:
     dataType: "css"
     path: __dirname + "/public/css/"
-    files: [ "reset.css", "main.css", "media-queries.css" ]
+    files: [ "reset.css", "main.css", "media-queries.css", "tipsy.css" ]
     route: /\/css\/lectio.css/
 assetsManagerMiddleware = assetManager(assetManagerGroups)
 
@@ -31,7 +31,7 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
   use gzip.gzip(), assetsManagerMiddleware, 'static'
 
   get '/': ->
-    render 'index.ejs', layout: false
+    response.render 'index.ejs', locals: {env: process.env.NODE_ENV}, layout: false
 
   get '/api/items': ->
     query = lectio.Item.find({})

@@ -1,5 +1,7 @@
 Sources: Hacker News, NY Times, Conversation EDU, Endgadget.
 
+Our Vote CSS lives here: https://gist.github.com/1176452
+
 
 Things to fix:
 
@@ -11,6 +13,7 @@ Julio
  - search
 
 Lachlan
+ - make sure pipeline works in production
  - find date parsing JS library
  - proper ipad stylings
   - scrolling on ipad is still pretty lame
