@@ -73,15 +73,13 @@ nytimes = (post, cb) ->
 #    body: post.description
 
 hn = (post, cb) ->
-  attributes =
+  cb null,
     title: post.title
-    published: new Date()
+    published: new Date(post.pubDate)
     source: "Hacker News"
     url: post.link
     images: []
     body: post.description
-  getContent attributes, (error, item) ->
-    cb error, item
 
 functionsource = (post, cb) ->
   cb null,
