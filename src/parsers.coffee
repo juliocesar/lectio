@@ -67,5 +67,3 @@ exports.freakonomics = easyParser "Freakonomics"
 exports.gimmeWanderlust = easyParser "Gimme Bar Collection: Illustration"
 exports.gimmeIllustration = easyParser "Gimme Bar Collection: Illustration"
 exports.gimmeMusicArt = easyParser "Gimme Bar Collection: Music Art"
-
-exports.dummy = easyParser "Dummy"

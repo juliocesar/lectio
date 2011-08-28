@@ -36,5 +36,3 @@ exports.gimmeColor = rssSource 'https://gimmebar.com/public/feed/user/rose22/col
 exports.gimmeWanderlust = rssSource 'https://gimmebar.com/public/feed/user/meagan/collection/wanderlust'
 exports.gimmeIllustration = rssSource 'https://gimmebar.com/public/feed/user/squaredeye/collection/illustration'
 exports.gimmeMusicArt = rssSource 'https://gimmebar.com/public/feed/user/jonnygotham/collection/music-art'
-
-exports.dummy = rssSource 'http://lectioapp.tumblr.com/rss'
