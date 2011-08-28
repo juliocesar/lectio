@@ -3,7 +3,7 @@
     tagName   : 'article',
     template  : _.template($('#preview-template').html()),
     events    : {
-      'click'         : 'read'
+      'click' : 'read'
     },
         
     render : function() {

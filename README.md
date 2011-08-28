@@ -7,6 +7,7 @@ Julio
  - make links persist
  - read later
    - stars should have an effect
+   - swipe should work
  - search
 
 Lachlan

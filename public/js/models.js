@@ -37,8 +37,11 @@
   Item = Preview.extend();
 
   StreamCollection = Backbone.Collection.extend({
-    model : Preview,
-    url   : '/api/items'
+    model      : Preview,
+    url        : '/api/items',
+    comparator : function(item) {
+      return item.get("date");
+    }
   });
   
   ReadingList = Backbone.Collection.extend({

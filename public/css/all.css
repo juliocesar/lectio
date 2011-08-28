@@ -283,6 +283,10 @@ screen and (max-width: 600px) {
 /* portrait iPad */
 @media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
 
+    #stream {font-size: 0.8em; width: 240px;}
+    #reading-now { left: 240px;}
+    #stream article {background-position: 5px 11px; margin: 0; padding: 10px 20px 10px 30px;}
+    #stream article:hover {background-position: 5px 11px}
 
 }
 
