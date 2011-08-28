@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" manifest="/cache.manifest">
   <head>
     <meta charset="utf-8">
     <title>Lectio</title>
@@ -40,6 +40,10 @@
         <p>Add to it by clicking the star icon on articles in your stream.</p>
         <p>Items added here are readable even if you are offline.</p>
       </div>
+    </div>
+    <div id="offline">
+      <h1>You are currently offline.</h1>
+      <p>Items that you saved in your reading list will still be available.</p>
     </div>
     <menu id="read-later-menu">
       <button id="go-previous">
@@ -109,6 +113,7 @@
     <script src="/js/views.js"></script>
     <script src="/js/router.js"></script>
     <script src="/js/focusmanager.js"></script>
+    <script src="/js/offlinemanager.js"></script>
     <script src="/js/app.js"></script>
     {{ } }}
     <script src="/socket.io/socket.io.js"></script>

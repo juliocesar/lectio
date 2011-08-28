@@ -4,8 +4,7 @@
   Lectio.ReadLaterCollection = new ReadLaterCollection;
   Lectio.Items.fetch({
     success : function() {
-      if (!location.hash) Lectio.Router.navigate('/', true);
-      if (location.hash === '#/') Lectio.Stream.read(Lectio.Items.last());
+      if (!location.hash || location.hash === '#/') Lectio.Stream.read(Lectio.Items.last().get('_id'));
     }
   });
 
@@ -15,8 +14,8 @@
   Lectio.ReadLater = new ReadLater;
   Lectio.ReadLaterMenu = new ReadLaterMenu;
   Lectio.FocusManager = new FocusManager;
+  Lectio.OfflineManager = new OfflineManager;
 
   Lectio.Router = new Router;
   Backbone.history.start();
-
 })(jQuery);

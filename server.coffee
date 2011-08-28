@@ -13,7 +13,7 @@ assetManagerGroups =
   js:
     dataType: "javascript"
     path: __dirname + "/public/js/"
-    files: [ "prototypes.js", "jquery-1.6.2.min.js", "underscore-min.js", "backbone.js", "localstorage.js", "scrollability.js", "pretty-date.js", "jquery.tipsy.js", "models.js", "views.js", "router.js", "focusmanager.js", "app.js" ]
+    files: [ "prototypes.js", "jquery-1.6.2.min.js", "underscore-min.js", "backbone.js", "localstorage.js", "scrollability.js", "pretty-date.js", "jquery.tipsy.js", "models.js", "views.js", "router.js", "focusmanager.js", "offlinemanager.js", "app.js" ]
     route: /\/js\/lectio.js/
   css:
     dataType: "css"

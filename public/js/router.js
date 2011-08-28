@@ -1,17 +1,27 @@
 (function($, undefined) {
   Router = Backbone.Router.extend({
-    body : $('body'),
+    body    : $('body'),
     
     routes : {
       ''            : 'root',
       '/'           : 'root',
       '/items/:id'  : 'open',
-      '/read-later' : 'readLater'
+      '/read-later' : 'readLater',
+      '/offline'    : 'offline'
     },
     
     root : function() {
-      Lectio.Stream.read(Lectio.Items.last());
-      this.body.removeClass('read-later');
+      if (navigator.onLine) {
+        this.body.removeClass('read-later');
+      } else {
+        this.navigate('/offline', true);
+      }
+    },
+    
+    offline : function() {
+      this.body
+        .removeClass('read-later')
+        .addClass('offline');
     },
     
     open : function(id) {
