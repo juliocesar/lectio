@@ -30,6 +30,18 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
 
   use gzip.gzip(), assetsManagerMiddleware, 'static'
 
+  io.configure 'production', ->
+    io.enable 'browser client minification'
+    io.enable 'browser client etag'
+    io.set 'log level', 1
+    io.set 'transports', [
+      'websocket'
+      'flashsocket'
+      'htmlfile'
+      'xhr-polling'
+      'jsonp-polling'
+    ]
+
   get '/': ->
     response.render 'index.ejs', locals: {env: process.env.NODE_ENV}, layout: false
 
