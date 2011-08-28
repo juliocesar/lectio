@@ -43,6 +43,8 @@ Lectio = {};
           return 'gimmebar';
         case 'Freakonomics':
           return 'freakonomics';
+        case 'Wired':
+          return 'wired';
         default:
           return 'foo';
       }
