@@ -15,7 +15,7 @@ Lachlan
  - proper ipad stylings
   - scrolling on ipad is still pretty lame
   - make star buttons permanently visible
- - give home link hot backbone action
+ - set selected state for preview items?
 
 Dave
   - make feed parsing less shit

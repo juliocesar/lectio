@@ -280,18 +280,26 @@
   });
 
   MainMenu = Backbone.View.extend({
-    el      : $('#main-menu menu'),
+    el      : $('#main-menu'),
     events  : {
-      'click #go-read-later' : 'readLater'
+      'click #go-read-later' : 'readLater',
+      'click #logo' : 'home',
+      'click #title' : 'home'
     },
 
     initialize : function() {
       this.el.find('#go-read-later').tipsy({ title : 'data-title', gravity : 'n' });
-
+      this.el.find('#logo').tipsy({ title : 'data-title', gravity : 'n' });
+      this.el.find('#title').tipsy({ title : 'data-title', gravity : 'n' });
     },
 
     readLater : function() {
       Lectio.Router.navigate('/read-later', true);
+    },
+
+    home : function() {
+      Lectio.Router.navigate('/', true);
     }
+
   });
 })(jQuery);
