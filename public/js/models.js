@@ -38,7 +38,10 @@
 
   ItemsCollection = Backbone.Collection.extend({
     model : Item,
-    url   : '/api/items'
+    url   : '/api/items',
+    comparator : function(item) {
+      return item.get("date");
+    }
   });
   
   ReadLaterCollection = Backbone.Collection.extend({

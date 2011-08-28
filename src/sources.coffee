@@ -20,7 +20,7 @@ rssSource = (feed) ->
       cb(jsonify item for item in rss.getItems(0))
 
 exports.nytimes = rssSource 'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml'
-exports.engadget = rssSource 'http://www.engadget.com/rss.xml'
+#exports.engadget = rssSource 'http://www.engadget.com/rss.xml'
 exports.hn = rssSource 'http://news.ycombinator.com/rss'
 exports.functionsource = rssSource 'http://functionsource.com/feeds/entries'
 exports.tc = rssSource 'http://theconversation.edu.au/articles'

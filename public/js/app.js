@@ -2,7 +2,11 @@
   // Collections
   Lectio.Items = new ItemsCollection;
   Lectio.ReadLaterCollection = new ReadLaterCollection;
-  Lectio.Items.fetch();
+  Lectio.Items.fetch({
+    success : function() {
+      Lectio.Stream.read(Lectio.Items.at(0));
+    }
+  });
 
   // Views
   Lectio.Stream = new Stream;
