@@ -1,6 +1,8 @@
 lectio = require './lectio'
 nko = require('nko')('DFw7dX4Eim56nfD9')
 
+lectio.crawler.crawlAll()
+
 app = require('zappa').app {lectio}, ->
   requiring 'util'
   def lectio: lectio
