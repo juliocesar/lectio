@@ -56,13 +56,12 @@ article br        { display: none }
 #main-menu h1 { margin: 2px 0 0 7px; font: 700 1.6em 'PT Sans Narrow'; color: #fff; vertical-align: bottom; text-transform: uppercase }
 #main-menu h1 a { color: #fff; text-decoration: none }
 #main-menu button { margin-right: 20px; color: #fff }
-#main-menu .vote {position: absolute; right: 12px; top: 14px;}
-#logo,
-#title {cursor: pointer;}
+#main-menu .vote { position: absolute; right: 12px; top: 14px }
+#logo, #title { cursor: pointer }
 
 /* Stream */
 #stream { left: 0; padding: 70px 0 6px 0; width: 360px; border-right: 1px solid #ccc }
-#stream article { position: relative; margin: 0 0 0 6px; padding: 10px 20px 10px 40px; cursor: pointer; text-shadow: 1px 1px 1px #E5E5E5 }
+#stream article { position: relative; margin: 0 0 0 6px; padding: 10px 20px 10px 40px; cursor: pointer; text-shadow: 1px 1px 1px #E5E5E5; overflow-x: hidden }
 #stream article > *         { 
   opacity: 1;
   -webkit-transition: opacity 0.25s linear;

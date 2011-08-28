@@ -19,7 +19,8 @@
         .find('button')
           .click(function(event) {
             event.stopPropagation();
-            Lectio.ReadLaterCollection.create(self.model.attributes);
+            if (!Lectio.ReadLaterCollection.get(self.model.get('_id')))
+              Lectio.ReadLaterCollection.create(self.model.attributes);
           });
       $(self.el).find('button').tipsy({ title: 'data-title', fade : true, gravity: 'w'});
       return this;
@@ -164,7 +165,6 @@
       var self = this;
       $(window).keydown(function(event) {
         if (!$('body').hasClass('read-later')) return true;
-        event.preventDefault();
         switch(event.keyCode) {
           case 37:
             self.previous();
@@ -213,6 +213,7 @@
       Lectio.ReadLaterCollection.bind('add',    this.highlightPreview);
       Lectio.ReadLaterCollection.bind('remove', this.remove);
       Lectio.ReadLaterCollection.bind('remove', this.isEmpty);
+      Lectio.ReadLaterCollection.bind('remove', this.deHighlightPreview);
       // Lectio.ReadLaterCollection.bind('remove', this.deHighlightPreview);
       Lectio.ReadLaterCollection.bind('reset',  this.addBunch);
       Lectio.ReadLaterCollection.bind('reset',  this.isEmpty);
@@ -247,6 +248,11 @@
       var preview = Lectio.Stream.el.find('#preview-' + model.get('_id'));
       preview.addClass('in-read-later');
     },
+    
+    deHighlightPreview : function(model) {
+      var preview = Lectio.Stream.el.find('#preview-' + model.get('_id'));
+      preview.removeClass('in-read-later');
+    },
 
     open : function(item) {
       this.currentItem = item;
@@ -256,7 +262,9 @@
         .siblings('article').removeClass('previous next').end()
         .prev('article').addClass('previous').end()
         .next('article').addClass('next');
-      this.el.find('article').not(article).removeClass('current');
+      this.el
+        .scrollTop(0)
+        .find('article').not(article).removeClass('current');
       this.trigger('open', item);
     },
 
@@ -283,8 +291,8 @@
     el      : $('#main-menu'),
     events  : {
       'click #go-read-later' : 'readLater',
-      'click #logo' : 'home',
-      'click #title' : 'home'
+      'click #logo'   : 'home',
+      'click #title'  : 'home'
     },
 
     initialize : function() {
