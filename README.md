@@ -13,11 +13,10 @@ Julio
    - filter on sources in reading-now
 
 Lachlan
- - read-later icon borked in prod
+ - vote CSS in Firefox
  - proper ipad stylings
   - scrolling on ipad is still pretty lame
   - make star buttons permanently visible
- - vote CSS in Firefox
 
 Dave
   - make feed parsing even less shit
