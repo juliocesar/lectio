@@ -1,5 +1,6 @@
 (function($, undefined) {
-  PreviewView = Backbone.View.extend({
+  var PreviewView = Backbone.View.extend({
+    tagName   : 'article',
     template  : _.template($('#preview-template').html()),
     events    : {
       'click'         : 'read'
@@ -9,6 +10,8 @@
       var self = this;
       $(self.el)
         .html(self.template(self.model.toJSON()))
+        .addClass(self.model.get('sourceClass'))
+        .attr('id', 'preview-' + self.model.get('_id'))
         .find('button')
           .click(function(event) {
             event.stopPropagation();
@@ -26,15 +29,17 @@
     }
   });
   
-  ArticleView = Backbone.View.extend({
+  var ArticleView = Backbone.View.extend({
     template : _.template($('#article-template').html()),
     
     render : function() {
-      $(this.el).html(this.template(this.model.toJSON()));
+      $(this.el)
+        .html(this.template(this.model.toJSON()))
+        .attr('id', 'laters-' + this.model.get('_id'));
       return this;
     }
   });
-  
+    
   Stream = Backbone.View.extend({
     el      : $('#stream'),
     reading : $('#reading-now'),
@@ -84,6 +89,16 @@
     }
   });
   
+  var ReadLaterArticleView = Backbone.View.extend({
+    tagName   : 'article',
+    template  : _.template($('#read-later-template').html()),
+    
+    render : function() {
+      $(this.el).html(this.template(this.model.toJSON()));
+      return this;      
+    }
+  });
+  
   ReadLater = Backbone.View.extend({
     el : $('#read-later'),
     
@@ -94,12 +109,25 @@
       Lectio.ReadLaterCollection.fetch();
     },
     
-    add : function() {
-      
+    add : function(item) {
+      var view = new ReadLaterArticleView({ model : item });
+      this.el.append(view.render().el);
+      return this; 
     },
     
     addBunch : function() {
       Lectio.ReadLaterCollection.each(this.add);
+    }
+  });
+  
+  MainMenu = Backbone.View.extend({
+    el      : $('#main-menu menu'),
+    events  : {
+      'click #go-read-later' : 'readLater'
+    },
+    
+    readLater : function() {
+      Lectio.Router.navigate('/read-later', true);
     }
   });
 })(jQuery);

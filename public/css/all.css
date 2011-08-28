@@ -78,9 +78,9 @@ button {  width: auto; overflow: visible; }
 /* End reset */
 
 html, body  { height: 100%; width: 100%; color: #fff; font-family: 'PT Sans Narrow' }
-body        { background: #eeedec url(/img/noise.png) repeat }
-#main-menu, #stream, #reading-now { position: absolute }
-#stream, #reading-now {
+body        { background: #eeedec url(/img/noise.png) repeat; overflow: hidden }
+#main-menu, #stream, #reading-now, #read-later { position: absolute }
+#stream, #reading-now, #read-later {
   padding-top: 70px;
   top: 0px;
   bottom: 0;
@@ -88,7 +88,10 @@ body        { background: #eeedec url(/img/noise.png) repeat }
   overflow-y: auto;
   -webkit-transform:  translate3d(0px,0px,0);
   -moz-transform:     translateY(0px);
-  transform:          translate3d(0px,0px,0)
+  transform:          translate3d(0px,0px,0);
+  -webkit-transition: all 0.25s linear;
+  -moz-transition:    all 0.25s linear;
+  transition:         all 0.25s linear;
 }
 body.read-later #stream,
 body.read-later #reading-now  {
@@ -98,8 +101,9 @@ body.read-later #reading-now  {
   -moz-transform:     translateY(20px);
   transform:          translate3d(0px,20px,0)
 }
-#read-later                   { opacity: 0; pointer-events: none }
-body.read-later #read-later   { opacity: 1; pointer-events: auto }
+#read-later, #read-later-menu     { opacity: 0; pointer-events: none }
+body.read-later #read-later,
+body.read-later #read-later-menu  { opacity: 1; pointer-events: auto }
 
 /* Shit that's a given */
 button { border: 0; background: transparent }
@@ -195,7 +199,20 @@ p.meta.functionsource { background-image: url(/img/sources/functionsource.png) }
 p.meta.flickr { background-image: url(/img/sources/flickr.jpg) }
 
 /* Read later */
-#read-later menu      { position: absolute; bottom: 0; right: 0; left: 0; padding: 12px 20px 10px 40px; box-shadow: 0 -1px 3px rgba(0,0,0,0.2); z-index: 10 }
-#read-later menu > *  { float: left }
-#read-later menu.yc   { background: url(/img/sources/ycombinator.png) no-repeat 15px 15px, rgba(255,255,255,0.8) }
-#read-later h1        { width: 400px; font-size: 1.6em; color: #ccc  }
+#read-later-menu      { position: absolute; bottom: 0; right: 0; left: 0; padding: 12px 20px 10px 40px; box-shadow: 0 -1px 3px rgba(0,0,0,0.2); z-index: 10; background: rgba(255,255,255,0.8) }
+#read-later-menu > *  { float: left }
+#read-later-menu.yc   { background: url(/img/sources/ycombinator.png) no-repeat 15px 15px, rgba(255,255,255,0.8) }
+#read-later article { width: 90%; margin: 0 auto 70px }
+#read-later article header { padding-bottom: 30px; margin-bottom: 20px; border-bottom: 1px solid #ccc }
+#read-later article header h1 { font-size: 3.4em; color: #333 }
+#read-later article > h1, #reading-now > h2,
+#read-later article > h3, #reading-now > h4,
+#read-later article > h5, #reading-now > h6 { margin-top: 0.5em }
+#read-later article h1 { font-size: 2.8em }
+#read-later article h2 { font-size: 2.4em }
+#read-later article h3 { font-size: 2.2em }
+#read-later article h4 { font-size: 2em }
+#read-later article p,
+#read-later article ul { font-size: 1.45em; line-height: 1.5em; margin: 0.5em 0 }
+#read-later article p.meta { line-height: 1.2em; margin: 0; font-size: 1.25em }
+#read-later article p.meta a { margin-left: 5px; border: 0 }

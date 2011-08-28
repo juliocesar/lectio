@@ -30,35 +30,46 @@
           </svg>
         </button>
         <button id="go-read-later">
-          <svg version="1.0" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 67.541 100" enable-background="new 0 0 67.541 100" xml:space="preserve"><path fill="#fff" d="M67.541,0L14.616,2.714L0,7.311V73.49l45.855,26.474V100l0.039-0.012l0,0l16.991-5.338V66.18h4.655V0z M60.492,93.025l-12.223,3.94V33.062L4.358,7.571l12.081-3.804l44.071,25.444L60.492,66.18V93.025z"/>
+          <svg version="1.0" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 67.541 100" enable-background="new 0 0 67.541 100"><path fill="#fff" d="M67.541,0L14.616,2.714L0,7.311V73.49l45.855,26.474V100l0.039-0.012l0,0l16.991-5.338V66.18h4.655V0z M60.492,93.025l-12.223,3.94V33.062L4.358,7.571l12.081-3.804l44.071,25.444L60.492,66.18V93.025z"/>
           </svg>
         </button>
       </menu>
     </header>
-    <div id="read-later">
-      <menu class="yc">
-        <h1>Steve Jobs retires as Apple CEO</h1>
-        <button>
-          <svg version="1.0" x="0px" y="0px" width="20px" height="20px" fill="#cccccc" viewBox="0 0 100 83.584" enable-background="new 0 0 100 83.584"><polygon points="41.791,83.527 0,41.736 41.791,0 69.337,0 37.562,31.777 100,31.777 100,51.977 37.785,51.977 69.394,83.584  41.791,83.527 "/></svg>
-        </button>
-        <button>
-          <svg version="1.0" x="0px" y="0px" width="20px" height="20px" fill="#cccccc" viewBox="0 0 100 83.641" enable-background="new 0 0 100 83.641"><polygon points="58.263,0.056 100,41.85 58.263,83.641 30.662,83.641 62.438,51.866 0,51.866 0,31.611 62.213,31.611 30.605,0   58.263,0.056 "/></svg>          
-        </button>
-      </menu>
-    </div>
+    <div id="read-later"></div>
+    <menu id="read-later-menu">
+      <h1></h1>
+      <button>
+        <svg version="1.0" x="0px" y="0px" width="20px" height="20px" fill="#999999" viewBox="0 0 100 83.584" enable-background="new 0 0 100 83.584"><polygon points="41.791,83.527 0,41.736 41.791,0 69.337,0 37.562,31.777 100,31.777 100,51.977 37.785,51.977 69.394,83.584  41.791,83.527 "/></svg>
+      </button>
+      <button>
+        <svg version="1.0" x="0px" y="0px" width="20px" height="20px" fill="#999999" viewBox="0 0 100 83.641" enable-background="new 0 0 100 83.641"><polygon points="58.263,0.056 100,41.85 58.263,83.641 30.662,83.641 62.438,51.866 0,51.866 0,31.611 62.213,31.611 30.605,0   58.263,0.056 "/></svg>          
+      </button>
+    </menu>
     <div id="stream" class="inactive scrollable vertical"></div>
     <article id="reading-now" class="scrollable vertical"></article>
     <script type="text/template" id="preview-template">
-      <article class="<%= sourceClass %>" id="preview-<%= _id %>">
-        <button class="read-later">
-          <svg fill="#999999" version="1.0" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 100 95.105" enable-background="new 0 0 100 95.105"><polygon points="50,0 61.803,36.327 100,36.327 69.098,58.778 80.902,95.105 50,72.654 19.098,95.105 30.902,58.778 0,36.327   38.197,36.327 "/>
-          </svg>
-        </button>
-        <h1><%= title %></h1>
-        <p><%= summary %></p>
-      </article>
+      <button class="read-later">
+        <svg fill="#999999" version="1.0" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 100 95.105" enable-background="new 0 0 100 95.105"><polygon points="50,0 61.803,36.327 100,36.327 69.098,58.778 80.902,95.105 50,72.654 19.098,95.105 30.902,58.778 0,36.327  38.197,36.327 "/>
+        </svg>
+      </button>
+      <h1><%= title %></h1>
+      <p><%= summary %></p>
     </script>
     <script type="text/template" id="article-template">
+      <header>
+        <h1><%= title %></h1>
+        <p class="meta <%= sourceClass %>">
+          Via <%= source.name %>,
+          <time datetime="2011-01-01"><%= published %></time>
+          <a href="<%= source.url %>">
+            <svg fill="#666666" version="1.0" x="0px" y="0px" width="12px" height="12px" viewBox="0 0 100 99.931" enable-background="new 0 0 100 99.931"><polygon points="24.84,0 100,0 100,75.16 75.229,99.931 75.229,42.817 19.037,98.938 0.849,80.75 56.83,24.771 0,24.771 24.84,0 "/>
+            </svg>
+          </a>
+        </p>
+      </header>
+      <%= body %>      
+    </script>
+    <script type="text/template" id="read-later-template">
       <header>
         <h1><%= title %></h1>
         <p class="meta <%= sourceClass %>">
@@ -77,12 +88,11 @@
     <script src="/js/underscore-min.js"></script>
     <script src="/js/backbone.js"></script>
     <script src="/js/localstorage.js"></script>
+    <script src="/js/scrollability.js"></script>    
     <script>Lectio = {};</script>
     <script src="/js/models.js"></script>
-    <script src="/js/stream.js"></script>
-    <script src="/js/main-menu.js"></script>
+    <script src="/js/views.js"></script>
     <script src="/js/router.js"></script>
     <script src="/js/app.js"></script>
-    <script src="/js/scrollability.js"></script>
   </body>
 </html>
