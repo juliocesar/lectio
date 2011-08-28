@@ -61,7 +61,7 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
         console.log "Adding", @item
         Lectio.Items.add @item
 
-    connect 'http://localhost:8000'
+    connect document.location.origin
 
 lectio.Item.on 'save', (item) ->
   console.log "Broadcasting!"
