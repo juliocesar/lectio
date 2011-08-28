@@ -1,4 +1,4 @@
 lectio = require './lectio'
 
-# lectio.crawler.crawl 'iwdrm'
+# lectio.crawler.crawl 'bigpicture'
 lectio.crawler.crawlAll(onlyOnce: true)

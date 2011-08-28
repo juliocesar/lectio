@@ -53,6 +53,8 @@ Lectio = {};
           return 'anildash';
         case 'The Atlantic: Technology':
           return 'atlantictech';
+        case 'The Big Picture':
+          return 'bigpicture';
         default:
           return 'foo';
       }
