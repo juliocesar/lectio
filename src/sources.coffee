@@ -28,7 +28,7 @@ exports.hn = rssSource 'http://andrewtrusty.appspot.com/readability/feed?url=htt
 exports.functionsource = rssSource 'http://functionsource.com/feeds/entries'
 exports.tc = rssSource 'http://theconversation.edu.au/articles'
 exports.usesthis = readableRssSource 'http://usesthis.com/feed/'
-exports.flickr = readableRssSource 'http://feeds.feedburner.com/flickr_interestingness'
+exports.flickr = rssSource 'http://feeds.feedburner.com/flickr_interestingness'
 exports.kalina = rssSource 'http://picturesthatlooklikethis.com/rss'
 exports.gimmeColor =rssSource 'https://gimmebar.com/public/feed/user/rose22/collection/color'
 exports.freakonomics = readableRssSource 'http://freakonomics.blogs.nytimes.com/feed/'
