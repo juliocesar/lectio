@@ -10,7 +10,10 @@ app = require('zappa').app {lectio}, ->
   use 'static'
 
   get '/api/items': ->
-    lectio.Item.find {}, (err, items) =>
+    query = lectio.Item.find({})
+    query.sort 'published', -1
+    query.limit 30
+    query.exec (err, items) =>
       json = (item.clientJSON() for item in items)
       send json
   
@@ -18,6 +21,13 @@ app = require('zappa').app {lectio}, ->
     lectio.Item.findOne { _id: @id }, (err, item) =>
       json = (item.clientJSON())
       send json
+
+  get '/api/items/:id': ->
+    lectio.Item.findOne {_id: @id}, (err, item) =>
+      if err
+        # TODO send a 404
+      else
+        send item.clientJSON()
 
 port = if process.env.NODE_ENV == 'production' then 80 else 8000
 app.app.listen port, ->
