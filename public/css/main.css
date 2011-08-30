@@ -37,7 +37,7 @@ button { border: 0; background: transparent }
 .scrollable { -webkit-transform: translate3d(0,0,0) }
 
 /* General article styles' */
-article     { text-shadow: 1px 1px 1px #cbcbcb; color: #666; font-family: 'Abel'; text-rendering: optimizeLegibility }
+article     { text-shadow: 0px 0px 1px #cbcbcb; color: #333; font-family: 'Abel'; text-rendering: optimizeLegibility }
 article h1, h2, h3, h4, h5 { color: #333; font-weight: 700; font-family: 'PT Sans Narrow' }
 article p.meta { color: #999; padding-left: 21px }
 article em,
@@ -85,20 +85,19 @@ article br        { display: none }
 #stream.inactive::-webkit-scrollbar-thumb {background: rgba(0,0,0,0)}
 
 /* Reading now */
-#reading-now { left: 360px; right: 0; padding: 70px 60px 20px }
-#reading-now header h1 { font-size: 3.4em; line-height: 1.1em; color: #333 }
+#reading-now { font-size: 1.45em; left: 360px; right: 0; padding: 70px 60px 20px }
+#reading-now header h1 { font-size: 3.4rem; color: #333 }
 #reading-now > h1, #reading-now > h2,
 #reading-now > h3, #reading-now > h4,
-#reading-now > h5, #reading-now > h6 { margin-top: 0.5em }
-#reading-now h1 { font-size: 2.8em }
-#reading-now h2 { font-size: 2.4em }
-#reading-now h3 { font-size: 2.2em }
-#reading-now h4 { font-size: 2em }
-
+#reading-now > h5, #reading-now > h6 { margin-top: 0.5rem }
+#reading-now h1 { font-size: 2.8rem }
+#reading-now h2 { font-size: 2.4rem }
+#reading-now h3 { font-size: 2.2rem }
+#reading-now h4 { font-size: 2rem }
 #reading-now p,
 #reading-now ul,
-#reading-now ul { font-size: 1.45em; line-height: 1.5em; margin: 0.5em 0 }
-#reading-now p.meta { line-height: 1.2em; margin: 0.25em 0 0; font-size: 1.25em }
+#reading-now ul { font-size: inherit; line-height: inherit; margin: 0.5em 0 }
+#reading-now p.meta { margin: 0.25em 0 0; font-size: 1.25rem }
 #reading-now p.meta a { margin-left: 5px; border: 0 }
 #reading-now header { padding-bottom: 30px; margin-bottom: 20px; border-bottom: 1px solid #ccc }
 #reading-now {
