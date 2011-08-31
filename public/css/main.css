@@ -86,7 +86,7 @@ article br        { display: none }
 
 /* Reading now */
 #reading-now { font-size: 1.45em; left: 360px; right: 0; padding: 70px 60px 20px }
-#reading-now header h1 { font-size: 3.4rem; color: #333 }
+#reading-now header h1 { font-size: 3.4rem; line-height: 3.4rem; color: #333 }
 #reading-now > h1, #reading-now > h2,
 #reading-now > h3, #reading-now > h4,
 #reading-now > h5, #reading-now > h6 { margin-top: 0.5rem }
@@ -97,7 +97,7 @@ article br        { display: none }
 #reading-now p,
 #reading-now ul,
 #reading-now ul { font-size: inherit; line-height: inherit; margin: 0.5em 0 }
-#reading-now p.meta { margin: 0.25em 0 0; font-size: 1.25rem }
+#reading-now p.meta { margin: 0.25em 0 0; font-size: 1rem }
 #reading-now p.meta a { margin-left: 5px; border: 0 }
 #reading-now header { padding-bottom: 30px; margin-bottom: 20px; border-bottom: 1px solid #ccc }
 #reading-now {

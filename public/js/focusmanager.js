@@ -1,58 +1,74 @@
 (function($, undefined) {
   FocusManager = function() {
     var self = this,
-      $stream = $('#stream');
-      
+      focused, lastStreamFocus,
+      containers = '#stream, #reading-now, #read-later',
+      $stream = $('#stream'),
+      $readingNow = $('#reading-now'),
+      $readLater = $('#read-later');
+    
+    _.extend(self, Backbone.Events);
+
     $(window).click(function(event) {
-      var target = $(event.target);
-      clearFocus();
-      if (target.parents('article').hasClass('preview')) {
-        var preview = target.parents('article');
-        preview.addClass('focused');
-        self.focused = 'stream';
-        self.element = preview;
+      var $target = $(event.target);
+      switch($target.parents(containers)[0]) {
+        case $stream[0]:
+          setFocus($target.parents('article'));
+          break;
+        default:
+          setFocus($target.parents(containers));
+          break;
       }
     });
-        
-    $(window).keyup(function(event) {
-      if (self.focused === 'stream') {
+
+    // Focus the first element in the stream
+
+    key('left', 'stream', function() {
+      var element = lastStreamFocus || $stream.find('article:first');
+      setFocus(element);
+    });
+
+    key('right', 'stream', function() {
+      if (focused.is('article.preview')) lastStreamFocus = focused;
+      setFocus($readingNow);
+      $readingNow.focus();
+    });
+
+    key('down', 'stream', function(event) {
+      if (focused.parents('#stream').length) {
         event.preventDefault();
-        switch(event.keyCode) {
-          case 40:
-            var next = self.element.next('article');
-            if (next.length) focus(next);            
-            break;
-          case 38:
-            var previous = self.element.prev('article');
-            if (previous.length) focus(previous);
-            break;
+        var next = focused.next('article');
+        if (next.length) {
+          var criteria = next.outerHeight() + (next.outerHeight() / 0.6);
+          if (focused.offset().top + criteria > window.innerHeight) scrollTo(next, '+=');
+          setFocus(next);
         }
       }
-    });    
-    
-    function focus(element) {
-      self.element.removeClass('focused');
-      element.addClass('focused');
-      self.element = element;
-      Lectio.Stream.read(element.attr('id').split('-')[1]);
-      scrollTo(element);
-    }
-    
-    function clearFocus() {
-      if (self.element) {
-        self.element.removeClass('focused');
+    });
+
+    key('up', 'stream', function(event) {
+      if (focused.parents('#stream').length) {
+        event.preventDefault();
+        var previous = focused.prev('article');
+        if (previous.length) {
+          if (focused.offset().top - previous.outerHeight() < 70) scrollTo(previous, '-=');
+          setFocus(previous);
+        }
       }
-      delete self.element;
-      delete self.focused;
+    });
+
+    self.setScope = key.setScope;
+
+    function setFocus(element) {
+      if (focused) focused.removeClass('focused');
+      element.addClass('focused');
+      element.focus();
+      focused = element;
+      self.trigger('focused', focused);
     }
-    
-    function scrollTo(element) {
-      var area = _.reduce(
-        element.prevUntil(), 
-        function(total, article) { return total + $(article).outerHeight(); },
-        0
-      );
-      $stream.animate({ scrollTop : area });
+
+    function scrollTo(element, operator) {
+      $stream.animate({ scrollTop : operator + element.outerHeight() });
     }
   };
 })(jQuery);

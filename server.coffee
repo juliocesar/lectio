@@ -13,12 +13,14 @@ assetManagerGroups =
   js:
     dataType: "javascript"
     path: __dirname + "/public/js/"
-    files: [ "prototypes.js", "jquery-1.6.2.min.js", "underscore-min.js", "backbone.js", "localstorage.js", "scrollability.js", "pretty-date.js", "jquery.tipsy.js", "models.js", "views.js", "router.js", "focusmanager.js", "offlinemanager.js", "app.js" ]
+    stale: true
+    files: [ "prototypes.js", "jquery-1.6.2.min.js", "underscore-min.js", "backbone.js", "localstorage.js", "pretty-date.js", "jquery.tipsy.js", "models.js", "views.js", "router.js", "focusmanager.js", "offlinemanager.js", "app.js" ]
     route: /\/js\/lectio.js/
   css:
     debug: true
     dataType: "css"
     path: __dirname + "/public/css/"
+    stale: true
     files: [ "reset.css", "images.css", "main.css", "media-queries.css", "tipsy.css" ]
     route: /\/css\/lectio.css/
 assetsManagerMiddleware = assetManager(assetManagerGroups)
@@ -44,7 +46,12 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
     ]
 
   get '/': ->
-    response.render 'index.ejs', locals: {env: process.env.NODE_ENV}, layout: false
+    response.render 'index.ejs', locals: { env: process.env.NODE_ENV }, layout: false
+  
+  get '/cache.manifest': ->
+    response.header 'Content-Type', 'text/cache-manifest'
+    response.header 'Last-Modified', lectio.manifest.lastModified
+    response.render 'manifest.ejs', locals: { revision: lectio.manifest.content }, layout: false
 
   get '/api/items': ->
     query = lectio.Item.find({})

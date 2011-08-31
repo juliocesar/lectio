@@ -1,5 +1,9 @@
 <!DOCTYPE html>
+{{ if (env == "production") { }}
 <html lang="en" manifest="/cache.manifest">
+{{  } else { }}
+<html lang="en">
+{{ } }}
   <head>
     <meta charset="utf-8">
     <title>Lectio</title>
@@ -57,8 +61,8 @@
         </svg>
       </button>
     </menu>
-    <div id="stream" class="inactive scrollable vertical"></div>
-    <article id="reading-now" class="scrollable vertical"></article>
+    <div id="stream" class="inactive vertical"></div>
+    <article id="reading-now" class="vertical"></article>
     <script type="text/template" id="preview-template">
       <button class="read-later" data-title="Read later">
         <svg fill="#999999" version="1.0" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 100 95.105" enable-background="new 0 0 100 95.105"><polygon points="50,0 61.803,36.327 100,36.327 69.098,58.778 80.902,95.105 50,72.654 19.098,95.105 30.902,58.778 0,36.327  38.197,36.327 "/>
@@ -103,9 +107,9 @@
     <script src="/js/underscore-min.js"></script>
     <script src="/js/backbone.js"></script>
     <script src="/js/localstorage.js"></script>
-    <script src="/js/scrollability.js"></script>
     <script src="/js/pretty-date.js"></script>
     <script src="/js/jquery.tipsy.js"></script>
+    <script src="/js/keymaster.js"></script>
     <script>Lectio = {};</script>
     <script src="/js/models.js"></script>
     <script src="/js/views.js"></script>
