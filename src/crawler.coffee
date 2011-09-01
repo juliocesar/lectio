@@ -26,16 +26,21 @@ saveItem = (error, attrs, cb) ->
 
 # TODO set a timeout just in case the crawl just fails completely
 crawl = (source, parser, cb) ->
-  parser = source unless parser?
-  throttler.add "Grabbing source #{source}", (next) ->
-    sources[source] (posts) ->
-      next()
-      parsers[parser](post, saveItem) for post in posts
-      cb() if cb?
+  try
+    parser = source unless parser?
+    throttler.add "Grabbing source #{source}", (next) ->
+      sources[source] (posts) ->
+        next()
+        parsers[parser](post, saveItem) for post in posts
+        cb() if cb?
+  catch error
+    util.log "Error parsing #{source}"
+    util.log error
+    cb error
 
 crawlIntermittently = (source, parser) ->
   done = false
-  crawl source, parser, ->
+  crawl source, parser, (error) ->
     unless done
       done = true
       setTimeout (-> crawlIntermittently(source, parser)), 600000
