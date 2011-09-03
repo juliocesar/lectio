@@ -315,8 +315,9 @@
     },
 
     initialize : function() {
-      this.el.find('#go-read-later').tipsy({ title : 'data-title', gravity : 'n' });
-      this.el.find('#go-stream').tipsy({ title : 'data-title', gravity : 'n' });
+      this.el.find('#go-read-later').tipsy({ title : 'data-title', fade : true, gravity : 'n' });
+      this.el.find('#go-stream').tipsy({ title : 'data-title', fade : true, gravity : 'n' });
+      this.el.find('#go-add-feed').tipsy({ title : 'data-title', fade : true, gravity : 'n' });
     },
 
     readLater : function() {

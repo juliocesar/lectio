@@ -24,3 +24,10 @@ Dave
   - fix sources
   - moar sources
   - users
+
+
+# Ideas for HTML parsing / workers
+
+https://github.com/chriso/node.io/wiki
+https://github.com/harryf/node-soupselect
+https://github.com/tautologistics/node-htmlparser

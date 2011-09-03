@@ -20,6 +20,6 @@
   Lectio.FocusManager.bind('focused', function(article) {
     if (article.is('article.preview')) Lectio.Stream.read(article.attr('id').split('-')[1]);
   });
-
+    
   Backbone.history.start();
 })(jQuery);
