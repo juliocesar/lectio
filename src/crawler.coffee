@@ -5,6 +5,8 @@ throttler  = require './throttler'
 Item       = require './item'
 util       = require 'util'
 
+CRAWL_TIMEOUT = 60 * 1000
+
 saveItem = (error, attrs, cb) ->
   if error
     util.debug util.inspect error
@@ -24,18 +26,26 @@ saveItem = (error, attrs, cb) ->
             item.set(attrs)
             item.save()
 
-# TODO set a timeout just in case the crawl just fails completely
 crawl = (source, parser, cb) ->
-  parser = source unless parser?
-  throttler.add "Grabbing source #{source}", (next) ->
-    sources[source] (posts) ->
-      next()
-      parsers[parser](post, saveItem) for post in posts
-      cb() if cb?
+  complete = false
+  setTimeout (-> cb(new Error "Timeout") unless complete), CRAWL_TIMEOUT
+  try
+    parser = source unless parser?
+    throttler.add "Grabbing source #{source}", (next) ->
+      sources[source] (posts) ->
+        next()
+        parsers[parser](post, saveItem) for post in posts
+        complete = true
+        cb() if cb?
+  catch error
+    util.log "Error parsing #{source}"
+    util.log error
+    complete = true
+    cb error
 
 crawlIntermittently = (source, parser) ->
   done = false
-  crawl source, parser, ->
+  crawl source, parser, (error) ->
     unless done
       done = true
       setTimeout (-> crawlIntermittently(source, parser)), 600000
