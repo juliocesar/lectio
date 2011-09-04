@@ -9,24 +9,21 @@
   };
   
   function loaded(result) {
-    window.e = result;
     _.each(result.feed.entries, function(entry) {
-      Lectio.Items.add({ 
-        _id : S4(),
+      var item = new Item({ 
+        _id : guid(),
         title: entry.title, 
         body : entry.content, 
         summary: entry.contentSnippet, 
         published: entry.publishedDate,
         source: { name : 'blog' }
       });
+      Lectio.Items.add(item);
     });
   }
   
-  $(document).ready(function() {
-    var feed = new google.feeds.Feed('http://julio-ody.tumblr.com/rss');
-    feed.load(loaded);
-  });
-  
-  
-  
+  // $(document).ready(function() {
+  //   var feed = new google.feeds.Feed('http://julio-ody.tumblr.com/rss');
+  //   feed.load(loaded);
+  // });  
 })(jQuery);

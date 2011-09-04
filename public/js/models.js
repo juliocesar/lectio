@@ -16,7 +16,7 @@ Lectio = {};
       }
       if (this.has('published')) {
         this.set({ published: this.get('published').replace(/\.\d\d\d/g, "") });
-        this.set({ date: prettyDate(this.get('published')) });
+        this.set({ date: prettyDate(this.get('published')) || 'at some point in time' });
       }
     },
     

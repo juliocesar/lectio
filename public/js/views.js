@@ -117,6 +117,7 @@
       if (!item) return self.fetch(id, self.read);
       var article = new ArticleView({ model : item });
       self.reading.removeClass('reading');
+      $('title').text(item.get('title'));
       _.delay(
         function() {
           self.reading
@@ -126,7 +127,27 @@
           self.reading.scrollTop(0);
         },
       270);
-      $('title').text(item.get('title'));
+      return item;
+    },
+    
+    delayedRead : function(id) {
+      var self = this, attempts = 0, every = 1000;
+      var interval = setInterval(function() {
+        if (Lectio.Items.get(id)) {
+          self.read(id);
+          clearInterval(interval);
+        } else {
+          attempts++;
+          if (attempts === 10) {
+            clearInterval(interval);
+            self.notFound();
+          }
+        }
+      }, every);
+    },
+    
+    notFound : function() {
+      console.log('Not Found');
     },
 
     fetch : function(id, callback) {

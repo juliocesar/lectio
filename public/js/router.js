@@ -27,7 +27,8 @@
 
     open : function(id) {
       this.body.removeClass('read-later');
-      Lectio.Stream.read(id);
+      var item = Lectio.Stream.read(id);
+      if (!item) Lectio.Stream.delayedRead(id);
       key.setScope('stream');
       $('#go-read-later').tipsy('hide');
     },
