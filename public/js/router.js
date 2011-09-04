@@ -1,18 +1,20 @@
 (function($, undefined) {
   Router = Backbone.Router.extend({
     body    : $('body'),
+    classes : 'read-later preferences offline',
 
     routes : {
-      ''            : 'root',
-      '/'           : 'root',
-      '/items/:id'  : 'open',
-      '/read-later' : 'readLater',
-      '/offline'    : 'offline'
+      ''              : 'root',
+      '/'             : 'root',
+      '/items/:id'    : 'open',
+      '/read-later'   : 'readLater',
+      '/offline'      : 'offline',
+      '/preferences'  : 'preferences'
     },
 
     root : function() {
       if (navigator.onLine) {
-        this.body.removeClass('read-later');
+        this.body.removeClass(this.classes);
       } else {
         this.navigate('/offline', true);
       }
@@ -21,12 +23,16 @@
     },
 
     offline : function() {
-      this.body.removeClass('read-later').addClass('offline');
+      this.body.removeClass(this.classes).addClass('offline');
       $('#go-read-later').tipsy('show');
+    },
+    
+    preferences : function() {
+      this.body.removeClass(this.classes).addClass('preferences');
     },
 
     open : function(id) {
-      this.body.removeClass('read-later');
+      this.body.removeClass(this.classes);
       var item = Lectio.Stream.read(id);
       if (!item) Lectio.Stream.delayedRead(id);
       key.setScope('stream');

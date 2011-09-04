@@ -332,6 +332,7 @@
     el      : $('#main-menu'),
     events  : {
       'click #go-read-later'  : 'readLater',
+      'click #go-preferences' : 'preferences',
       'click #go-stream'      : 'home'
     },
 
@@ -339,6 +340,7 @@
       this.el.find('#go-read-later').tipsy({ title : 'data-title', fade : true, gravity : 'n' });
       this.el.find('#go-stream').tipsy({ title : 'data-title', fade : true, gravity : 'n' });
       this.el.find('#go-add-feed').tipsy({ title : 'data-title', fade : true, gravity : 'n' });
+      this.el.find('#go-preferences').tipsy({ title : 'data-title', fade : true, gravity : 'n' });
     },
 
     readLater : function() {
@@ -347,6 +349,10 @@
 
     home : function() {
       Lectio.Router.navigate('/', true);
+    },
+    
+    preferences : function() {
+      Lectio.Router.navigate('/preferences', true);
     }
 
   });

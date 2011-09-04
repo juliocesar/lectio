@@ -21,8 +21,6 @@
       }
     });
 
-    // Focus the first element in the stream
-
     key('left', 'stream', function() {
       var element = lastStreamFocus || $stream.find('article:first');
       setFocus(element);
@@ -56,8 +54,6 @@
         }
       }
     });
-
-    self.setScope = key.setScope;
 
     function setFocus(element) {
       if (focused) focused.removeClass('focused');
