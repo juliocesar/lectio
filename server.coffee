@@ -55,6 +55,7 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
   get '/cache.manifest': ->
     response.header 'Content-Type', 'text/cache-manifest'
     response.header 'Last-Modified', lectio.manifest.lastModified
+    response.header 'Cache-Control', 'no-cache'
     response.render 'manifest.ejs', locals: { revision: lectio.manifest.content }, layout: false
 
   get '/api/items': ->
