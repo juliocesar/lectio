@@ -49,6 +49,12 @@
           </svg>
         </button> -->
       </menu>
+      <button id="go-about" data-title="About Lectio">
+        <svg version="1.0" x="0px" y="0px" width="15px" height="25px" fill="#fff" viewBox="0 0 15 25" overflow="visible" enable-background="new 0 0 15 25"><path d="M0.026,9.647h3.926c0.016-1.639-0.363-5.259,3.769-5.263c3.129,0.004,2.97,2.801,2.97,2.801s0.127,1.902-2.522,3.273          	c-2.399,1.26-2.621,3.008-2.619,3.778v4.858h3.96v-3.138c0.013-1.178,0.804-1.817,2.585-3.172c1.752-1.34,2.921-2.62,2.906-5.532
+  C15.016,4.371,12.301-0.008,7.337,0c0,0-3.4-0.043-5.364,2.564C0.022,5.146-0.073,6.663,0.026,9.647L0.026,9.647z"/>
+        <polygon points="9.477,20.613 5.549,20.613 5.549,25 9.477,25 "/>
+        </svg>
+      </button>      
     </header>
     <div id="read-later">
       <div id="empty">
@@ -56,10 +62,6 @@
         <p>Add to it by clicking the star icon on articles in your stream.</p>
         <p>Items added here are readable even if you are offline.</p>
       </div>
-    </div>
-    <div id="offline">
-      <h1>You are currently offline.</h1>
-      <p>Items that you saved in your reading list will still be available.</p>
     </div>
     <menu id="read-later-menu">
       <button id="go-previous">
@@ -78,6 +80,25 @@
     <div id="stream"></div>
     <article id="reading-now"></article>
     <div id="preferences"></div>
+    <div id="about">
+      <h1>About Lectio</h1>
+      <p>
+        Lectio was designed / written by 
+        <a href="http://twitter.com/julio_ody">@julio_ody</a>,
+        <a href="http://twitter.com/lachlanhardy">@lachlanhardy</a>,
+        and <a href="http://twitter.com/dgoodlad">@dgoodlad</a>, for
+        <a href="http://nodeknockout.com/">Node Knockout</a> 2011.
+      </p>
+      <p>
+        Follow us on <a href="http://twitter.com/lectioapp">@lectioapp</a>
+        for updates. We're still working on making this app a kickass
+        browser-based reader. Feedback is appreciated.
+      </p>
+    </div>
+    <div id="offline">
+      <h1>You are currently offline.</h1>
+      <p>Items that you saved in your reading list will still be available.</p>
+    </div>
     <script type="text/template" id="preview-template">
       <button class="read-later" data-title="Read later">
         <svg fill="#999999" version="1.0" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 100 95.105" enable-background="new 0 0 100 95.105"><polygon points="50,0 61.803,36.327 100,36.327 69.098,58.778 80.902,95.105 50,72.654 19.098,95.105 30.902,58.778 0,36.327  38.197,36.327 "/>

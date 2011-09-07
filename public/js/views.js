@@ -333,7 +333,8 @@
     events  : {
       'click #go-read-later'  : 'readLater',
       'click #go-preferences' : 'preferences',
-      'click #go-stream'      : 'home'
+      'click #go-stream'      : 'home',
+      'click #go-about'       : 'about'
     },
 
     initialize : function() {
@@ -341,6 +342,7 @@
       this.el.find('#go-stream').tipsy({ title : 'data-title', fade : true, gravity : 'n' });
       this.el.find('#go-add-feed').tipsy({ title : 'data-title', fade : true, gravity : 'n' });
       this.el.find('#go-preferences').tipsy({ title : 'data-title', fade : true, gravity : 'n' });
+      this.el.find('#go-about').tipsy({ title : 'data-title', fade : true, gravity : 'n' });
     },
 
     readLater : function() {
@@ -353,7 +355,10 @@
     
     preferences : function() {
       Lectio.Router.navigate('/preferences', true);
+    },
+    
+    about : function() {
+      Lectio.Router.navigate('/about', true);
     }
-
   });
 })(jQuery);

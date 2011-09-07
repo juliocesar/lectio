@@ -1,7 +1,7 @@
 (function($, undefined) {
   Router = Backbone.Router.extend({
     body    : $('body'),
-    classes : 'read-later preferences offline',
+    classes : 'read-later preferences offline about',
 
     routes : {
       ''              : 'root',
@@ -9,7 +9,8 @@
       '/items/:id'    : 'open',
       '/read-later'   : 'readLater',
       '/offline'      : 'offline',
-      '/preferences'  : 'preferences'
+      '/preferences'  : 'preferences',
+      '/about'        : 'about'
     },
 
     root : function() {
@@ -26,9 +27,13 @@
       this.body.removeClass(this.classes).addClass('offline');
       $('#go-read-later').tipsy('show');
     },
-    
+
     preferences : function() {
       this.body.removeClass(this.classes).addClass('preferences');
+    },
+
+    about : function() {
+      this.body.removeClass(this.classes).addClass('about ');
     },
 
     open : function(id) {
