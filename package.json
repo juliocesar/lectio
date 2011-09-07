@@ -3,7 +3,7 @@
     "description": "Lectio: a reader",
     "repository": {
         "type": "git",
-        "url": "git://github.com/nko2/shambolic.git"
+        "url": "git@github.com:juliocesar/lectio.git"
     },
     "engines": {
         "node": ">=0.4.8 <0.5.0"
