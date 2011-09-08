@@ -51,8 +51,7 @@ app = require('zappa').app {lectio, assets, gzip, ejs}, ->
     ]
 
   get '/': ->
-    # This is nuts, but we're currently fucked with caching as it stands so...
-    response.header 'Last-Modified', require('fs').statSync('./views/index.ejs').mtime
+    response.header 'Last-Modified', lectio.index.lastModified
     response.render 'index.ejs', locals: { env: process.env.NODE_ENV }, layout: false
 
   get '/cache.manifest': ->
