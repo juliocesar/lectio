@@ -1,6 +1,6 @@
 lectio       = require './lectio'
 nko          = require('nko')('DFw7dX4Eim56nfD9')
-assetManager = require 'connect-assetmanager'
+assetmanager = require 'connect-assetmanager'
 gzip         = require 'connect-gzip'
 ejs          = require "ejs"
 
@@ -9,7 +9,7 @@ ejs.open = "{{"
 ejs.close = "}}"
 
 # minify and concatenate assets
-assetManagerGroups =
+assets = assetmanager
   js:
     dataType: "javascript"
     path: __dirname + "/public/js/"
@@ -29,15 +29,14 @@ assetManagerGroups =
     stale: true
     files: [ "reset.css", "images.css", "main.css", "media-queries.css", "tipsy.css" ]
     route: /\/css\/lectio.css/
-assetsManagerMiddleware = assetManager(assetManagerGroups)
 
 setTimeout lectio.crawler.crawlAll, 10000
 
-app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
+app = require('zappa').app {lectio, assets, gzip, ejs}, ->
   requiring 'util'
   def lectio: lectio
 
-  use gzip.gzip(), assetsManagerMiddleware, 'static'
+  use gzip.gzip(), assets, 'static'
 
   io.configure 'production', ->
     io.enable 'browser client minification'
