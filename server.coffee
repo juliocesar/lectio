@@ -1,8 +1,8 @@
-lectio = require './lectio'
-nko = require('nko')('DFw7dX4Eim56nfD9')
+lectio       = require './lectio'
+nko          = require('nko')('DFw7dX4Eim56nfD9')
 assetManager = require 'connect-assetmanager'
-gzip = require 'connect-gzip'
-ejs = require "ejs"
+gzip         = require 'connect-gzip'
+ejs          = require "ejs"
 
 # tell EJS to man up
 ejs.open = "{{"
@@ -55,7 +55,7 @@ app = require('zappa').app {lectio, assetsManagerMiddleware, gzip, ejs}, ->
     # This is nuts, but we're currently fucked with caching as it stands so...
     response.header 'Last-Modified', require('fs').statSync('./views/index.ejs').mtime
     response.render 'index.ejs', locals: { env: process.env.NODE_ENV }, layout: false
-  
+
   get '/cache.manifest': ->
     response.header 'Content-Type', 'text/cache-manifest'
     response.header 'Last-Modified', lectio.manifest.lastModified
