@@ -22,21 +22,22 @@
     function error(e) { console.log('error', e); }
     
     function checking() {
-      console.log("Checking for update");
     }
 
     function noupdate() {
-      console.log("No updates available");
     }
 
     function update() {
       console.log("New version available");
       window.applicationCache.swapCache();
-      //window.location.reload();
+      Lectio.modal({
+        title   : 'Updates available!',
+        message : 'There are updates available for Lectio. Refresh the window to grab them.',
+        success : function() { window.location.reload(); }
+      });
     }
 
     function progress(event) {
-      console.log("Got cache progress", event);
     }
   };
 })(jQuery);

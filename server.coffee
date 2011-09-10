@@ -19,7 +19,7 @@ assets = assetmanager
       "localstorage.js", "pretty-date.js", "jquery.tipsy.js", "keymaster.js",
       "models.js", "views.js", "router.js",
       "cachemanager.js", "focusmanager.js", "offlinemanager.js",
-      "feeds.js", "app.js"
+      "feeds.js", "modals.js", "app.js"
     ]
     route: /\/js\/lectio.js/
   css:
