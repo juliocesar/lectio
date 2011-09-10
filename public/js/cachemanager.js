@@ -13,13 +13,14 @@
     }
 
     $(window.applicationCache)
-      .bind('checking', checking)
-      .bind('updateready', update)
-      .bind('noupdate', noupdate)
-      .bind('error', error)
-      .bind('progress', progress);
+      .bind('checking',     checking)
+      .bind('updateready',  update)
+      .bind('noupdate',     noupdate)
+      .bind('error',        error)
+      .bind('progress',     progress);
 
     function error(e) { console.log('error', e); }
+    
     function checking() {
       console.log("Checking for update");
     }
