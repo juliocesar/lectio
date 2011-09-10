@@ -16,6 +16,7 @@
     Lectio.MainMenu = new MainMenu;
     Lectio.ReadLater = new ReadLater;
     Lectio.ReadLaterMenu = new ReadLaterMenu;
+    Lectio.CacheManager = new CacheManager;
     Lectio.FocusManager = new FocusManager;
     Lectio.OfflineManager = new OfflineManager;
     Lectio.Router = new Router;
